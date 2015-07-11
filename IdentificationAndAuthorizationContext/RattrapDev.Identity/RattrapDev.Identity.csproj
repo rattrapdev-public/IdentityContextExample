@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7FF58DED-D76B-4DAF-8A4A-9ECD7825DA55}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>RattrapDev.Identity</RootNamespace>
+    <AssemblyName>RattrapDev.Identity</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Domain\Client\Client.cs" />
+    <Compile Include="Domain\Client\ClientContact.cs" />
+    <Compile Include="Domain\Client\ClientIdentifier.cs" />
+    <Compile Include="Domain\Client\ClientStatus.cs" />
+    <Compile Include="Domain\Client\ClientDetails.cs" />
+    <Compile Include="Application\IClientService.cs" />
+    <Compile Include="Application\ClientPresentationObjectFactory.cs" />
+    <Compile Include="Application\MockClientService.cs" />
+    <Compile Include="Domain\Client\IClientRepository.cs" />
+    <Compile Include="Infrastructure\ClientInMemoryRepository.cs" />
+    <Compile Include="Application\ClientService.cs" />
+    <Compile Include="Domain\Client\ClientNameUniqueSpecification.cs" />
+    <Compile Include="Domain\Client\DuplicateClientException.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Domain\" />
+    <Folder Include="Domain\Client\" />
+    <Folder Include="Application\" />
+    <Folder Include="Infrastructure\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RattrapDev.DDD\RattrapDev.DDD.csproj">
+      <Project>{4BACBC5B-7C42-4CC8-8D39-546779330406}</Project>
+      <Name>RattrapDev.DDD</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

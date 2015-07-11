@@ -1,0 +1,10 @@
+/Users/mwinger/Projects/IdentificationAndAuthorizationContext/RattrapDev.Identity.Tests/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/mwinger/Projects/IdentificationAndAuthorizationContext/RattrapDev.Identity.Tests/bin/Debug/RattrapDev.Identity.Tests.dll.mdb
+/Users/mwinger/Projects/IdentificationAndAuthorizationContext/RattrapDev.Identity.Tests/bin/Debug/RattrapDev.Identity.Tests.dll
+/Users/mwinger/Projects/IdentificationAndAuthorizationContext/RattrapDev.Identity.Tests/obj/Debug/RattrapDev.Identity.Tests.dll
+/Users/mwinger/Projects/IdentificationAndAuthorizationContext/RattrapDev.Identity.Tests/obj/Debug/RattrapDev.Identity.Tests.dll.mdb
+/Users/mwinger/Projects/IdentificationAndAuthorizationContext/RattrapDev.Identity.Tests/bin/Debug/nunit.framework.dll
+/Users/mwinger/Projects/IdentificationAndAuthorizationContext/RattrapDev.Identity.Tests/bin/Debug/RattrapDev.Identity.dll
+/Users/mwinger/Projects/IdentificationAndAuthorizationContext/RattrapDev.Identity.Tests/bin/Debug/RattrapDev.Identity.dll.mdb
+/Users/mwinger/Projects/IdentificationAndAuthorizationContext/RattrapDev.Identity.Tests/bin/Debug/RattrapDev.DDD.dll
+/Users/mwinger/Projects/IdentificationAndAuthorizationContext/RattrapDev.Identity.Tests/bin/Debug/RattrapDev.DDD.dll.mdb

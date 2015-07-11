@@ -1,0 +1,57 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Client Search</title>
+    <link rel="stylesheet" type="text/css" href="/Content/bootstrap.css">
+</head>
+<body >
+	<div class="container">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Menu</a>
+			</div>
+			<div>
+				<ul class="nav navbar-nav">
+					<li><a href="/admin">Home</a></li>
+					<li class="active"><a href="/admin/clients" >Clients</a></li>
+					<li><a href="/admin/users">Users</a></li>
+					<li><a href="/admin/permissions">Permissions</a></li>
+				</ul>
+			</div>
+		</nav>
+		<div id="site-content">
+			<h2>Client Search</h2>
+			<table class="table table-bordered table-striped">
+				<caption>Viewing All Clients</caption>
+				<thead>
+					<tr>
+						<th>Client Name</th>
+						<th>Contact Name</th>
+						<th>Contact Phone</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+				<tbody>
+				@foreach(var client in Model) 
+				{
+					<tr>
+						<td><a href="/admin/clients/@client.Identity">@client.ClientName</a></td>
+						<td>@client.ContactName</td>
+						<td>@client.ContactPhone</td>
+						<td>@client.Status</td>
+					</tr>
+				}
+				</tbody>
+			</table>
+		</div>
+		<div>
+			<a href="/admin/clients/new">Create New Client</a>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{35CA6075-862B-4424-8BEC-E90F65740E24}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>RattrapDev.Identity.Tests</RootNamespace>
+    <AssemblyName>RattrapDev.Identity.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Domain\" />
+    <Folder Include="Application\" />
+    <Folder Include="Infrastructure\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Domain\ClientIdentifierTests.cs" />
+    <Compile Include="Domain\ClientContactTests.cs" />
+    <Compile Include="Domain\ClientDetailTests.cs" />
+    <Compile Include="Domain\ClientTests.cs" />
+    <Compile Include="Application\CreateClientPresentationObjectTests.cs" />
+    <Compile Include="Infrastructure\ClientInMemoryRepositoryTests.cs" />
+    <Compile Include="Application\ClientServiceTests.cs" />
+    <Compile Include="Domain\ClientNameUniqueSpecificationTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RattrapDev.Identity\RattrapDev.Identity.csproj">
+      <Project>{7FF58DED-D76B-4DAF-8A4A-9ECD7825DA55}</Project>
+      <Name>RattrapDev.Identity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RattrapDev.DDD\RattrapDev.DDD.csproj">
+      <Project>{4BACBC5B-7C42-4CC8-8D39-546779330406}</Project>
+      <Name>RattrapDev.DDD</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

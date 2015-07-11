@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="IdentityWebTests.dll" total="4" failures="0" not-run="0" date="2015-07-05" time="13:49:55">
+  <environment nunit-version="2.4.8.0" clr-version="4.0.30319.17020" os-version="Unix 14.3.0.0" platform="Unix" cwd="/Users/mwinger/Projects/IdentificationAndAuthorizationContext/IdentityWebTests/bin/Debug" machine-name="WingerMacBook.southslope.net" user="mwinger" user-domain="WingerMacBook.southslope.net" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite name="IdentityWebTests.dll" success="True" time="2.099" asserts="0">
+    <results>
+      <test-suite name="IdentityWebTests" success="True" time="2.097" asserts="0">
+        <results>
+          <test-suite name="NancyTestRunnerTest" success="True" time="1.089" asserts="0">
+            <results>
+              <test-case name="IdentityWebTests.NancyTestRunnerTest.TestBrowserReturnsSuccess" executed="True" success="True" time="1.085" asserts="1" />
+            </results>
+          </test-suite>
+          <test-suite name="SignUpPageTests" success="True" time="0.547" asserts="0">
+            <results>
+              <test-case name="IdentityWebTests.SignUpPageTests.ShouldCreateClientWithNewSignUp" executed="True" success="True" time="0.053" asserts="1" />
+              <test-case name="IdentityWebTests.SignUpPageTests.ShouldDisplayFormElements" executed="True" success="True" time="0.493" asserts="0" />
+            </results>
+          </test-suite>
+          <test-suite name="WelcomePageTests" success="True" time="0.442" asserts="0">
+            <results>
+              <test-case name="IdentityWebTests.WelcomePageTests.ShouldDisplaySignUpLink" executed="True" success="True" time="0.442" asserts="3" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

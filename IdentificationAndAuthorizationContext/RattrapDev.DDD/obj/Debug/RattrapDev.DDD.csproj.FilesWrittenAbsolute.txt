@@ -1,0 +1,5 @@
+/Users/mwinger/Projects/IdentificationAndAuthorizationContext/RattrapDev.DDD/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/mwinger/Projects/IdentificationAndAuthorizationContext/RattrapDev.DDD/bin/Debug/RattrapDev.DDD.dll.mdb
+/Users/mwinger/Projects/IdentificationAndAuthorizationContext/RattrapDev.DDD/bin/Debug/RattrapDev.DDD.dll
+/Users/mwinger/Projects/IdentificationAndAuthorizationContext/RattrapDev.DDD/obj/Debug/RattrapDev.DDD.dll
+/Users/mwinger/Projects/IdentificationAndAuthorizationContext/RattrapDev.DDD/obj/Debug/RattrapDev.DDD.dll.mdb

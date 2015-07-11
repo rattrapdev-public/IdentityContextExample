@@ -1,0 +1,66 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Client Detail</title>
+    <link rel="stylesheet" type="text/css" href="/Content/bootstrap.css">
+    <script src="~/Scripts/jquery-2.1.4.js"></script>
+    <script type="text/javascript">
+    	$(document).ready(function() {
+    		$("#activateButton").click(function() {
+    			$('#activateForm').submit();
+    		});
+    	});
+    </script>
+</head>
+<body >
+	<div class="container">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Menu</a>
+			</div>
+			<div>
+				<ul class="nav navbar-nav">
+					<li><a href="/admin">Home</a></li>
+					<li class="active"><a href="/admin/clients" >Clients</a></li>
+					<li><a href="/admin/users">Users</a></li>
+					<li><a href="/admin/permissions">Permissions</a></li>
+				</ul>
+			</div>
+		</nav>
+		<div id="site-content">
+			<h2>Client Details</h2>
+			<form role="form" action="/admin/clients" method="POST">
+				<input type="hidden" name="clientIdentity" id="clientIdentity" value="@Model.Identity" />
+				<div class="form-group">
+					<label for="ClientName">Client Name</label>
+					<input type="text" class="form-control" id="ClientName" name="ClientName" value="@Model.ClientName" placeholder="Enter a Client Name" />
+				</div>
+				<div class="form-group">
+					<label for="ContactName">Contact Name</label>
+					<input type="text" class="form-control" id="ContactName" name="ContactName" value="@Model.ContactName" placeholder="Enter a Contact Name" />
+				</div>
+				<div class="form-group">
+					<label for="ContactPhone">Contact Phone</label>
+					<input type="text" class="form-control" id="ContactPhone" name="ContactPhone" value="@Model.ContactPhone" placeholder="Enter a Contact Phone" />
+				</div>
+				<div class="form-group">
+					<span>Current Status: @Model.Status</span>
+				</div>
+				<div>
+					<button type="submit" class="btn btn-default">Save</button>
+					<button id="activateButton" type="button" class="btn btn-default">Activate</button>
+				</div>
+			</form>	
+			<form id="activateForm" action="/admin/clients/activate" method="POST">
+				<input type="hidden" name="clientIdentity" id="clientIdentity" value="@Model.Identity" />
+			</form>
+		</div>
+	</div>
+</body>
+</html>
+

@@ -1,0 +1,59 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up for an Account</title>
+    <link rel="stylesheet" type="text/css" href="/Content/bootstrap.css">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-10">
+				<h2>Sign Up for an Account!</h2>
+				<p>By signing up for an account you will gain access to a wide variety of features.  
+				After signing up one of our representatives will contact you within 24 hours to see
+				how we can be ob service to you.
+				</p>
+				<form id="signUpForm" class="form-horizontal" action="/SignUp" method="post">
+					<p>Enter some basic information so we can contact you within 24 hours!</p>
+					@if (Model != null && Model.errorMessage != null && !string.IsNullOrEmpty(Model.errorMessage))
+					{
+					<div id="ValidationText">
+						<p class="text-danger">
+							@Model.errorMessage
+						</p>
+					</div>
+					}
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="ClientName">Client Name</label>
+						<div class="col-sm-8">
+							<input class="form-control" type="text" name="ClientName" id="ClientName" placeholder="Client Name" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="ContactName">Contact Name</label>
+						<div class="col-sm-8">
+							<input class="form-control" type="text" name="ContactName" id="ContactName" value="@(Model != null && Model.contactName != null ? Model.contactName : string.Empty)" placeholder="Contact Name" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="ContactPhone">Contact Phone</label>
+						<div class="col-sm-8">
+							<input class="form-control" type="text" name="ContactPhone" id="ContactPhone" value="@(Model != null && Model.contactPhone != null ? Model.contactPhone : string.Empty)" placeholder="Contact Phone" />
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="submit" class="btn btn-default">Sign Up</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
