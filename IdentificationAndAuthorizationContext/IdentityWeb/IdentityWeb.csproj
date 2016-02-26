@@ -110,6 +110,7 @@
     <Content Include="Views\SignUp.cshtml" />
     <Content Include="Views\SignUpThankYou.cshtml" />
     <Content Include="Views\Login.cshtml" />
+    <Content Include="Views\CustomErrorPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Modules\" />
@@ -144,6 +145,7 @@
     <Compile Include="Modules\Test\MockViewResolver.cs" />
     <Compile Include="Modules\Test\MockNancyRazorView.cs" />
     <Compile Include="MockUserMapper.cs" />
+    <Compile Include="Modules\Test\ErrorModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RattrapDev.Identity\RattrapDev.Identity.csproj">

@@ -1,5 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
+using Shouldly;
 
 namespace RattrapDev.Identity.Tests
 {
@@ -12,16 +13,16 @@ namespace RattrapDev.Identity.Tests
 		{
 			ClientStatus status = ClientStatus.Lapsed;
 			ClientDetails clientDetails = new ClientDetails (Name, status);
-			Assert.AreEqual (Name, clientDetails.Name);
-			Assert.AreEqual (status, clientDetails.Status);
+			clientDetails.Name.ShouldBe (Name);
+			clientDetails.Status.ShouldBe (status);
 		}
 
 		[Test]
 		public void NullOrWhiteSpaceNameThrowsException() 
 		{
-			Assert.Throws<ArgumentException> (() => new ClientDetails (null, ClientStatus.Lapsed));
-			Assert.Throws<ArgumentException> (() => new ClientDetails (string.Empty, ClientStatus.Lapsed));
-			Assert.Throws<ArgumentException> (() => new ClientDetails (" ", ClientStatus.Lapsed));
+			Should.Throw<ArgumentException> (() => new ClientDetails (null, ClientStatus.Lapsed));
+			Should.Throw<ArgumentException> (() => new ClientDetails (string.Empty, ClientStatus.Lapsed));
+			Should.Throw<ArgumentException> (() => new ClientDetails (" ", ClientStatus.Lapsed));
 		}
 
 		[Test]
@@ -29,7 +30,7 @@ namespace RattrapDev.Identity.Tests
 		{
 			ClientDetails details1 = new ClientDetails (Name, ClientStatus.Lapsed);
 			ClientDetails details2 = new ClientDetails (Name, ClientStatus.Lapsed);
-			Assert.AreEqual (details1, details2);
+			details1.ShouldBe (details2);
 		}
 	}
 }

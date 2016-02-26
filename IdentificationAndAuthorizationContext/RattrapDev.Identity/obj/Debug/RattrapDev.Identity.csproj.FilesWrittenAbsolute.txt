@@ -1,7 +1,7 @@
-/Users/mwinger/Projects/IdentificationAndAuthorizationContext/RattrapDev.Identity/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
-/Users/mwinger/Projects/IdentificationAndAuthorizationContext/RattrapDev.Identity/bin/Debug/RattrapDev.Identity.dll.mdb
-/Users/mwinger/Projects/IdentificationAndAuthorizationContext/RattrapDev.Identity/bin/Debug/RattrapDev.Identity.dll
-/Users/mwinger/Projects/IdentificationAndAuthorizationContext/RattrapDev.Identity/obj/Debug/RattrapDev.Identity.dll
-/Users/mwinger/Projects/IdentificationAndAuthorizationContext/RattrapDev.Identity/obj/Debug/RattrapDev.Identity.dll.mdb
-/Users/mwinger/Projects/IdentificationAndAuthorizationContext/RattrapDev.Identity/bin/Debug/RattrapDev.DDD.dll
-/Users/mwinger/Projects/IdentificationAndAuthorizationContext/RattrapDev.Identity/bin/Debug/RattrapDev.DDD.dll.mdb
+/Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/RattrapDev.Identity/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/RattrapDev.Identity/bin/Debug/RattrapDev.Identity.dll.mdb
+/Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/RattrapDev.Identity/bin/Debug/RattrapDev.Identity.dll
+/Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/RattrapDev.Identity/obj/Debug/RattrapDev.Identity.dll
+/Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/RattrapDev.Identity/obj/Debug/RattrapDev.Identity.dll.mdb
+/Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/RattrapDev.Identity/bin/Debug/RattrapDev.DDD.dll
+/Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/RattrapDev.Identity/bin/Debug/RattrapDev.DDD.dll.mdb

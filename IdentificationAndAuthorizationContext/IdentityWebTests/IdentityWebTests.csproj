@@ -82,5 +82,6 @@
     <Compile Include="CustomTestBootstrapper.cs" />
     <Compile Include="WelcomePageTests.cs" />
     <Compile Include="SignUpPageTests.cs" />
+    <Compile Include="LoginTests.cs" />
   </ItemGroup>
 </Project>

@@ -33,7 +33,7 @@ namespace RattrapDev.Identity.Tests
 		public void SavingNewClientWithExistingNameThrowsException() 
 		{
 			dynamic client = service.GetAll ().First ();
-			var clientName = client.ClientDetails.Name;
+			var clientName = client.ClientName;
 			Assert.Throws<DuplicateClientException>(() => service.SaveNewClient (clientName, ContactName, Phone));
 		}
 

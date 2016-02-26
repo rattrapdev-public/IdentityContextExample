@@ -6,6 +6,7 @@ using RattrapDev.Identity;
 using Nancy;
 using Nancy.Conventions;
 using Nancy.Authentication.Forms;
+using Nancy.Diagnostics;
 
 namespace IdentityWeb
 {
@@ -51,6 +52,12 @@ namespace IdentityWeb
 			nancyConventions.StaticContentsConventions.Add (
 				StaticContentConventionBuilder.AddDirectory("Data")
 			);
+		}
+
+		protected override DiagnosticsConfiguration DiagnosticsConfiguration {
+			get {
+				return new DiagnosticsConfiguration{ Password = "password" };
+			}
 		}
 	}
 }

@@ -2,6 +2,7 @@
 using RattrapDev.Identity.Domain.Client;
 using RattrapDev.Identity.Infrastructure;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace RattrapDev.Identity
 {
@@ -35,7 +36,7 @@ namespace RattrapDev.Identity
 
 		public IReadOnlyList<dynamic> GetAll ()
 		{
-			return repository.All();
+			return repository.All ().Select (c => ClientPresentationObjectFactory.CreatePresentationObjectFrom (c)).ToList();
 		}
 
 		public dynamic ActivateClient (Guid clientIdentity)

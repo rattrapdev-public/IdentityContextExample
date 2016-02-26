@@ -7,7 +7,7 @@ namespace IdentityWeb
 	{
 		public string GetRootPath ()
 		{
-			return "/Users/mwinger/Projects/IdentificationAndAuthorizationContext/IdentityWeb";
+			return "/Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb";
 		}
 	}
 }

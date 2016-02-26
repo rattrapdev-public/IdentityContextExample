@@ -26,7 +26,7 @@ namespace IdentityWebTests
 		[Test]
 		public void ShouldCreateClientWithNewSignUp() 
 		{
-			IClientService clientService = new ClientService ();
+			var clientService = new ClientService ();
 			var bootstrapper = new CustomTestBootstrapper (clientService);
 			var browser = new Browser (bootstrapper);
 
@@ -39,17 +39,9 @@ namespace IdentityWebTests
 
 			response.ShouldHaveRedirectedTo ("/SignUp/ThankYou");
 
-			IReadOnlyList<Client> clients = clientService.GetAll ();
-			bool foundClient = false;
-			foreach (var client in clients) 
-			{
-				if (client.ClientDetails.Name.Equals ("Unique Client Name")) 
-				{
-					foundClient = true;
-				}
-			}
+			var clients = clientService.GetAll ();
 
-			Assert.IsTrue (foundClient);
+			Assert.IsTrue (clients.Any(c => c.ClientName.ToString().Equals("Unique Client Name")));
 		}
 
 		[Test]
@@ -59,12 +51,11 @@ namespace IdentityWebTests
 			var bootstrapper = new CustomTestBootstrapper (clientService);
 			var browser = new Browser (bootstrapper);
 
-			IReadOnlyList<Client> clients = clientService.GetAll ();
-			var client = clients.First ();
+			var clients = clientService.GetAll ();
 
 			BrowserResponse response = browser.Post ("/SignUp", (with) => {
 				with.HttpRequest();
-				with.FormValue("ClientName", client.ClientDetails.Name);
+				with.FormValue("ClientName", clients.First().ClientName);
 				with.FormValue("ContactName", "James Dean");
 				with.FormValue("ContactPhone", "8008674309");
 			});
