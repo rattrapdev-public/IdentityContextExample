@@ -3,11 +3,7 @@
 /Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/bin/IdentityWeb.dll
 /Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/obj/Debug/IdentityWeb.dll
 /Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/obj/Debug/IdentityWeb.dll.mdb
-/Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/bin/Nancy.dll
-/Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/bin/Nancy.Hosting.Aspnet.dll
 /Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/bin/Autofac.dll
-/Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/bin/Nancy.Bootstrappers.Autofac.dll
-/Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/bin/Nancy.ViewEngines.Razor.dll
 /Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/bin/Microsoft.Web.Infrastructure.dll
 /Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/bin/System.Web.Razor.dll
 /Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/bin/System.Web.Helpers.dll
@@ -15,6 +11,10 @@
 /Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/bin/System.Web.WebPages.Deployment.dll
 /Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/bin/System.Web.WebPages.Razor.dll
 /Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/bin/System.Web.Mvc.dll
+/Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/bin/Nancy.dll
+/Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/bin/Nancy.ViewEngines.Razor.dll
+/Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/bin/Nancy.Hosting.Aspnet.dll
+/Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/bin/Nancy.Bootstrappers.Autofac.dll
 /Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/bin/Nancy.Authentication.Forms.dll
 /Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/bin/RattrapDev.Identity.dll
 /Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/bin/RattrapDev.Identity.dll.mdb
