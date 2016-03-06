@@ -13,7 +13,7 @@ namespace IdentityWeb
 		{
 			Get ["/"] = parameters => 
 			{
-				IReadOnlyList<dynamic> clientList = clientService.GetAll();
+				var clientList = clientService.GetAll();
 				return View["Views/Admin/ClientAdminSearch", clientList];
 			};
 
@@ -54,18 +54,12 @@ namespace IdentityWeb
 				var viewModel = this.Bind<ClientViewModel>();
 
 				ClientViewModel client;
-				if (string.IsNullOrWhiteSpace(Request.Form["clientIdentity"].Value))
+				if (viewModel.ClientIdentity.Equals(Guid.Empty))
 				{
 					client = clientService.SaveNewClient(viewModel);
 				}
 				else 
 				{
-					Guid clientIdentity;
-					if (!(Guid.TryParse(Request.Form["clientIdentity"].Value, out clientIdentity))) 
-					{
-						throw new ArgumentException("The Client Identity must be a Guid");
-					}
-
 					client = clientService.UpdateClient(viewModel);
 				}
 				return Nancy.FormatterExtensions.AsRedirect(Response, "~/admin/clients/" + client.ClientIdentity);

@@ -22,7 +22,7 @@ namespace RattrapDev.Identity
 				throw new DuplicateClientException ();
 			}
 			repository.Store (client);
-			return new ClientViewModel { ClientIdentity = client.Identifier.Identity, ClientName = client.ClientDetails.Name, ContactName = client.ContactInfo.Name, Status = client.ClientDetails.Status.ToString(), ContactPhone = client.ContactInfo.Phone };
+			return new ClientViewModel(client);
 		}
 
 		public ClientViewModel UpdateClient (ClientViewModel viewModel)
@@ -31,12 +31,12 @@ namespace RattrapDev.Identity
 			clientToUpdate.UpdateClientDetails (viewModel.ClientName);
 			clientToUpdate.UpdateClientContactInfo (viewModel.ContactName, viewModel.ContactPhone);
 			repository.Store (clientToUpdate);
-			return new ClientViewModel { ClientIdentity = clientToUpdate.Identifier.Identity, ClientName = clientToUpdate.ClientDetails.Name, ContactName = clientToUpdate.ContactInfo.Name, Status = clientToUpdate.ClientDetails.Status.ToString(), ContactPhone = clientToUpdate.ContactInfo.Phone };
+			return new ClientViewModel(clientToUpdate);
 		}
 
 		public IReadOnlyList<ClientViewModel> GetAll ()
 		{
-			return repository.All ().Select (c => new ClientViewModel { ClientIdentity = c.Identifier.Identity, ClientName = c.ClientDetails.Name, ContactName = c.ContactInfo.Name, Status = c.ClientDetails.Status.ToString(), ContactPhone = c.ContactInfo.Phone }).ToList();
+			return repository.All ().Select (c => new ClientViewModel(c)).ToList();
 		}
 
 		public ClientViewModel ActivateClient (Guid clientIdentity)
@@ -44,13 +44,13 @@ namespace RattrapDev.Identity
 			Client clientToActivate = repository.GetBy (new ClientIdentifier (clientIdentity));
 			clientToActivate.Activate ();
 			repository.Store (clientToActivate);
-			return new ClientViewModel { ClientIdentity = clientToActivate.Identifier.Identity, ClientName = clientToActivate.ClientDetails.Name, ContactName = clientToActivate.ContactInfo.Name, Status = clientToActivate.ClientDetails.Status.ToString(), ContactPhone = clientToActivate.ContactInfo.Phone };
+			return new ClientViewModel(clientToActivate);
 		}
 
 		public ClientViewModel GetClient (Guid clientIdentity)
 		{
 			var client = repository.GetBy (new ClientIdentifier (clientIdentity));
-			return new ClientViewModel { ClientIdentity = client.Identifier.Identity, ClientName = client.ClientDetails.Name, ContactName = client.ContactInfo.Name, Status = client.ClientDetails.Status.ToString(), ContactPhone = client.ContactInfo.Phone };
+			return new ClientViewModel(client);
 		}
 	}
 }
