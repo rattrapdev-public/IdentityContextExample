@@ -2,6 +2,7 @@
 using Nancy;
 using RattrapDev.Identity;
 using System.Dynamic;
+using Nancy.ModelBinding;
 
 namespace IdentityWeb
 {
@@ -15,29 +16,27 @@ namespace IdentityWeb
 			};
 			Post [""] = parameters => 
 			{
-				var clientName = Request.Form["ClientName"].Value;
-				var contactName = Request.Form["ContactName"].Value;
-				var contactPhone = Request.Form["ContactPhone"].Value;
+				var clientViewModel = this.Bind<ClientViewModel>();
 
 				try 
 				{
-					clientService.SaveNewClient(clientName, contactName, contactPhone);
+					clientService.SaveNewClient(clientViewModel);
 				}
 				catch(DuplicateClientException) 
 				{
 					dynamic errorResponse = new ExpandoObject();
 					errorResponse.errorMessage = "The client name is already assigned to another client!";
-					errorResponse.contactName = contactName;
-					errorResponse.contactPhone = contactPhone;
+					errorResponse.contactName = clientViewModel.ContactName;
+					errorResponse.contactPhone = clientViewModel.ContactPhone;
 					return View["Views/SignUp", errorResponse];
 				}
 				catch(ArgumentException) 
 				{
 					dynamic errorResponse = new ExpandoObject();
 					errorResponse.errorMessage = "The client name, contact name, and contact phone must be present when signing up!";
-					errorResponse.clientName = clientName;
-					errorResponse.contactName = contactName;
-					errorResponse.contactPhone = contactPhone;
+					errorResponse.clientName = clientViewModel.ClientName;
+					errorResponse.contactName = clientViewModel.ContactName;
+					errorResponse.contactPhone = clientViewModel.ContactPhone;
 					return View["Views/SignUp", errorResponse];
 				}
 

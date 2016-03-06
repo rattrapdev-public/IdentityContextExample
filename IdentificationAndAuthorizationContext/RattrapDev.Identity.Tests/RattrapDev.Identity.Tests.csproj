@@ -51,7 +51,6 @@
     <Compile Include="Domain\ClientContactTests.cs" />
     <Compile Include="Domain\ClientDetailTests.cs" />
     <Compile Include="Domain\ClientTests.cs" />
-    <Compile Include="Application\CreateClientPresentationObjectTests.cs" />
     <Compile Include="Infrastructure\ClientInMemoryRepositoryTests.cs" />
     <Compile Include="Application\ClientServiceTests.cs" />
     <Compile Include="Domain\ClientNameUniqueSpecificationTests.cs" />

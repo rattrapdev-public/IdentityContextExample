@@ -35,7 +35,7 @@
 		<div id="site-content">
 			<h2>Client Details</h2>
 			<form role="form" action="/admin/clients" method="POST">
-				<input type="hidden" name="clientIdentity" id="clientIdentity" value="@Model.Identity" />
+				<input type="hidden" name="clientIdentity" id="clientIdentity" value="@Model.ClientIdentity" />
 				<div class="form-group">
 					<label for="ClientName">Client Name</label>
 					<input type="text" class="form-control" id="ClientName" name="ClientName" value="@Model.ClientName" placeholder="Enter a Client Name" />
@@ -57,7 +57,7 @@
 				</div>
 			</form>	
 			<form id="activateForm" action="/admin/clients/activate" method="POST">
-				<input type="hidden" name="clientIdentity" id="clientIdentity" value="@Model.Identity" />
+				<input type="hidden" name="clientIdentity" id="clientIdentity" value="@Model.ClientIdentity" />
 			</form>
 		</div>
 	</div>
