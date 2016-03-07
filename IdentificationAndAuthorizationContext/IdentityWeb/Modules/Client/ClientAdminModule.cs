@@ -3,6 +3,7 @@ using Nancy;
 using RattrapDev.Identity;
 using System.Collections.Generic;
 using RattrapDev.Identity.Domain.Client;
+using Nancy.ModelBinding;
 
 namespace IdentityWeb
 {
@@ -12,7 +13,7 @@ namespace IdentityWeb
 		{
 			Get ["/"] = parameters => 
 			{
-				IReadOnlyList<dynamic> clientList = clientService.GetAll();
+				var clientList = clientService.GetAll();
 				return View["Views/Admin/ClientAdminSearch", clientList];
 			};
 
@@ -24,14 +25,14 @@ namespace IdentityWeb
 					throw new ArgumentException("The Client Identity must be a Guid");
 				}
 
-				dynamic client = clientService.GetClient(clientIdentity);
+				var client = clientService.GetClient(clientIdentity);
 
 				return View["Views/Admin/ClientAdminDetail", client];
 			};
 
 			Get ["/new"] = parameters => 
 			{
-				dynamic emptyClient = ClientPresentationObjectFactory.CreateEmptyPresentationObject();
+				var emptyClient = new ClientViewModel { ClientName = string.Empty, ContactName = string.Empty, ContactPhone = string.Empty, Status = string.Empty };
 				return View["Views/Admin/ClientAdminDetail", emptyClient];
 			};
 
@@ -43,34 +44,25 @@ namespace IdentityWeb
 					throw new ArgumentException("The Client Identity must be a Guid");
 				}
 
-				dynamic client = clientService.ActivateClient(clientIdentity);
+				var client = clientService.ActivateClient(clientIdentity);
 
-				return Nancy.FormatterExtensions.AsRedirect(Response, "~/admin/clients/" + client.Identity);
+				return Nancy.FormatterExtensions.AsRedirect(Response, "~/admin/clients/" + client.ClientIdentity);
 			};
 
 			Post ["/"] = parameters => 
 			{
-				var clientName = Request.Form["ClientName"].Value;
-				var contactName = Request.Form["ContactName"].Value;
-				var contactPhone = Request.Form["ContactPhone"].Value;
+				var viewModel = this.Bind<ClientViewModel>();
 
-				dynamic client;
-				if (string.IsNullOrWhiteSpace(Request.Form["clientIdentity"].Value))
+				ClientViewModel client;
+				if (viewModel.ClientIdentity.Equals(Guid.Empty))
 				{
-					client = clientService.SaveNewClient(clientName, contactName, contactPhone);
+					client = clientService.SaveNewClient(viewModel);
 				}
 				else 
 				{
-					Guid clientIdentity;
-					if (!(Guid.TryParse(Request.Form["clientIdentity"].Value, out clientIdentity))) 
-					{
-						throw new ArgumentException("The Client Identity must be a Guid");
-					}
-
-					client = clientService.UpdateClient(clientIdentity, clientName, contactName, contactPhone);
+					client = clientService.UpdateClient(viewModel);
 				}
-				return Nancy.FormatterExtensions.AsRedirect(Response, "~/admin/clients/" + client.Identity);
-				// return Response.AsRedirect("~/admin/clients/" + client.Identity);
+				return Nancy.FormatterExtensions.AsRedirect(Response, "~/admin/clients/" + client.ClientIdentity);
 			};
 		}
 	}

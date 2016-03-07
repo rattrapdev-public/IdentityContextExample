@@ -22,7 +22,7 @@ namespace RattrapDev.Identity.Tests
 		[Test]
 		public void SavesNewClientWithGivenValues() 
 		{
-			dynamic client = service.SaveNewClient (ClientName, ContactName, Phone);
+			var client = service.SaveNewClient (new ClientViewModel { ClientName = ClientName, ContactName = ContactName, ContactPhone = Phone });
 			Assert.That (client.ClientName, Is.EqualTo (ClientName));
 			Assert.That (client.Status, Is.EqualTo (ClientStatus.SignedUp.ToString ()));
 			Assert.That (client.ContactName, Is.EqualTo (ContactName));
@@ -32,17 +32,17 @@ namespace RattrapDev.Identity.Tests
 		[Test]
 		public void SavingNewClientWithExistingNameThrowsException() 
 		{
-			dynamic client = service.GetAll ().First ();
+			var client = service.GetAll ().First ();
 			var clientName = client.ClientName;
-			Assert.Throws<DuplicateClientException>(() => service.SaveNewClient (clientName, ContactName, Phone));
+			Assert.Throws<DuplicateClientException>(() => service.SaveNewClient (new ClientViewModel { ClientName = clientName, ContactName = ContactName, ContactPhone = Phone }));
 		}
 
 		[Test]
 		public void UpdatesClientWithGivenValues() 
 		{
 			var clientName = ClientName + Guid.NewGuid ();
-			dynamic client = service.SaveNewClient (clientName, ContactName, Phone);
-			dynamic updatedClient = service.UpdateClient (client.Identity, UpdatedClientName, UpdatedContactName, UpdatedPhone);
+			var client = service.SaveNewClient (new ClientViewModel { ClientName = clientName, ContactName = ContactName, ContactPhone = Phone });
+			var updatedClient = service.UpdateClient (new ClientViewModel { ClientIdentity = client.ClientIdentity, ClientName = UpdatedClientName, ContactName = UpdatedContactName, ContactPhone = UpdatedPhone });
 			Assert.That (updatedClient.ClientName, Is.EqualTo (UpdatedClientName));
 			Assert.That (updatedClient.Status, Is.EqualTo (ClientStatus.SignedUp.ToString ()));
 			Assert.That (updatedClient.ContactName, Is.EqualTo (UpdatedContactName));
@@ -53,8 +53,8 @@ namespace RattrapDev.Identity.Tests
 		public void GetsByIdentifier()
 		{
 			var clientName = ClientName + Guid.NewGuid ();
-			dynamic client = service.SaveNewClient (clientName, ContactName, Phone);
-			dynamic retrievedClient = service.GetClient (client.Identity);
+			var client = service.SaveNewClient (new ClientViewModel { ClientName = clientName, ContactName = ContactName, ContactPhone = Phone });
+			var retrievedClient = service.GetClient (client.ClientIdentity);
 			Assert.That (retrievedClient.ClientName, Is.EqualTo (clientName));
 			Assert.That (retrievedClient.Status, Is.EqualTo (ClientStatus.SignedUp.ToString ()));
 			Assert.That (retrievedClient.ContactName, Is.EqualTo (ContactName));
@@ -65,8 +65,8 @@ namespace RattrapDev.Identity.Tests
 		public void ActivateSetsStatus()
 		{
 			var clientName = ClientName + Guid.NewGuid ();
-			dynamic client = service.SaveNewClient (clientName, ContactName, Phone);
-			dynamic retrievedClient = service.ActivateClient (client.Identity);
+			var client = service.SaveNewClient (new ClientViewModel { ClientName = clientName, ContactName = ContactName, ContactPhone = Phone });
+			var retrievedClient = service.ActivateClient (client.ClientIdentity);
 			Assert.That (retrievedClient.Status, Is.EqualTo (ClientStatus.Online.ToString ()));
 		}	
 
@@ -74,12 +74,12 @@ namespace RattrapDev.Identity.Tests
 		public void GetAllReturnsAllClients() 
 		{
 			ClientInMemoryRepository.ClearDictionary ();
-			IClientService clientService = new ClientService ();
-			clientService.SaveNewClient (ClientName + Guid.NewGuid().ToString(), ContactName, Phone);
-			clientService.SaveNewClient (ClientName + Guid.NewGuid().ToString(), ContactName, Phone);
-			clientService.SaveNewClient (ClientName + Guid.NewGuid().ToString(), ContactName, Phone);
-			clientService.SaveNewClient (ClientName + Guid.NewGuid().ToString(), ContactName, Phone);
-			IReadOnlyList<dynamic> clientList = clientService.GetAll ();
+			var clientService = new ClientService ();
+			clientService.SaveNewClient (new ClientViewModel { ClientName = ClientName + Guid.NewGuid().ToString(), ContactName = ContactName, ContactPhone = Phone });
+			clientService.SaveNewClient (new ClientViewModel { ClientName = ClientName + Guid.NewGuid().ToString(), ContactName = ContactName, ContactPhone = Phone });
+			clientService.SaveNewClient (new ClientViewModel { ClientName = ClientName + Guid.NewGuid().ToString(), ContactName = ContactName, ContactPhone = Phone });
+			clientService.SaveNewClient (new ClientViewModel { ClientName = ClientName + Guid.NewGuid().ToString(), ContactName = ContactName, ContactPhone = Phone });
+			var clientList = clientService.GetAll ();
 			Assert.That (clientList.Count, Is.EqualTo (6));
 		}
 	}

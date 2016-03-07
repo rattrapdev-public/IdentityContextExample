@@ -39,13 +39,12 @@
     <Compile Include="Domain\Client\ClientStatus.cs" />
     <Compile Include="Domain\Client\ClientDetails.cs" />
     <Compile Include="Application\IClientService.cs" />
-    <Compile Include="Application\ClientPresentationObjectFactory.cs" />
-    <Compile Include="Application\MockClientService.cs" />
     <Compile Include="Domain\Client\IClientRepository.cs" />
     <Compile Include="Infrastructure\ClientInMemoryRepository.cs" />
     <Compile Include="Application\ClientService.cs" />
     <Compile Include="Domain\Client\ClientNameUniqueSpecification.cs" />
     <Compile Include="Domain\Client\DuplicateClientException.cs" />
+    <Compile Include="Application\ClientViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
