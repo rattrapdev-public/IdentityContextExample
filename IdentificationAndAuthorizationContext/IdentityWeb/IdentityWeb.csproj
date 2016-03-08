@@ -110,6 +110,7 @@
     <Content Include="Scripts\jquery-2.2.1-vsdoc.js" />
     <Content Include="Scripts\jquery-2.2.1.js" />
     <Content Include="Scripts\jquery-2.2.1.min.js" />
+    <Content Include="Views\Admin\Partials\Validation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Modules\" />
@@ -120,6 +121,7 @@
     <Folder Include="Views\Admin\" />
     <Folder Include="Modules\User\" />
     <Folder Include="Modules\Permission\" />
+    <Folder Include="Views\Admin\Partials\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\bootstrap-theme.css.map" />
@@ -147,6 +149,8 @@
     <Compile Include="Modules\Test\MockNancyRazorView.cs" />
     <Compile Include="MockUserMapper.cs" />
     <Compile Include="Modules\Test\ErrorModule.cs" />
+    <Compile Include="Modules\Client\ClientResult.cs" />
+    <Compile Include="Modules\Client\ClientMessageService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RattrapDev.Identity\RattrapDev.Identity.csproj">
