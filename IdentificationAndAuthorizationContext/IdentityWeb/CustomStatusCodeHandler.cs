@@ -13,8 +13,8 @@ namespace IdentityWeb
 		#region IStatusCodeHandler implementation
 		public bool HandlesStatusCode (Nancy.HttpStatusCode statusCode, Nancy.NancyContext context)
 		{
-			//if (statusCode == Nancy.HttpStatusCode.InternalServerError)
-			//	return true;
+			if (statusCode == Nancy.HttpStatusCode.InternalServerError)
+				return true;
 			return false;
 		}
 		public void Handle (Nancy.HttpStatusCode statusCode, Nancy.NancyContext context)
