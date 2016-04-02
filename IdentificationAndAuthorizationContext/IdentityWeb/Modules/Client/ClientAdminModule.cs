@@ -3,6 +3,8 @@ using Nancy;
 using RattrapDev.Identity;
 using System.Collections.Generic;
 using Nancy.ModelBinding;
+using Nancy.Validation;
+using System.Linq;
 
 namespace IdentityWeb
 {
@@ -61,6 +63,20 @@ namespace IdentityWeb
 
 				ClientViewModel client;
 				ClientResult result;
+
+				var validationResult = this.Validate(viewModel);
+				var errorMessages = new List<string>();
+				foreach (var errorResult in validationResult.Errors.Values) {
+					errorMessages.AddRange(errorResult.Select(e => e.ErrorMessage));
+				}
+
+				ViewBag.ErrorMessages = string.Join("|", errorMessages);
+
+				if (!validationResult.IsValid) 
+				{
+					return View["Views/Admin/ClientAdminDetail", viewModel];
+				}
+
 				if (viewModel.ClientIdentity.Equals(Guid.Empty))
 				{
 					client = clientService.SaveNewClient(viewModel);

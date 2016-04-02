@@ -14,7 +14,7 @@ namespace IdentityWeb
 		public bool HandlesStatusCode (Nancy.HttpStatusCode statusCode, Nancy.NancyContext context)
 		{
 			if (statusCode == Nancy.HttpStatusCode.InternalServerError)
-				return true;
+				return false;
 			return false;
 		}
 		public void Handle (Nancy.HttpStatusCode statusCode, Nancy.NancyContext context)

@@ -16,6 +16,8 @@
 /Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/bin/Nancy.Hosting.Aspnet.dll
 /Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/bin/Nancy.Bootstrappers.Autofac.dll
 /Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/bin/Nancy.Authentication.Forms.dll
+/Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/bin/FluentValidation.dll
+/Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/bin/Nancy.Validation.FluentValidation.dll
 /Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/bin/RattrapDev.Identity.dll
 /Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/bin/RattrapDev.Identity.dll.mdb
 /Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/bin/RattrapDev.DDD.dll
