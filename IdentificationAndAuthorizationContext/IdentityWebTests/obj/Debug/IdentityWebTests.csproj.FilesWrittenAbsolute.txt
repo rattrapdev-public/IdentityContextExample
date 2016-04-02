@@ -19,3 +19,4 @@
 /Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWebTests/bin/Debug/RattrapDev.Identity.dll
 /Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWebTests/bin/Debug/RattrapDev.Identity.dll.mdb
 /Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWebTests/bin/Debug/Nancy.Authentication.Forms.dll
+/Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWebTests/bin/Debug/FluentValidation.dll

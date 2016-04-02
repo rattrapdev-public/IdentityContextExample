@@ -2,8 +2,9 @@
 using Nancy;
 using RattrapDev.Identity;
 using System.Collections.Generic;
-using RattrapDev.Identity.Domain.Client;
 using Nancy.ModelBinding;
+using Nancy.Validation;
+using System.Linq;
 
 namespace IdentityWeb
 {
@@ -23,6 +24,13 @@ namespace IdentityWeb
 				if (!(Guid.TryParse(parameters.ClientIdentity, out clientIdentity))) 
 				{
 					throw new ArgumentException("The Client Identity must be a Guid");
+				}
+
+				string result = Request.Query.result.HasValue ? Request.Query.result : string.Empty;
+				ClientResult clientResult;
+				if (Enum.TryParse<ClientResult>(result, out clientResult)) 
+				{
+					ViewBag.ValidationMessage = ClientMessageService.GetValidationMessage(clientResult);
 				}
 
 				var client = clientService.GetClient(clientIdentity);
@@ -46,7 +54,7 @@ namespace IdentityWeb
 
 				var client = clientService.ActivateClient(clientIdentity);
 
-				return Nancy.FormatterExtensions.AsRedirect(Response, "~/admin/clients/" + client.ClientIdentity);
+				return Nancy.FormatterExtensions.AsRedirect(Response, "~/admin/clients/" + client.ClientIdentity + "?result=" + ClientResult.ActivateClient.ToString());
 			};
 
 			Post ["/"] = parameters => 
@@ -54,15 +62,32 @@ namespace IdentityWeb
 				var viewModel = this.Bind<ClientViewModel>();
 
 				ClientViewModel client;
+				ClientResult result;
+
+				var validationResult = this.Validate(viewModel);
+				var errorMessages = new List<string>();
+				foreach (var errorResult in validationResult.Errors.Values) {
+					errorMessages.AddRange(errorResult.Select(e => e.ErrorMessage));
+				}
+
+				ViewBag.ErrorMessages = string.Join("|", errorMessages);
+
+				if (!validationResult.IsValid) 
+				{
+					return View["Views/Admin/ClientAdminDetail", viewModel];
+				}
+
 				if (viewModel.ClientIdentity.Equals(Guid.Empty))
 				{
 					client = clientService.SaveNewClient(viewModel);
+					result = ClientResult.SaveNewClient;
 				}
 				else 
 				{
 					client = clientService.UpdateClient(viewModel);
+					result = ClientResult.SaveExistingClient;
 				}
-				return Nancy.FormatterExtensions.AsRedirect(Response, "~/admin/clients/" + client.ClientIdentity);
+				return Nancy.FormatterExtensions.AsRedirect(Response, "~/admin/clients/" + client.ClientIdentity + "?result=" + result.ToString());
 			};
 		}
 	}

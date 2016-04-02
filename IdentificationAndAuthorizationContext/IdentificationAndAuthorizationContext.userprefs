@@ -1,0 +1,21 @@
+﻿<Properties StartupItem="IdentityWeb/IdentityWeb.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="IdentityWeb/Views/Admin/ClientAdminDetail.cshtml">
+    <Files>
+      <File FileName="IdentityWeb/Views/Admin/Partials/Validation.cshtml" Line="1" Column="1" />
+      <File FileName="IdentityWeb/Views/Admin/ClientAdminSearch.cshtml" Line="1" Column="1" />
+      <File FileName="IdentityWeb/Views/Admin/ClientAdminDetail.cshtml" Line="22" Column="25" />
+      <File FileName="IdentityWeb/Modules/Client/ClientAdminModule.cs" Line="1" Column="1" />
+      <File FileName="IdentityWeb/Modules/Client/ClientResult.cs" Line="1" Column="1" />
+      <File FileName="IdentityWeb/Modules/Client/ClientMessageService.cs" Line="1" Column="1" />
+      <File FileName="RattrapDev.Identity/Application/ClientService.cs" Line="1" Column="1" />
+      <File FileName="RattrapDev.Identity/Application/ClientViewModel.cs" Line="1" Column="1" />
+      <File FileName="IdentityWeb/CustomBootstrapper.cs" Line="1" Column="1" />
+      <File FileName="IdentityWeb/CustomStatusCodeHandler.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
