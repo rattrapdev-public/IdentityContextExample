@@ -23,6 +23,15 @@ namespace RattrapDev.Identity.Tests.Domain.Application
 		{
 			Should.Throw<ArgumentException> (() => new ApplicationMetadata (invalidName, string.Empty));
 		}
+
+		[Test]
+		public void Equals_different_references_can_still_be_equal() 
+		{
+			var metadata1 = new ApplicationMetadata ("Name", "Description");
+			var metadata2 = new ApplicationMetadata ("Name", "Description");
+
+			metadata1.Equals (metadata2).ShouldBeTrue();
+		}
 	}
 }
 

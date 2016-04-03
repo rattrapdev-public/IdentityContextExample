@@ -31,6 +31,15 @@ namespace RattrapDev.Identity.Tests.Domain.Application
 		{
 			Should.Throw<ArgumentException> (() => new ApplicationIdentifier (Guid.Empty));
 		}
+
+		[Test]
+		public void Equals_different_references_can_still_be_equal() 
+		{
+			Guid id = Guid.NewGuid ();
+			var identifier1 = new ApplicationIdentifier (id);
+			var identifier2 = new ApplicationIdentifier (id);
+			identifier1.Equals (identifier2).ShouldBeTrue ();
+		}
 	}
 }
 

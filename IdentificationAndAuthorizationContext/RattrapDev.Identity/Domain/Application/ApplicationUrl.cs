@@ -1,8 +1,9 @@
 ﻿using System;
+using RattrapDev.DDD;
 
 namespace RattrapDev.Identity.Domain.Application
 {
-	public class ApplicationUrl
+	public class ApplicationUrl : IValueObject, IEquatable<ApplicationUrl>
 	{
 		private string baseUrl;
 
@@ -21,6 +22,17 @@ namespace RattrapDev.Identity.Domain.Application
 			{
 				baseUrl = new Uri (value).GetLeftPart(System.UriPartial.Authority);
 			}
+		}
+
+		public bool Equals (ApplicationUrl other)
+		{
+			if (other == null) 
+			{
+				return false;
+			}
+			if (ReferenceEquals (this, other))
+				return true;
+			return BaseUrl.Equals (other.BaseUrl);
 		}
 	}
 }

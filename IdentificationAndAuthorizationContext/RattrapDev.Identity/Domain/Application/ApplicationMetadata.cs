@@ -3,7 +3,7 @@ using RattrapDev.DDD;
 
 namespace RattrapDev.Identity.Domain.Application
 {
-	public class ApplicationMetadata : IValueObject
+	public class ApplicationMetadata : IValueObject, IEquatable<ApplicationMetadata>
 	{
 		private string name;
 
@@ -31,6 +31,17 @@ namespace RattrapDev.Identity.Domain.Application
 		}
 
 		public string Description { get; private set; }
+
+		public bool Equals (ApplicationMetadata other)
+		{
+			if (other == null) 
+			{
+				return false;
+			}
+			if (ReferenceEquals (this, other))
+				return true;
+			return Name.Equals (other.Name) && ((Description == null && other.Description == null) || Description.Equals (other.Description));
+		}
 	}
 }
 

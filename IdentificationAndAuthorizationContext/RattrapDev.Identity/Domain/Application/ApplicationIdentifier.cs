@@ -3,7 +3,7 @@ using RattrapDev.DDD;
 
 namespace RattrapDev.Identity.Domain.Application
 {
-	public class ApplicationIdentifier : IValueObject
+	public class ApplicationIdentifier : IValueObject, IEquatable<ApplicationIdentifier>
 	{
 		private Guid id;
 
@@ -32,6 +32,17 @@ namespace RattrapDev.Identity.Domain.Application
 
 				id = value;
 			}
+		}
+
+		public bool Equals (ApplicationIdentifier other)
+		{
+			if (other == null) 
+			{
+				return false;
+			}
+			if (ReferenceEquals (this, other))
+				return true;
+			return Id.Equals (other.Id);
 		}
 	}
 }
