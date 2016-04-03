@@ -1,7 +1,7 @@
 ﻿using System;
 using RattrapDev.DDD;
 
-namespace RattrapDev.Identity
+namespace RattrapDev.Identity.Domain.Application
 {
 	public class ApplicationMetadata : IValueObject
 	{

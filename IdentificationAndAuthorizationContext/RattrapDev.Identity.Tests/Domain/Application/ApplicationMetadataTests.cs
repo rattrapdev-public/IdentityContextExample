@@ -1,8 +1,9 @@
 ﻿using System;
 using NUnit.Framework;
 using Shouldly;
+using RattrapDev.Identity.Domain.Application;
 
-namespace RattrapDev.Identity.Tests
+namespace RattrapDev.Identity.Tests.Domain.Application
 {
 	[TestFixture]
 	public class ApplicationMetadataTests
