@@ -47,6 +47,8 @@
     <Compile Include="Application\ClientViewModel.cs" />
     <Compile Include="Domain\Application\Application.cs" />
     <Compile Include="Domain\Application\ApplicationIdentifier.cs" />
+    <Compile Include="Domain\Application\ApplicationMetadata.cs" />
+    <Compile Include="Domain\Application\ApplicationUrl.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
