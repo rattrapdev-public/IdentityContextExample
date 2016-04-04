@@ -49,6 +49,8 @@
     <Compile Include="Domain\Application\ApplicationIdentifier.cs" />
     <Compile Include="Domain\Application\ApplicationMetadata.cs" />
     <Compile Include="Domain\Application\ApplicationUrl.cs" />
+    <Compile Include="Infrastructure\Application\ApplicationDto.cs" />
+    <Compile Include="Domain\Application\IApplicationRepository.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -57,6 +59,7 @@
     <Folder Include="Application\" />
     <Folder Include="Infrastructure\" />
     <Folder Include="Domain\Application\" />
+    <Folder Include="Infrastructure\Application\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RattrapDev.DDD\RattrapDev.DDD.csproj">

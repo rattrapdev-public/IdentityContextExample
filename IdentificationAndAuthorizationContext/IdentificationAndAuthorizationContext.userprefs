@@ -1,4 +1,4 @@
-﻿<Properties StartupItem="IdentityWeb/IdentityWeb.csproj">
+﻿<Properties StartupItem="IdentityWeb/IdentityWeb.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="IdentityWeb/Views/Admin/ClientAdminDetail.cshtml">
     <Files>

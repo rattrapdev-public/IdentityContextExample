@@ -58,6 +58,7 @@
     <Compile Include="Domain\Application\ApplicationIdentifierTests.cs" />
     <Compile Include="Domain\Application\ApplicationMetadataTests.cs" />
     <Compile Include="Domain\Application\ApplicationUrlTests.cs" />
+    <Compile Include="Domain\Application\ApplicationTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RattrapDev.Identity\RattrapDev.Identity.csproj">
