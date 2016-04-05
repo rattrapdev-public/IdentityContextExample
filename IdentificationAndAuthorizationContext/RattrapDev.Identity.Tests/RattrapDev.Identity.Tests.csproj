@@ -45,7 +45,8 @@
     <Folder Include="Domain\" />
     <Folder Include="Application\" />
     <Folder Include="Infrastructure\" />
-    <Folder Include="Domain\Application\" />
+    <Folder Include="Domain\Applications\" />
+    <Folder Include="Infrastructure\Applications\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\ClientIdentifierTests.cs" />
@@ -55,10 +56,12 @@
     <Compile Include="Infrastructure\ClientInMemoryRepositoryTests.cs" />
     <Compile Include="Application\ClientServiceTests.cs" />
     <Compile Include="Domain\ClientNameUniqueSpecificationTests.cs" />
-    <Compile Include="Domain\Application\ApplicationIdentifierTests.cs" />
-    <Compile Include="Domain\Application\ApplicationMetadataTests.cs" />
-    <Compile Include="Domain\Application\ApplicationUrlTests.cs" />
-    <Compile Include="Domain\Application\ApplicationTests.cs" />
+    <Compile Include="Domain\Applications\ApplicationIdentifierTests.cs" />
+    <Compile Include="Domain\Applications\ApplicationMetadataTests.cs" />
+    <Compile Include="Domain\Applications\ApplicationUrlTests.cs" />
+    <Compile Include="Domain\Applications\ApplicationTests.cs" />
+    <Compile Include="Infrastructure\Applications\ApplicationInMemoryRepositoryTests.cs" />
+    <Compile Include="Domain\Applications\ApplicationSearchResultTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RattrapDev.Identity\RattrapDev.Identity.csproj">

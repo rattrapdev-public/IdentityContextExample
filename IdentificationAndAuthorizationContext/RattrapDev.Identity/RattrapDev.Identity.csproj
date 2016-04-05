@@ -45,12 +45,16 @@
     <Compile Include="Domain\Client\ClientNameUniqueSpecification.cs" />
     <Compile Include="Domain\Client\DuplicateClientException.cs" />
     <Compile Include="Application\ClientViewModel.cs" />
-    <Compile Include="Domain\Application\Application.cs" />
-    <Compile Include="Domain\Application\ApplicationIdentifier.cs" />
-    <Compile Include="Domain\Application\ApplicationMetadata.cs" />
-    <Compile Include="Domain\Application\ApplicationUrl.cs" />
-    <Compile Include="Infrastructure\Application\ApplicationDto.cs" />
-    <Compile Include="Domain\Application\IApplicationRepository.cs" />
+    <Compile Include="Infrastructure\Applications\ApplicationDto.cs" />
+    <Compile Include="Infrastructure\Applications\ApplicationInMemoryRepository.cs" />
+    <Compile Include="Domain\Applications\ApplicationIdentifier.cs" />
+    <Compile Include="Domain\Applications\ApplicationMetadata.cs" />
+    <Compile Include="Domain\Applications\ApplicationUrl.cs" />
+    <Compile Include="Domain\Applications\IApplicationRepository.cs" />
+    <Compile Include="Domain\Applications\ApplicationSearchResult.cs" />
+    <Compile Include="Application\IApplicationService.cs" />
+    <Compile Include="Application\ApplicationViewModel.cs" />
+    <Compile Include="Domain\Applications\Application.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -58,8 +62,8 @@
     <Folder Include="Domain\Client\" />
     <Folder Include="Application\" />
     <Folder Include="Infrastructure\" />
-    <Folder Include="Domain\Application\" />
-    <Folder Include="Infrastructure\Application\" />
+    <Folder Include="Infrastructure\Applications\" />
+    <Folder Include="Domain\Applications\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RattrapDev.DDD\RattrapDev.DDD.csproj">

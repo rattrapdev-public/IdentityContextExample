@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RattrapDev.Identity
+namespace RattrapDev.Identity.Infrastructure.Applications
 {
 	public class ApplicationDto
 	{

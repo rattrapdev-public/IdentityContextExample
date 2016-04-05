@@ -1,7 +1,7 @@
 ﻿using System;
 using RattrapDev.DDD;
 
-namespace RattrapDev.Identity.Domain.Application
+namespace RattrapDev.Identity.Domain.Applications
 {
 	public class ApplicationMetadata : IValueObject, IEquatable<ApplicationMetadata>
 	{

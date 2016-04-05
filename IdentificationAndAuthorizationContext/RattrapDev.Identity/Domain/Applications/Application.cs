@@ -1,7 +1,8 @@
 ﻿using System;
 using RattrapDev.DDD;
+using RattrapDev.Identity.Infrastructure.Applications;
 
-namespace RattrapDev.Identity.Domain.Application
+namespace RattrapDev.Identity.Domain.Applications
 {
 	public class Application : IAggregate
 	{
