@@ -56,12 +56,12 @@
     <Compile Include="Infrastructure\ClientInMemoryRepositoryTests.cs" />
     <Compile Include="Application\ClientServiceTests.cs" />
     <Compile Include="Domain\ClientNameUniqueSpecificationTests.cs" />
-    <Compile Include="Domain\Applications\ApplicationIdentifierTests.cs" />
-    <Compile Include="Domain\Applications\ApplicationMetadataTests.cs" />
-    <Compile Include="Domain\Applications\ApplicationUrlTests.cs" />
-    <Compile Include="Domain\Applications\ApplicationTests.cs" />
-    <Compile Include="Infrastructure\Applications\ApplicationInMemoryRepositoryTests.cs" />
-    <Compile Include="Domain\Applications\ApplicationSearchResultTests.cs" />
+    <Compile Include="Domain\Applications\AppIdentifierTests.cs" />
+    <Compile Include="Domain\Applications\AppMetadataTests.cs" />
+    <Compile Include="Domain\Applications\AppSearchResultTests.cs" />
+    <Compile Include="Domain\Applications\AppTests.cs" />
+    <Compile Include="Domain\Applications\AppUrlTests.cs" />
+    <Compile Include="Infrastructure\Applications\AppInMemoryRepositoryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RattrapDev.Identity\RattrapDev.Identity.csproj">

@@ -3,11 +3,11 @@ using RattrapDev.DDD;
 
 namespace RattrapDev.Identity.Domain.Applications
 {
-	public class ApplicationMetadata : IValueObject, IEquatable<ApplicationMetadata>
+	public class AppMetadata : IValueObject, IEquatable<AppMetadata>
 	{
 		private string name;
 
-		public ApplicationMetadata (string name, string description)
+		public AppMetadata (string name, string description)
 		{
 			Name = name;
 			Description = description;
@@ -32,7 +32,7 @@ namespace RattrapDev.Identity.Domain.Applications
 
 		public string Description { get; private set; }
 
-		public bool Equals (ApplicationMetadata other)
+		public bool Equals (AppMetadata other)
 		{
 			if (other == null) 
 			{

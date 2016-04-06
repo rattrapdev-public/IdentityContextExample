@@ -3,16 +3,16 @@ using RattrapDev.DDD;
 
 namespace RattrapDev.Identity.Domain.Applications
 {
-	public class ApplicationIdentifier : IValueObject, IEquatable<ApplicationIdentifier>
+	public class AppIdentifier : IValueObject, IEquatable<AppIdentifier>
 	{
 		private Guid id;
 
-		public ApplicationIdentifier() 
+		public AppIdentifier() 
 		{
 			Id = Guid.NewGuid ();
 		}
 
-		public ApplicationIdentifier(Guid applicationId) 
+		public AppIdentifier(Guid applicationId) 
 		{
 			Id = applicationId;
 		}
@@ -34,7 +34,7 @@ namespace RattrapDev.Identity.Domain.Applications
 			}
 		}
 
-		public bool Equals (ApplicationIdentifier other)
+		public bool Equals (AppIdentifier other)
 		{
 			if (other == null) 
 			{

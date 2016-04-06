@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace RattrapDev.Identity
 {
-	public interface IClientService : IApplicationService
+	public interface IClientService : IAppService
 	{
 		ClientViewModel SaveNewClient(ClientViewModel viewModel);
 		ClientViewModel UpdateClient (ClientViewModel viewModel);

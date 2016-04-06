@@ -2,7 +2,7 @@
 
 namespace RattrapDev.Identity
 {
-	public interface IApplicationService
+	public interface IAppService
 	{
 
 	}

@@ -4,15 +4,18 @@ using System.Linq;
 
 namespace RattrapDev.Identity.Infrastructure.Applications
 {
-	public class ApplicationInMemoryRepository : IApplicationRepository
+	public class AppInMemoryRepository : IAppRepository
 	{
-		private IDictionary<ApplicationIdentifier, Application> applicationDictionary = new Dictionary<ApplicationIdentifier, Application> ();
+		private IDictionary<AppIdentifier, App> applicationDictionary = new Dictionary<AppIdentifier, App> ();
 
-		public void Store (Application application)
+		#region IAppRepository implementation
+
+		public void Store (App application)
 		{
 			applicationDictionary [application.Identifier] = application;
 		}
-		public Application GetByIdentifier (ApplicationIdentifier identifier)
+
+		public App GetByIdentifier (AppIdentifier identifier)
 		{
 			if (applicationDictionary.ContainsKey (identifier)) 
 			{
@@ -25,16 +28,18 @@ namespace RattrapDev.Identity.Infrastructure.Applications
 					BaseUrl = application.Url.BaseUrl
 				};
 
-				return new Application (dto);
+				return new App (dto);
 			}
 
 			return null;
 		}
 
-		public IReadOnlyList<ApplicationSearchResult> GetAll ()
+		public IReadOnlyList<AppSearchResult> GetAll ()
 		{
-			return applicationDictionary.Values.Select (a => new ApplicationSearchResult (a.Identifier.Id, a.Metadata.Name)).ToList();
+			return applicationDictionary.Values.Select (a => new AppSearchResult (a.Identifier.Id, a.Metadata.Name)).ToList();
 		}
+
+		#endregion
 	}
 }
 

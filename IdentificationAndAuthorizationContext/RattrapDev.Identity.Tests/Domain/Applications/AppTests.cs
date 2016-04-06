@@ -7,12 +7,12 @@ using RattrapDev.Identity.Infrastructure.Applications;
 namespace RattrapDev.Identity.Tests
 {
 	[TestFixture]
-	public class ApplicationTests
+	public class AppTests
 	{
 		[Test]
 		public void Constructor_creates_new_Application() 
 		{
-			var application = new Application ("name", "description", "http://www.test.com");
+			var application = new App ("name", "description", "http://www.test.com");
 			application.Identifier.Id.ShouldNotBe (Guid.Empty);
 			application.Metadata.Name.ShouldBe ("name");
 			application.Metadata.Description.ShouldBe ("description");
@@ -29,7 +29,7 @@ namespace RattrapDev.Identity.Tests
 				BaseUrl = "http://www.test.com"
 			};
 
-			var application = new Application (dto);
+			var application = new App (dto);
 			application.Identifier.Id.ShouldBe (dto.Id);
 			application.Metadata.Name.ShouldBe (dto.Name);
 			application.Metadata.Description.ShouldBe (dto.Description);
@@ -39,7 +39,7 @@ namespace RattrapDev.Identity.Tests
 		[Test]
 		public void UpdateMetadata_updates_application_metadata() 
 		{
-			var application = new Application ("name", "description", "http://www.test.com");
+			var application = new App ("name", "description", "http://www.test.com");
 			application.UpdateMetadata ("Updated Name", "Updated Description");
 			application.Metadata.Name.ShouldBe ("Updated Name");
 			application.Metadata.Description.ShouldBe ("Updated Description");
@@ -48,7 +48,7 @@ namespace RattrapDev.Identity.Tests
 		[Test]
 		public void UpdateUrl_updates_the_url() 
 		{
-			var application = new Application ("name", "description", "http://www.test.com");
+			var application = new App ("name", "description", "http://www.test.com");
 			application.UpdateUrl ("http://www.anothertest.com");
 			application.Url.BaseUrl .ShouldBe("http://www.anothertest.com");
 		}

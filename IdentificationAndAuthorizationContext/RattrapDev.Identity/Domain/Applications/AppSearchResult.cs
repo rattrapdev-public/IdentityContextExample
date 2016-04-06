@@ -3,9 +3,9 @@ using RattrapDev.DDD;
 
 namespace RattrapDev.Identity.Domain.Applications
 {
-	public class ApplicationSearchResult : IValueObject
+	public class AppSearchResult : IValueObject
 	{
-		public ApplicationSearchResult (Guid applicationId, string name)
+		public AppSearchResult (Guid applicationId, string name)
 		{
 			ApplicationId = applicationId;
 			Name = name;

@@ -6,7 +6,7 @@ using RattrapDev.Identity.Domain.Applications;
 namespace RattrapDev.Identity.Tests.Domain.Application
 {
 	[TestFixture]
-	public class ApplicationUrlTests
+	public class AppUrlTests
 	{
 		[Test]
 		public void Constructor_strips_url_to_base() 

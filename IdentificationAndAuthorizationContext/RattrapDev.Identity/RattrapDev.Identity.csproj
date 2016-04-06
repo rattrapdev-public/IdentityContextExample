@@ -45,16 +45,16 @@
     <Compile Include="Domain\Client\ClientNameUniqueSpecification.cs" />
     <Compile Include="Domain\Client\DuplicateClientException.cs" />
     <Compile Include="Application\ClientViewModel.cs" />
-    <Compile Include="Infrastructure\Applications\ApplicationDto.cs" />
-    <Compile Include="Infrastructure\Applications\ApplicationInMemoryRepository.cs" />
-    <Compile Include="Domain\Applications\ApplicationIdentifier.cs" />
-    <Compile Include="Domain\Applications\ApplicationMetadata.cs" />
     <Compile Include="Domain\Applications\ApplicationUrl.cs" />
-    <Compile Include="Domain\Applications\IApplicationRepository.cs" />
-    <Compile Include="Domain\Applications\ApplicationSearchResult.cs" />
-    <Compile Include="Application\IApplicationService.cs" />
-    <Compile Include="Application\ApplicationViewModel.cs" />
-    <Compile Include="Domain\Applications\Application.cs" />
+    <Compile Include="Application\AppViewModel.cs" />
+    <Compile Include="Application\IAppService.cs" />
+    <Compile Include="Domain\Applications\App.cs" />
+    <Compile Include="Domain\Applications\AppIdentifier.cs" />
+    <Compile Include="Domain\Applications\AppMetadata.cs" />
+    <Compile Include="Domain\Applications\AppSearchResult.cs" />
+    <Compile Include="Domain\Applications\IAppRepository.cs" />
+    <Compile Include="Infrastructure\Applications\AppDto.cs" />
+    <Compile Include="Infrastructure\Applications\AppInMemoryRepository.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

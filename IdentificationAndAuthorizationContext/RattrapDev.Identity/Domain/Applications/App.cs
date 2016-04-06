@@ -4,27 +4,27 @@ using RattrapDev.Identity.Infrastructure.Applications;
 
 namespace RattrapDev.Identity.Domain.Applications
 {
-	public class Application : IAggregate
+	public class App : IAggregate
 	{
-		private ApplicationIdentifier identifier;
-		private ApplicationMetadata metadata;
+		private AppIdentifier identifier;
+		private AppMetadata metadata;
 		private ApplicationUrl url;
 
-		public Application(string name, string description, string url) 
+		public App(string name, string description, string url) 
 		{
-			Identifier = new ApplicationIdentifier ();
-			Metadata = new ApplicationMetadata (name, description);
+			Identifier = new AppIdentifier ();
+			Metadata = new AppMetadata (name, description);
 			Url = new ApplicationUrl (url);
 		}
 
-		public Application(ApplicationDto dto) 
+		public App(ApplicationDto dto) 
 		{
-			Identifier = new ApplicationIdentifier (dto.Id);
-			Metadata = new ApplicationMetadata (dto.Name, dto.Description);
+			Identifier = new AppIdentifier (dto.Id);
+			Metadata = new AppMetadata (dto.Name, dto.Description);
 			Url = new ApplicationUrl (dto.BaseUrl);
 		}
 
-		public ApplicationIdentifier Identifier 
+		public AppIdentifier Identifier 
 		{
 			get 
 			{
@@ -41,7 +41,7 @@ namespace RattrapDev.Identity.Domain.Applications
 			}
 		}
 
-		public ApplicationMetadata Metadata 
+		public AppMetadata Metadata 
 		{
 			get 
 			{
@@ -77,7 +77,7 @@ namespace RattrapDev.Identity.Domain.Applications
 
 		public void UpdateMetadata(string name, string description) 
 		{
-			Metadata = new ApplicationMetadata (name, description);
+			Metadata = new AppMetadata (name, description);
 		}
 
 		public void UpdateUrl(string url) 
