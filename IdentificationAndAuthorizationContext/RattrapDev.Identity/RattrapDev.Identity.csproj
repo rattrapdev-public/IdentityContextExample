@@ -55,6 +55,7 @@
     <Compile Include="Domain\Applications\IAppRepository.cs" />
     <Compile Include="Infrastructure\Applications\AppDto.cs" />
     <Compile Include="Infrastructure\Applications\AppInMemoryRepository.cs" />
+    <Compile Include="Application\AppService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

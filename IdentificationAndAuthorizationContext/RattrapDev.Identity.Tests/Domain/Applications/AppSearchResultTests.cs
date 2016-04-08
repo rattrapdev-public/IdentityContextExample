@@ -16,6 +16,16 @@ namespace RattrapDev.Identity.Tests
 			item.ApplicationId.ShouldBe (id);
 			item.Name.ShouldBe ("Name");
 		}
+
+		[Test]
+		public void Equals_different_references_can_still_be_equal() 
+		{
+			var id = Guid.NewGuid();
+			var item1 = new AppSearchResult (id, "Name");
+			var item2 = new AppSearchResult (id, "Name");
+
+			item1.Equals (item2).ShouldBeTrue ();
+		}
 	}
 }
 

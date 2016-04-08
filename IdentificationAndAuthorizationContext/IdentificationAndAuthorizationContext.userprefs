@@ -1,12 +1,24 @@
 ﻿<Properties StartupItem="IdentityWeb/IdentityWeb.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="RattrapDev.Identity/Infrastructure/Application/ApplicationInMemoryRepository.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="RattrapDev.Identity/Domain/Application/Application.cs" Line="20" Column="26" />
-      <File FileName="RattrapDev.Identity/Infrastructure/Application/ApplicationDto.cs" Line="3" Column="29" />
-      <File FileName="RattrapDev.Identity.Tests/Domain/Application/ApplicationTests.cs" Line="25" Column="21" />
-      <File FileName="RattrapDev.Identity/Domain/Application/IApplicationRepository.cs" Line="1" Column="14" />
-      <File FileName="RattrapDev.Identity/Infrastructure/Application/ApplicationInMemoryRepository.cs" Line="9" Column="72" />
+      <File FileName="RattrapDev.Identity/Domain/Applications/AppSearchResult.cs" Line="6" Column="30" />
+      <File FileName="RattrapDev.Identity.Tests/Domain/Applications/AppSearchResultTests.cs" Line="9" Column="35" />
+      <File FileName="RattrapDev.Identity/Domain/Applications/IAppRepository.cs" Line="10" Column="32" />
+      <File FileName="RattrapDev.Identity/Infrastructure/Applications/AppInMemoryRepository.cs" Line="10" Column="3" />
+      <File FileName="RattrapDev.Identity/Application/IAppService.cs" Line="5" Column="30" />
+      <File FileName="RattrapDev.Identity/Application/IClientService.cs" Line="1" Column="1" />
+      <File FileName="RattrapDev.Identity/Application/AppViewModel.cs" Line="5" Column="27" />
+      <File FileName="RattrapDev.Identity/Domain/Applications/App.cs" Line="7" Column="18" />
+      <File FileName="RattrapDev.Identity/Domain/Applications/AppIdentifier.cs" Line="6" Column="28" />
+      <File FileName="RattrapDev.Identity/Domain/Applications/AppMetadata.cs" Line="6" Column="26" />
+      <File FileName="RattrapDev.Identity/Domain/Applications/ApplicationUrl.cs" Line="4" Column="50" />
+      <File FileName="RattrapDev.Identity/Infrastructure/Applications/AppDto.cs" Line="5" Column="29" />
+      <File FileName="RattrapDev.Identity.Tests/Domain/Applications/AppIdentifierTests.cs" Line="9" Column="33" />
+      <File FileName="RattrapDev.Identity.Tests/Domain/Applications/AppMetadataTests.cs" Line="9" Column="31" />
+      <File FileName="RattrapDev.Identity.Tests/Domain/Applications/AppTests.cs" Line="10" Column="18" />
+      <File FileName="RattrapDev.Identity.Tests/Domain/Applications/AppUrlTests.cs" Line="9" Column="18" />
+      <File FileName="RattrapDev.Identity.Tests/Infrastructure/Applications/AppInMemoryRepositoryTests.cs" Line="10" Column="41" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

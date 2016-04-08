@@ -1,11 +1,10 @@
 ﻿using System;
 using RattrapDev.DDD;
-using RattrapDev.Identity.Domain.Client;
 using System.Collections.Generic;
 
 namespace RattrapDev.Identity
 {
-	public interface IClientService : IAppService
+	public interface IClientService : IApplicationService
 	{
 		ClientViewModel SaveNewClient(ClientViewModel viewModel);
 		ClientViewModel UpdateClient (ClientViewModel viewModel);
