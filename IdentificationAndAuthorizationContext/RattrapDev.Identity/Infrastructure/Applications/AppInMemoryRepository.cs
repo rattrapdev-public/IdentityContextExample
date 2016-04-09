@@ -8,7 +8,13 @@ namespace RattrapDev.Identity.Infrastructure.Applications
 	{
 		private IDictionary<AppIdentifier, App> applicationDictionary = new Dictionary<AppIdentifier, App> ();
 
-		#region IAppRepository implementation
+		public AppInMemoryRepository() 
+		{
+			var app = new App ("Acme Invention Creator", "The Acme Invention Creator.", "http://www.acme.com");
+			applicationDictionary.Add (app.Identifier, app);
+			app = new App ("Wayne Enterprises", string.Empty, "http://www.wayneenterprises.com");
+			applicationDictionary.Add (app.Identifier, app);
+		}
 
 		public void Store (App application)
 		{
@@ -20,7 +26,7 @@ namespace RattrapDev.Identity.Infrastructure.Applications
 			if (applicationDictionary.ContainsKey (identifier)) 
 			{
 				var application = applicationDictionary [identifier];
-				var dto = new ApplicationDto 
+				var dto = new AppDto 
 				{
 					Id = application.Identifier.Id,
 					Name = application.Metadata.Name,
@@ -38,8 +44,6 @@ namespace RattrapDev.Identity.Infrastructure.Applications
 		{
 			return applicationDictionary.Values.Select (a => new AppSearchResult (a.Identifier.Id, a.Metadata.Name)).ToList();
 		}
-
-		#endregion
 	}
 }
 

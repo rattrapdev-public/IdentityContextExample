@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using RattrapDev.Identity.Application;
 using System.Linq;
 using Shouldly;
+using RattrapDev.Identity.Infrastructure.Applications;
 
 namespace RattrapDev.Identity.Tests
 {
@@ -49,15 +50,24 @@ namespace RattrapDev.Identity.Tests
 		{
 			var viewModel = new AppViewModel 
 							{
-				Id = Guid.NewGuid(),
+								Id = Guid.NewGuid(),
 								Name = "Name",
 								Description = "Description",
 								Url = "http://www.test.com"
 							};
 
+			var dto = new AppDto 
+			{
+				Id = viewModel.Id,
+				Name = viewModel.Name,
+				Description = viewModel.Description,
+				BaseUrl = viewModel.Url
+			};
+
 			App app = null;
 			var repository = Substitute.For<IAppRepository> ();
 			repository.Store (Arg.Do<App> (a => app = a));
+			repository.GetByIdentifier (Arg.Any<AppIdentifier>()).Returns (new App (dto));
 
 			var appService = new AppService (repository);
 
