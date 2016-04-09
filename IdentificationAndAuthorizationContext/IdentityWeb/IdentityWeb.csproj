@@ -128,6 +128,7 @@
     <Folder Include="Modules\User\" />
     <Folder Include="Modules\Permission\" />
     <Folder Include="Views\Admin\Partials\" />
+    <Folder Include="Modules\Applications\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\bootstrap-theme.css.map" />
@@ -158,6 +159,9 @@
     <Compile Include="Modules\Client\ClientResult.cs" />
     <Compile Include="Modules\Client\ClientMessageService.cs" />
     <Compile Include="Modules\Client\AddClientValidator.cs" />
+    <Compile Include="Modules\Applications\ApplicationAdminModule.cs" />
+    <Compile Include="Modules\Applications\AppResult.cs" />
+    <Compile Include="Modules\Applications\AppMessageService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RattrapDev.Identity\RattrapDev.Identity.csproj">
