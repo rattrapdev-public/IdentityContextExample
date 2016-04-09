@@ -31,7 +31,7 @@ namespace IdentityWeb
 		{
 			base.ApplicationStartup (container, pipelines);
 			var builder = new ContainerBuilder ();
-			builder.RegisterType<ClientService> ().As<IClientService> ().SingleInstance();
+			builder.RegisterInstance (clientService).As<IClientService> ().SingleInstance();
 			builder.RegisterType<MockUserMapper> ().As<IUserMapper> ();
 			builder.RegisterType<AppInMemoryRepository> ().As<IAppRepository> ().SingleInstance();
 			builder.RegisterType<AppService> ().As<IAppService> ().SingleInstance();

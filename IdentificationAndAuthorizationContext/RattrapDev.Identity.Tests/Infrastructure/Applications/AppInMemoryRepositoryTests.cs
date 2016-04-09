@@ -3,6 +3,7 @@ using NUnit.Framework;
 using RattrapDev.Identity.Infrastructure.Applications;
 using RattrapDev.Identity.Domain.Applications;
 using Shouldly;
+using System.Linq;
 
 namespace RattrapDev.Identity.Tests
 {
@@ -19,6 +20,15 @@ namespace RattrapDev.Identity.Tests
 			application.Identifier.ShouldBe (reconstitutedApplication.Identifier);
 			application.Metadata.ShouldBe (reconstitutedApplication.Metadata);
 			application.Url.ShouldBe (reconstitutedApplication.Url);
+		}
+
+		[Test]
+		public void GetAll_returns_preexisting_app() 
+		{
+			var repository = new AppInMemoryRepository ();
+			var result = repository.GetAll().First ();
+			var app = repository.GetByIdentifier (new AppIdentifier (result.ApplicationId));
+			app.Metadata.Name.ShouldBe (result.Name);
 		}
 	}
 }

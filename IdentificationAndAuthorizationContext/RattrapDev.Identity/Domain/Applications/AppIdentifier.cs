@@ -34,6 +34,11 @@ namespace RattrapDev.Identity.Domain.Applications
 			}
 		}
 
+		public override bool Equals (object obj)
+		{
+			return this.Equals (obj as AppIdentifier);
+		}
+
 		public bool Equals (AppIdentifier other)
 		{
 			if (other == null) 
@@ -43,6 +48,11 @@ namespace RattrapDev.Identity.Domain.Applications
 			if (ReferenceEquals (this, other))
 				return true;
 			return Id.Equals (other.Id);
+		}
+
+		public override int GetHashCode ()
+		{
+			return this.Id.GetHashCode ();
 		}
 	}
 }

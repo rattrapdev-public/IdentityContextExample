@@ -5,20 +5,16 @@ namespace IdentityWeb
 {
 	public class ApplicationAdminModule : Nancy.NancyModule
 	{
-		private IAppService appService;
-
 		public ApplicationAdminModule (IAppService appService)
 			: base("/admin/apps")
 		{
-			this.appService = appService;
-
 			Get ["/"] = parameters => 
 			{
 				var appResults = appService.GetAllApps();
 				return View["Views/Admin/AppAdminSearch", appResults];
 			};
 
-			Get ["/"] = parameters => 
+			Get ["/{AppIdentity}"] = parameters => 
 			{
 				Guid appIdentity;
 				if (!(Guid.TryParse(parameters.AppIdentity, out appIdentity))) 
@@ -41,7 +37,7 @@ namespace IdentityWeb
 			Get ["/new"] = parameters => 
 			{
 				var emptyViewModel = new AppViewModel();
-				return View["Views/Admin/ClientAdminDetail", emptyViewModel];
+				return View["Views/Admin/AppAdminDetail", emptyViewModel];
 			};
 		}
 	}

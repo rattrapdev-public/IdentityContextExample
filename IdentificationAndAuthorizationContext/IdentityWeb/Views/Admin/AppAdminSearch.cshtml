@@ -18,8 +18,8 @@
 			<div>
 				<ul class="nav navbar-nav">
 					<li><a href="/admin">Home</a></li>
-					<li class="active"><a href="/admin/clients" >Clients</a></li>
-					<li><a href="/admin/apps">Apps</a></li>
+					<li><a href="/admin/clients" >Clients</a></li>
+					<li class="active"><a href="/admin/apps" >Apps</a></li>
 					<li><a href="/admin/users">Users</a></li>
 					<li><a href="/admin/permissions">Permissions</a></li>
 				</ul>
@@ -29,30 +29,24 @@
 			<h2>Client Search</h2>
 			@Html.Partial("Views/Admin/Partials/Validation")
 			<table class="table table-bordered table-striped">
-				<caption>Viewing All Clients</caption>
+				<caption>Viewing All Apps</caption>
 				<thead>
 					<tr>
-						<th>Client Name</th>
-						<th>Contact Name</th>
-						<th>Contact Phone</th>
-						<th>Status</th>
+						<th>App Name</th>
 					</tr>
 				</thead>
 				<tbody>
-				@foreach(var client in Model) 
+				@foreach(var app in Model) 
 				{
 					<tr>
-						<td><a href="/admin/clients/@client.ClientIdentity">@client.ClientName</a></td>
-						<td>@client.ContactName</td>
-						<td>@client.ContactPhone</td>
-						<td>@client.Status</td>
+						<td><a href="/admin/apps/@app.ApplicationId">@app.Name</a></td>
 					</tr>
 				}
 				</tbody>
 			</table>
 		</div>
 		<div>
-			<a href="/admin/clients/new">Create New Client</a>
+			<a href="/admin/apps/new">Create New App</a>
 		</div>
 	</div>
 </body>
