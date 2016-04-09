@@ -31,10 +31,10 @@ namespace IdentityWeb
 		{
 			base.ApplicationStartup (container, pipelines);
 			var builder = new ContainerBuilder ();
-			builder.Register<ClientService> ().As<IClientService> ().SingleInstance;
-			builder.Register<MockUserMapper> ().As<IUserMapper> ();
-			builder.Register<AppInMemoryRepository> ().As<IAppRepository> ().SingleInstance;
-			builder.Register<AppService> ().As<IAppService> ().SingleInstance;
+			builder.RegisterType<ClientService> ().As<IClientService> ().SingleInstance();
+			builder.RegisterType<MockUserMapper> ().As<IUserMapper> ();
+			builder.RegisterType<AppInMemoryRepository> ().As<IAppRepository> ().SingleInstance();
+			builder.RegisterType<AppService> ().As<IAppService> ().SingleInstance();
 			builder.Update (container.ComponentRegistry);
 
 			StaticConfiguration.DisableErrorTraces = false;
