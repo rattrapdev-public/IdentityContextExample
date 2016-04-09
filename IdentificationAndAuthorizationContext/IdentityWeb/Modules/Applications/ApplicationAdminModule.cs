@@ -30,7 +30,7 @@ namespace IdentityWeb
 				AppResult appResult;
 				if (Enum.TryParse<AppResult>(result, out appResult)) 
 				{
-					ViewBag.ValidationMessage = ClientMessageService.GetValidationMessage(clientResult);
+					ViewBag.ValidationMessage = AppMessageService.GetValidationMessage(appResult);
 				}
 
 				var appViewModel = appService.GetApp(appIdentity);
