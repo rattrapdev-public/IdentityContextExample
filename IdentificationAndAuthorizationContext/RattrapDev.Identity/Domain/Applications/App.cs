@@ -17,7 +17,7 @@ namespace RattrapDev.Identity.Domain.Applications
 			Url = new ApplicationUrl (url);
 		}
 
-		public App(ApplicationDto dto) 
+		public App(AppDto dto) 
 		{
 			Identifier = new AppIdentifier (dto.Id);
 			Metadata = new AppMetadata (dto.Name, dto.Description);

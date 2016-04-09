@@ -22,7 +22,7 @@ namespace RattrapDev.Identity.Tests
 		[Test]
 		public void Constructor_reconstitutes_Application_with_dto() 
 		{
-			var dto = new ApplicationDto {
+			var dto = new AppDto {
 				Id = Guid.NewGuid (),
 				Name = "Name",
 				Description = "Description",
