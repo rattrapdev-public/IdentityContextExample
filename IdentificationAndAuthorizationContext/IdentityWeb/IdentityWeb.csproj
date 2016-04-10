@@ -164,6 +164,7 @@
     <Compile Include="Modules\Applications\ApplicationAdminModule.cs" />
     <Compile Include="Modules\Applications\AppResult.cs" />
     <Compile Include="Modules\Applications\AppMessageService.cs" />
+    <Compile Include="Modules\Applications\AddAppValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RattrapDev.Identity\RattrapDev.Identity.csproj">
