@@ -1,5 +1,7 @@
 ﻿using System;
 using RattrapDev.Identity.Application;
+using Nancy.ModelBinding;
+using Nancy;
 
 namespace IdentityWeb
 {
@@ -12,6 +14,14 @@ namespace IdentityWeb
 			{
 				var appResults = appService.GetAllApps();
 				return View["Views/Admin/AppAdminSearch", appResults];
+			};
+
+			Post ["/"] = parameters => 
+			{
+				var viewModel = this.Bind<AppViewModel>();
+				viewModel = appService.SaveApp(viewModel);
+
+				return Response.AsRedirect ("~/admin/apps/" + viewModel.Id + "?result=" + AppResult.SaveExistingApp);
 			};
 
 			Get ["/{AppIdentity}"] = parameters => 

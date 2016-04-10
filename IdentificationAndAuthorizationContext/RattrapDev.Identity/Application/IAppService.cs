@@ -8,7 +8,7 @@ namespace RattrapDev.Identity.Application
 	{
 		IReadOnlyList<AppSearchResult> GetAllApps();
 		AppViewModel GetApp(Guid appId);
-		void SaveApp(AppViewModel viewModel);
+		AppViewModel SaveApp(AppViewModel viewModel);
 	}
 }
 

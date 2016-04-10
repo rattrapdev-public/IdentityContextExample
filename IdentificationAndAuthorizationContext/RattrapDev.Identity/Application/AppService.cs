@@ -30,7 +30,7 @@ namespace RattrapDev.Identity.Application
 			};
 		}
 
-		public void SaveApp (AppViewModel viewModel)
+		public AppViewModel SaveApp (AppViewModel viewModel)
 		{
 			App app;
 			if (viewModel.Id.Equals (Guid.Empty)) 
@@ -45,6 +45,14 @@ namespace RattrapDev.Identity.Application
 			}
 
 			repository.Store (app);
+
+			return new AppViewModel 
+			{
+				Id = app.Identifier.Id,
+				Name = app.Metadata.Name,
+				Description = app.Metadata.Description,
+				Url = app.Url.BaseUrl
+			};
 		}
 	}
 }
