@@ -5,6 +5,7 @@
 /Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/RattrapDev.Identity.Tests/obj/Debug/RattrapDev.Identity.Tests.dll.mdb
 /Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/RattrapDev.Identity.Tests/bin/Debug/nunit.framework.dll
 /Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/RattrapDev.Identity.Tests/bin/Debug/Shouldly.dll
+/Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/RattrapDev.Identity.Tests/bin/Debug/NSubstitute.dll
 /Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/RattrapDev.Identity.Tests/bin/Debug/RattrapDev.Identity.dll
 /Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/RattrapDev.Identity.Tests/bin/Debug/RattrapDev.Identity.dll.mdb
 /Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/RattrapDev.Identity.Tests/bin/Debug/RattrapDev.DDD.dll

@@ -7,6 +7,9 @@ using Nancy;
 using Nancy.Conventions;
 using Nancy.Authentication.Forms;
 using Nancy.Diagnostics;
+using RattrapDev.Identity.Infrastructure.Applications;
+using RattrapDev.Identity.Domain.Applications;
+using RattrapDev.Identity.Application;
 
 namespace IdentityWeb
 {
@@ -28,8 +31,10 @@ namespace IdentityWeb
 		{
 			base.ApplicationStartup (container, pipelines);
 			var builder = new ContainerBuilder ();
-			builder.RegisterInstance<IClientService> (clientService);
-			builder.RegisterInstance<IUserMapper> (new MockUserMapper ());
+			builder.RegisterInstance (clientService).As<IClientService> ().SingleInstance();
+			builder.RegisterType<MockUserMapper> ().As<IUserMapper> ();
+			builder.RegisterType<AppInMemoryRepository> ().As<IAppRepository> ().SingleInstance();
+			builder.RegisterType<AppService> ().As<IAppService> ().SingleInstance();
 			builder.Update (container.ComponentRegistry);
 
 			StaticConfiguration.DisableErrorTraces = false;

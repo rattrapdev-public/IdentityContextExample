@@ -1,21 +1,24 @@
-﻿<Properties StartupItem="IdentityWeb/IdentityWeb.csproj">
+﻿<Properties StartupItem="IdentityWeb/IdentityWeb.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="IdentityWeb/Views/Admin/ClientAdminDetail.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="IdentityWeb/Modules/Applications/ApplicationAdminModule.cs">
     <Files>
-      <File FileName="IdentityWeb/Views/Admin/Partials/Validation.cshtml" Line="1" Column="1" />
-      <File FileName="IdentityWeb/Views/Admin/ClientAdminSearch.cshtml" Line="1" Column="1" />
-      <File FileName="IdentityWeb/Views/Admin/ClientAdminDetail.cshtml" Line="22" Column="25" />
-      <File FileName="IdentityWeb/Modules/Client/ClientAdminModule.cs" Line="1" Column="1" />
-      <File FileName="IdentityWeb/Modules/Client/ClientResult.cs" Line="1" Column="1" />
-      <File FileName="IdentityWeb/Modules/Client/ClientMessageService.cs" Line="1" Column="1" />
-      <File FileName="RattrapDev.Identity/Application/ClientService.cs" Line="1" Column="1" />
-      <File FileName="RattrapDev.Identity/Application/ClientViewModel.cs" Line="1" Column="1" />
-      <File FileName="IdentityWeb/CustomBootstrapper.cs" Line="1" Column="1" />
-      <File FileName="IdentityWeb/CustomStatusCodeHandler.cs" Line="1" Column="1" />
+      <File FileName="IdentityWeb/Views/Admin/AppAdminSearch.cshtml" Line="49" Column="24" />
+      <File FileName="IdentityWeb/Modules/Applications/ApplicationAdminModule.cs" Line="19" Column="5" />
+      <File FileName="RattrapDev.Identity/Application/AppService.cs" Line="31" Column="1" />
+      <File FileName="RattrapDev.Identity/Domain/Applications/AppIdentifier.cs" Line="55" Column="34" />
+      <File FileName="RattrapDev.Identity/Infrastructure/Applications/AppInMemoryRepository.cs" Line="37" Column="26" />
+      <File FileName="IdentityWeb/CustomBootstrapper.cs" Line="32" Column="33" />
+      <File FileName="RattrapDev.Identity.Tests/Infrastructure/Applications/AppInMemoryRepositoryTests.cs" Line="31" Column="1" />
+      <File FileName="RattrapDev.Identity.Tests/Application/AppServiceTests.cs" Line="45" Column="1" />
+      <File FileName="IdentityWeb/Views/Admin/AppAdminDetail.cshtml" Line="32" Column="41" />
+      <File FileName="IdentityWeb/Views/Admin/ClientAdminDetail.cshtml" Line="1" Column="1" />
+      <File FileName="RattrapDev.Identity/Application/AppViewModel.cs" Line="3" Column="34" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/RattrapDev.Identity.Tests/Infrastructure/Applications/AppInMemoryRepositoryTests.cs" line="28" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

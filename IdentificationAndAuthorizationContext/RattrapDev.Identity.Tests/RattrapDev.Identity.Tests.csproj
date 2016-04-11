@@ -36,6 +36,9 @@
     <Reference Include="Shouldly">
       <HintPath>..\packages\Shouldly.2.6.0\lib\net40\Shouldly.dll</HintPath>
     </Reference>
+    <Reference Include="NSubstitute">
+      <HintPath>..\packages\NSubstitute.1.10.0.0\lib\net45\NSubstitute.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -45,6 +48,8 @@
     <Folder Include="Domain\" />
     <Folder Include="Application\" />
     <Folder Include="Infrastructure\" />
+    <Folder Include="Domain\Applications\" />
+    <Folder Include="Infrastructure\Applications\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\ClientIdentifierTests.cs" />
@@ -54,6 +59,13 @@
     <Compile Include="Infrastructure\ClientInMemoryRepositoryTests.cs" />
     <Compile Include="Application\ClientServiceTests.cs" />
     <Compile Include="Domain\ClientNameUniqueSpecificationTests.cs" />
+    <Compile Include="Domain\Applications\AppIdentifierTests.cs" />
+    <Compile Include="Domain\Applications\AppMetadataTests.cs" />
+    <Compile Include="Domain\Applications\AppSearchResultTests.cs" />
+    <Compile Include="Domain\Applications\AppTests.cs" />
+    <Compile Include="Domain\Applications\AppUrlTests.cs" />
+    <Compile Include="Infrastructure\Applications\AppInMemoryRepositoryTests.cs" />
+    <Compile Include="Application\AppServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RattrapDev.Identity\RattrapDev.Identity.csproj">

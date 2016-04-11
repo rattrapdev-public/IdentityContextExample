@@ -8,13 +8,9 @@ namespace IdentityWeb
 {
 	public class TestModule : Nancy.NancyModule
 	{
-		private IViewEngine engine;
-
 		public TestModule(IViewEngine engine, ITextResource textResource) 
 			: base("/test") 
 		{
-			this.engine = engine;
-
 			this.Get ["/{name}/{age}"] = parameters => 
 			{
 				ViewBag.Title = "Here is my viewbag title!";

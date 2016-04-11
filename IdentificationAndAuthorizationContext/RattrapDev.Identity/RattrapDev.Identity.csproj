@@ -45,6 +45,17 @@
     <Compile Include="Domain\Client\ClientNameUniqueSpecification.cs" />
     <Compile Include="Domain\Client\DuplicateClientException.cs" />
     <Compile Include="Application\ClientViewModel.cs" />
+    <Compile Include="Domain\Applications\ApplicationUrl.cs" />
+    <Compile Include="Application\AppViewModel.cs" />
+    <Compile Include="Application\IAppService.cs" />
+    <Compile Include="Domain\Applications\App.cs" />
+    <Compile Include="Domain\Applications\AppIdentifier.cs" />
+    <Compile Include="Domain\Applications\AppMetadata.cs" />
+    <Compile Include="Domain\Applications\AppSearchResult.cs" />
+    <Compile Include="Domain\Applications\IAppRepository.cs" />
+    <Compile Include="Infrastructure\Applications\AppDto.cs" />
+    <Compile Include="Infrastructure\Applications\AppInMemoryRepository.cs" />
+    <Compile Include="Application\AppService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -52,6 +63,8 @@
     <Folder Include="Domain\Client\" />
     <Folder Include="Application\" />
     <Folder Include="Infrastructure\" />
+    <Folder Include="Infrastructure\Applications\" />
+    <Folder Include="Domain\Applications\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RattrapDev.DDD\RattrapDev.DDD.csproj">

@@ -1,6 +1,5 @@
 ﻿using System;
 using RattrapDev.DDD;
-using RattrapDev.Identity.Domain.Client;
 using System.Collections.Generic;
 
 namespace RattrapDev.Identity

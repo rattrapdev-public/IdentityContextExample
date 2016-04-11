@@ -54,7 +54,7 @@ namespace IdentityWeb
 
 				var client = clientService.ActivateClient(clientIdentity);
 
-				return Nancy.FormatterExtensions.AsRedirect(Response, "~/admin/clients/" + client.ClientIdentity + "?result=" + ClientResult.ActivateClient.ToString());
+				return Response.AsRedirect ("~/admin/clients/" + client.ClientIdentity + "?result=" + ClientResult.ActivateClient.ToString ());
 			};
 
 			Post ["/"] = parameters => 
