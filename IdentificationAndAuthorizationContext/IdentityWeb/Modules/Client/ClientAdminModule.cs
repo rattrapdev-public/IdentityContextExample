@@ -40,7 +40,7 @@ namespace IdentityWeb
 
 			Get ["/new"] = parameters => 
 			{
-				var emptyClient = new ClientViewModel { ClientName = string.Empty, ContactName = string.Empty, ContactPhone = string.Empty, Status = string.Empty };
+				var emptyClient = new ClientViewModel { ClientName = string.Empty, ContactName = string.Empty, ContactPhone = string.Empty, ContactEmail = string.Empty, Status = string.Empty };
 				return View["Views/Admin/ClientAdminDetail", emptyClient];
 			};
 
