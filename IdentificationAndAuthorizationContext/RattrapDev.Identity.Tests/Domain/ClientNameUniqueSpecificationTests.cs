@@ -14,7 +14,7 @@ namespace RattrapDev.Identity.Tests
 			var repository = new ClientInMemoryRepository ();
 			var specification = new ClientNameUniqueSpecification (repository);
 
-			Client client = new Client (Guid.NewGuid ().ToString (), "John Doe", "1234567890");
+			Client client = new Client (Guid.NewGuid ().ToString (), "John Doe", "1234567890", "joe@joe.com");
 			Assert.IsTrue (specification.IsSatisifiedBy (client));
 		}
 
@@ -24,9 +24,9 @@ namespace RattrapDev.Identity.Tests
 			var repository = new ClientInMemoryRepository ();
 			var specification = new ClientNameUniqueSpecification (repository);
 
-			Client client = new Client ("Duplicate Client", "John Doe", "1234567890");
+			Client client = new Client ("Duplicate Client", "John Doe", "1234567890", "joe@joe.com");
 			repository.Store (client);
-			Client duplicateClient = new Client ("Duplicate Client", "John Doe", "1234567890");
+			Client duplicateClient = new Client ("Duplicate Client", "John Doe", "1234567890", "joe@joe.com");
 
 			Assert.IsFalse (specification.IsSatisifiedBy (duplicateClient));
 		}
@@ -37,7 +37,7 @@ namespace RattrapDev.Identity.Tests
 			var repository = new ClientInMemoryRepository ();
 			var specification = new ClientNameUniqueSpecification (repository);
 
-			Client client = new Client ("Duplicate Client", "John Doe", "1234567890");
+			Client client = new Client ("Duplicate Client", "John Doe", "1234567890", "joe@joe.com");
 			repository.Store (client);
 
 			Assert.IsTrue (specification.IsSatisifiedBy (client));

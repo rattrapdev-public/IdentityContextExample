@@ -16,7 +16,7 @@ namespace RattrapDev.Identity
 
 		public ClientViewModel SaveNewClient (ClientViewModel viewModel)
 		{
-			var client = new Client (viewModel.ClientName, viewModel.ContactName, viewModel.ContactPhone);
+			var client = new Client (viewModel.ClientName, viewModel.ContactName, viewModel.ContactPhone, viewModel.ContactEmail);
 			if (!((new ClientNameUniqueSpecification(repository).IsSatisifiedBy(client)))) 
 			{
 				throw new DuplicateClientException ();
@@ -29,7 +29,7 @@ namespace RattrapDev.Identity
 		{
 			Client clientToUpdate = repository.GetBy (new ClientIdentifier (viewModel.ClientIdentity));
 			clientToUpdate.UpdateClientDetails (viewModel.ClientName);
-			clientToUpdate.UpdateClientContactInfo (viewModel.ContactName, viewModel.ContactPhone);
+			clientToUpdate.UpdateClientContactInfo (viewModel.ContactName, viewModel.ContactPhone, viewModel.ContactEmail);
 			repository.Store (clientToUpdate);
 			return new ClientViewModel(clientToUpdate);
 		}

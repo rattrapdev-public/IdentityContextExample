@@ -1,5 +1,6 @@
 ﻿using System;
 using RattrapDev.DDD;
+using System.Net.Mail;
 
 namespace RattrapDev.Identity.Domain.Client
 {
@@ -9,10 +10,13 @@ namespace RattrapDev.Identity.Domain.Client
 
 		private string phone;
 
-		public ClientContact (string contactName, string contactPhone)
+		private string email;
+
+		public ClientContact (string contactName, string contactPhone, string email)
 		{
-			this.Name = contactName;
-			this.Phone = contactPhone;
+			Name = contactName;
+			Phone = contactPhone;
+			Email = email;
 		}
 
 		public string Name 
@@ -47,14 +51,34 @@ namespace RattrapDev.Identity.Domain.Client
 			}
 		}
 
+		public string Email 
+		{
+			get 
+			{
+				return email;
+			}
+			private set 
+			{
+				if (string.IsNullOrEmpty (value)) 
+				{
+					throw new ArgumentException ("The email is required!");
+				}
+
+				new MailAddress (value);
+
+				email = value;
+			}
+		}
+
 		#region IEquatable implementation
 
 		public bool Equals (ClientContact other)
 		{
 			if (other == null)
 				return false;
-			return other.Name.Equals (other.Name)
-			&& other.Phone.Equals (other.Phone);
+			return Name.Equals (other.Name)
+				&& Phone.Equals (other.Phone)
+				&& Email.Equals (other.Email);
 		}
 
 		#endregion

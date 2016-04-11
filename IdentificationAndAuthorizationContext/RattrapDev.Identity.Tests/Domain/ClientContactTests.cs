@@ -1,6 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 using RattrapDev.Identity.Domain.Client;
+using Shouldly;
 
 namespace RattrapDev.Identity.Tests
 {
@@ -9,36 +10,47 @@ namespace RattrapDev.Identity.Tests
 	{
 		private const string Name = "Joe";
 		private const string Phone = "1234567890";
+		private const string Email = "joe@joe.com";
 
 		[Test]
 		public void ConstructorSetsValues() 
 		{
-			ClientContact contact = new ClientContact (Name, Phone);
-			Assert.AreEqual (Name, contact.Name);
-			Assert.AreEqual (Phone, contact.Phone);
+			ClientContact contact = new ClientContact (Name, Phone, Email);
+			contact.Name.ShouldBe (Name);
+			contact.Phone.ShouldBe (Phone);
+			contact.Email.ShouldBe (Email);
 		}
 
-		[Test]
-		public void NullOrEmptyNameThrowsException() 
+		[TestCase("")]
+		[TestCase(" ")]
+		[TestCase(null)]
+		public void NullOrEmptyNameThrowsException(string invalidName) 
 		{
-			Assert.Throws<ArgumentException> (() => new ClientContact (null, Phone));
-			Assert.Throws<ArgumentException> (() => new ClientContact (string.Empty, Phone));
-			Assert.Throws<ArgumentException> (() => new ClientContact (" ", Phone));
+			Should.Throw<ArgumentException> (() => new ClientContact (invalidName, Phone, Email));
 		}
 
-		[Test]
-		public void NullOrEmptyPhoneThrowsException() 
+		[TestCase("")]
+		[TestCase(" ")]
+		[TestCase(null)]
+		public void NullOrEmptyPhoneThrowsException(string invalidPhone) 
 		{
-			Assert.Throws<ArgumentException> (() => new ClientContact (Name, null));
-			Assert.Throws<ArgumentException> (() => new ClientContact (Name, string.Empty));
-			Assert.Throws<ArgumentException> (() => new ClientContact (Name, " "));
+			Assert.Throws<ArgumentException> (() => new ClientContact (Name, invalidPhone, Email));
+		}
+
+		[TestCase("")]
+		[TestCase(" ")]
+		[TestCase(null)]
+		[TestCase("test@")]
+		public void InvalidEmailThrowsException(string invalidEmail) 
+		{
+			Assert.Throws<ArgumentException> (() => new ClientContact (Name, Phone, invalidEmail));
 		}
 
 		[Test]
 		public void DifferentClientContactsCanStillBeEqual() 
 		{
-			ClientContact contact1 = new ClientContact (Name, Phone);
-			ClientContact contact2 = new ClientContact (Name, Phone);
+			ClientContact contact1 = new ClientContact (Name, Phone, Email);
+			ClientContact contact2 = new ClientContact (Name, Phone, Email);
 			Assert.AreEqual (contact1, contact2);
 		}
 	}

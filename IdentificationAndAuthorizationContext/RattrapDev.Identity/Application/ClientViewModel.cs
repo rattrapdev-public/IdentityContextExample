@@ -12,6 +12,7 @@ namespace RattrapDev.Identity
 			Status = client.ClientDetails.Status.ToString ();
 			ContactName = client.ContactInfo.Name;
 			ContactPhone = client.ContactInfo.Phone;
+			ContactEmail = client.ContactInfo.Email;
 		}
 
 		public ClientViewModel() { }
@@ -20,6 +21,7 @@ namespace RattrapDev.Identity
 		public string ClientName { get; set; }
 		public string ContactName { get; set; }
 		public string ContactPhone { get; set; }
+		public string ContactEmail { get; set; }
 		public string Status { get; set; }
 	}
 }
