@@ -31,6 +31,16 @@ namespace IdentityWeb
 					errorResponse.contactEmail = clientViewModel.ContactEmail;
 					return View["Views/SignUp", errorResponse];
 				}
+				catch(DuplicateContactEmailException) 
+				{
+					dynamic errorResponse = new ExpandoObject();
+					errorResponse.errorMessage = "The contact email is already assigned to another client!";
+					errorResponse.clientName = clientViewModel.ClientName;
+					errorResponse.contactName = clientViewModel.ContactName;
+					errorResponse.contactPhone = clientViewModel.ContactPhone;
+					errorResponse.contactEmail = string.Empty;
+					return View["Views/SignUp", errorResponse];
+				}
 				catch(ArgumentException) 
 				{
 					dynamic errorResponse = new ExpandoObject();

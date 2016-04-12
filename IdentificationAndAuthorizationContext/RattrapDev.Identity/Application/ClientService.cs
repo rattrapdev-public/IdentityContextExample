@@ -17,10 +17,17 @@ namespace RattrapDev.Identity
 		public ClientViewModel SaveNewClient (ClientViewModel viewModel)
 		{
 			var client = new Client (viewModel.ClientName, viewModel.ContactName, viewModel.ContactPhone, viewModel.ContactEmail);
+
 			if (!((new ClientNameUniqueSpecification(repository).IsSatisifiedBy(client)))) 
 			{
 				throw new DuplicateClientException ();
 			}
+
+			if (!((new ContactEmailUniqueSpecification (repository).IsSatisifiedBy (client)))) 
+			{
+				throw new DuplicateContactEmailException ();
+			}
+
 			repository.Store (client);
 			return new ClientViewModel(client);
 		}

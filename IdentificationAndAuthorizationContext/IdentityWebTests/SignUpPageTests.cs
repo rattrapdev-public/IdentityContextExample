@@ -67,6 +67,27 @@ namespace IdentityWebTests
 		}
 
 		[Test]
+		public void ShouldReturnMessageWithDuplicateContactEmail() 
+		{
+			IClientService clientService = new ClientService ();
+			var bootstrapper = new CustomTestBootstrapper (clientService);
+			var browser = new Browser (bootstrapper);
+
+			var clients = clientService.GetAll ();
+
+			BrowserResponse response = browser.Post ("/SignUp", (with) => {
+				with.HttpRequest();
+				with.FormValue("ClientName", "Unique client name");
+				with.FormValue("ContactName", "James Dean");
+				with.FormValue("ContactPhone", "8008674309");
+				with.FormValue("ContactEmail", clients.First().ContactEmail);
+			});
+
+			string validationText = response.Body ["div#ValidationText p"].ShouldExistOnce().And.InnerText;
+			Assert.That(validationText, Is.StringContaining("The contact email is already assigned to another client!"));
+		}
+
+		[Test]
 		public void ShouldShowMessageWithNullInput() 
 		{
 			IClientService clientService = new ClientService ();
