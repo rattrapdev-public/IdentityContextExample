@@ -64,7 +64,14 @@ namespace RattrapDev.Identity.Domain.Client
 					throw new ArgumentException ("The email is required!");
 				}
 
-				new MailAddress (value);
+				try 
+				{
+					new MailAddress (value);
+				}
+				catch (System.FormatException) 
+				{
+					throw new ArgumentException ("The email is invalid!");
+				}
 
 				email = value;
 			}

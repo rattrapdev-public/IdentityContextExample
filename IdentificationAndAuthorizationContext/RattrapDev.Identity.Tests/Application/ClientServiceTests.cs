@@ -12,17 +12,19 @@ namespace RattrapDev.Identity.Tests
 		private const string ClientName = "Acme";
 		private const string ContactName = "Wily E. Coyote";
 		private const string Phone = "1234567890";
+		private const string Email = "Joe@joe.com";
 
 		private const string UpdatedContactName = "Bugs Bunny";
 		private const string UpdatedClientName = "Acme Corp";
 		private const string UpdatedPhone = "5558675309";
+		private const string UpdatedEmail = "joey@joe.com";
 
 		private IClientService service = new ClientService ();
 
 		[Test]
 		public void SavesNewClientWithGivenValues() 
 		{
-			var client = service.SaveNewClient (new ClientViewModel { ClientName = ClientName, ContactName = ContactName, ContactPhone = Phone });
+			var client = service.SaveNewClient (new ClientViewModel { ClientName = ClientName, ContactName = ContactName, ContactPhone = Phone, ContactEmail = Email });
 			Assert.That (client.ClientName, Is.EqualTo (ClientName));
 			Assert.That (client.Status, Is.EqualTo (ClientStatus.SignedUp.ToString ()));
 			Assert.That (client.ContactName, Is.EqualTo (ContactName));
@@ -34,15 +36,15 @@ namespace RattrapDev.Identity.Tests
 		{
 			var client = service.GetAll ().First ();
 			var clientName = client.ClientName;
-			Assert.Throws<DuplicateClientException>(() => service.SaveNewClient (new ClientViewModel { ClientName = clientName, ContactName = ContactName, ContactPhone = Phone }));
+			Assert.Throws<DuplicateClientException>(() => service.SaveNewClient (new ClientViewModel { ClientName = clientName, ContactName = ContactName, ContactPhone = Phone, ContactEmail = Email }));
 		}
 
 		[Test]
 		public void UpdatesClientWithGivenValues() 
 		{
 			var clientName = ClientName + Guid.NewGuid ();
-			var client = service.SaveNewClient (new ClientViewModel { ClientName = clientName, ContactName = ContactName, ContactPhone = Phone });
-			var updatedClient = service.UpdateClient (new ClientViewModel { ClientIdentity = client.ClientIdentity, ClientName = UpdatedClientName, ContactName = UpdatedContactName, ContactPhone = UpdatedPhone });
+			var client = service.SaveNewClient (new ClientViewModel { ClientName = clientName, ContactName = ContactName, ContactPhone = Phone, ContactEmail = Email });
+			var updatedClient = service.UpdateClient (new ClientViewModel { ClientIdentity = client.ClientIdentity, ClientName = UpdatedClientName, ContactName = UpdatedContactName, ContactPhone = UpdatedPhone, ContactEmail = UpdatedEmail });
 			Assert.That (updatedClient.ClientName, Is.EqualTo (UpdatedClientName));
 			Assert.That (updatedClient.Status, Is.EqualTo (ClientStatus.SignedUp.ToString ()));
 			Assert.That (updatedClient.ContactName, Is.EqualTo (UpdatedContactName));
@@ -53,7 +55,7 @@ namespace RattrapDev.Identity.Tests
 		public void GetsByIdentifier()
 		{
 			var clientName = ClientName + Guid.NewGuid ();
-			var client = service.SaveNewClient (new ClientViewModel { ClientName = clientName, ContactName = ContactName, ContactPhone = Phone });
+			var client = service.SaveNewClient (new ClientViewModel { ClientName = clientName, ContactName = ContactName, ContactPhone = Phone, ContactEmail = Email });
 			var retrievedClient = service.GetClient (client.ClientIdentity);
 			Assert.That (retrievedClient.ClientName, Is.EqualTo (clientName));
 			Assert.That (retrievedClient.Status, Is.EqualTo (ClientStatus.SignedUp.ToString ()));
@@ -65,7 +67,7 @@ namespace RattrapDev.Identity.Tests
 		public void ActivateSetsStatus()
 		{
 			var clientName = ClientName + Guid.NewGuid ();
-			var client = service.SaveNewClient (new ClientViewModel { ClientName = clientName, ContactName = ContactName, ContactPhone = Phone });
+			var client = service.SaveNewClient (new ClientViewModel { ClientName = clientName, ContactName = ContactName, ContactPhone = Phone, ContactEmail = Email });
 			var retrievedClient = service.ActivateClient (client.ClientIdentity);
 			Assert.That (retrievedClient.Status, Is.EqualTo (ClientStatus.Online.ToString ()));
 		}	
@@ -75,10 +77,10 @@ namespace RattrapDev.Identity.Tests
 		{
 			ClientInMemoryRepository.ClearDictionary ();
 			var clientService = new ClientService ();
-			clientService.SaveNewClient (new ClientViewModel { ClientName = ClientName + Guid.NewGuid().ToString(), ContactName = ContactName, ContactPhone = Phone });
-			clientService.SaveNewClient (new ClientViewModel { ClientName = ClientName + Guid.NewGuid().ToString(), ContactName = ContactName, ContactPhone = Phone });
-			clientService.SaveNewClient (new ClientViewModel { ClientName = ClientName + Guid.NewGuid().ToString(), ContactName = ContactName, ContactPhone = Phone });
-			clientService.SaveNewClient (new ClientViewModel { ClientName = ClientName + Guid.NewGuid().ToString(), ContactName = ContactName, ContactPhone = Phone });
+			clientService.SaveNewClient (new ClientViewModel { ClientName = ClientName + Guid.NewGuid().ToString(), ContactName = ContactName, ContactPhone = Phone, ContactEmail = Email });
+			clientService.SaveNewClient (new ClientViewModel { ClientName = ClientName + Guid.NewGuid().ToString(), ContactName = ContactName, ContactPhone = Phone, ContactEmail = Email });
+			clientService.SaveNewClient (new ClientViewModel { ClientName = ClientName + Guid.NewGuid().ToString(), ContactName = ContactName, ContactPhone = Phone, ContactEmail = Email });
+			clientService.SaveNewClient (new ClientViewModel { ClientName = ClientName + Guid.NewGuid().ToString(), ContactName = ContactName, ContactPhone = Phone, ContactEmail = Email });
 			var clientList = clientService.GetAll ();
 			Assert.That (clientList.Count, Is.EqualTo (6));
 		}
