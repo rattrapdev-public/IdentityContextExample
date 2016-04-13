@@ -66,6 +66,7 @@
     <Compile Include="Domain\Applications\AppUrlTests.cs" />
     <Compile Include="Infrastructure\Applications\AppInMemoryRepositoryTests.cs" />
     <Compile Include="Application\AppServiceTests.cs" />
+    <Compile Include="Domain\ContactEmailUniqueSpecificationTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RattrapDev.Identity\RattrapDev.Identity.csproj">

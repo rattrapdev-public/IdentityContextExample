@@ -56,6 +56,8 @@
     <Compile Include="Infrastructure\Applications\AppDto.cs" />
     <Compile Include="Infrastructure\Applications\AppInMemoryRepository.cs" />
     <Compile Include="Application\AppService.cs" />
+    <Compile Include="Domain\Client\ContactEmailUniqueSpecification.cs" />
+    <Compile Include="Domain\Client\DuplicateContactEmailException.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

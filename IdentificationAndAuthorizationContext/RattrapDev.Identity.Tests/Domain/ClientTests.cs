@@ -1,6 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 using RattrapDev.Identity.Domain.Client;
+using Shouldly;
 
 namespace RattrapDev.Identity.Tests
 {
@@ -10,16 +11,18 @@ namespace RattrapDev.Identity.Tests
 		private const string ClientName = "Acme";
 		private const string ContactName = "Wily E. Coyote";
 		private const string ContactPhone = "1234567890";
+		private const string ContactEmail = "joe@joe.com";
 
 		[Test]
 		public void ConstructorCreatesNewClient() 
 		{
-			Client client = new Client (ClientName, ContactName, ContactPhone);
-			Assert.IsNotNull (client.Identifier);
-			Assert.AreEqual (client.ClientDetails.Name, ClientName);
-			Assert.AreEqual (client.ClientDetails.Status, ClientStatus.SignedUp);
-			Assert.AreEqual (client.ContactInfo.Name, ContactName);
-			Assert.AreEqual (client.ContactInfo.Phone, ContactPhone);
+			Client client = new Client (ClientName, ContactName, ContactPhone, ContactEmail);
+			client.Identifier.ShouldNotBeNull();
+			client.ClientDetails.Name.ShouldBe(ClientName);
+			client.ClientDetails.Status.ShouldBe(ClientStatus.SignedUp);
+			client.ContactInfo.Name.ShouldBe(ContactName);
+			client.ContactInfo.Phone.ShouldBe(ContactPhone);
+			client.ContactInfo.Email.ShouldBe (ContactEmail);
 		}
 
 		[Test]
@@ -27,10 +30,10 @@ namespace RattrapDev.Identity.Tests
 		{
 			Guid identity = Guid.NewGuid ();
 			ClientStatus currentStatus = ClientStatus.Online;
-			Client client = new Client (identity, ClientName, currentStatus, ContactName, ContactPhone);
-			Assert.AreEqual (new ClientIdentifier (identity), client.Identifier);
-			Assert.AreEqual (new ClientDetails (ClientName, currentStatus), client.ClientDetails);
-			Assert.AreEqual (new ClientContact (ContactName, ContactPhone), client.ContactInfo);
+			Client client = new Client (identity, ClientName, currentStatus, ContactName, ContactPhone, ContactEmail);
+			new ClientIdentifier (identity).ShouldBe(client.Identifier);
+			new ClientDetails (ClientName, currentStatus).ShouldBe(client.ClientDetails);
+			new ClientContact (ContactName, ContactPhone, ContactEmail).ShouldBe(client.ContactInfo);
 		}
 
 		[Test]
@@ -38,15 +41,15 @@ namespace RattrapDev.Identity.Tests
 		{
 			Guid identity = Guid.NewGuid ();
 			ClientStatus currentStatus = ClientStatus.Online;
-			Client client1 = new Client (identity, ClientName, currentStatus, ContactName, ContactPhone);
-			Client client2 = new Client (identity, ClientName, currentStatus, ContactName, ContactPhone);
+			Client client1 = new Client (identity, ClientName, currentStatus, ContactName, ContactPhone, ContactEmail);
+			Client client2 = new Client (identity, ClientName, currentStatus, ContactName, ContactPhone, ContactEmail);
 			Assert.AreEqual (client1, client2);
 		}
 
 		[Test]
 		public void NewClientCanBeActivated() 
 		{
-			Client client = new Client (ClientName, ContactName, ContactPhone);
+			Client client = new Client (ClientName, ContactName, ContactPhone, ContactEmail);
 			client.Activate ();
 			Assert.AreEqual (client.ClientDetails.Status, ClientStatus.Online);
 		}

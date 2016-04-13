@@ -33,7 +33,8 @@ namespace RattrapDev.Identity.Infrastructure
 				client.ClientDetails.Name, 
 				client.ClientDetails.Status, 
 				client.ContactInfo.Name, 
-				client.ContactInfo.Phone);
+				client.ContactInfo.Phone,
+				client.ContactInfo.Email);
 			if (dict.ContainsKey (client.Identifier)) 
 			{
 				dict [client.Identifier] = clientToSave;
@@ -53,9 +54,9 @@ namespace RattrapDev.Identity.Infrastructure
 		{
 			dict = new Dictionary<ClientIdentifier, Client> ();
 
-			var clientToAdd = new Client ("Acme Corporation", "Wile E. Coyote", "3195553434");
+			var clientToAdd = new Client ("Acme Corporation", "Wile E. Coyote", "3195553434", "wile.coyote@acme.com");
 			dict.Add(clientToAdd.Identifier, clientToAdd);
-			clientToAdd = new Client ("Geonetric", "John Doe", "3195553221");
+			clientToAdd = new Client ("Geonetric", "John Doe", "3195553221", "john.doe@geonetric.com");
 			dict.Add (clientToAdd.Identifier, clientToAdd);
 		}
 

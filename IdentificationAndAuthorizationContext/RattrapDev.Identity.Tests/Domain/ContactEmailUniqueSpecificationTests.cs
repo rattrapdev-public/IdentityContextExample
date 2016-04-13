@@ -1,20 +1,20 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using RattrapDev.Identity.Infrastructure;
 using RattrapDev.Identity.Domain.Client;
+using System;
 
 namespace RattrapDev.Identity.Tests
 {
 	[TestFixture]
-	public class ClientNameUniqueSpecificationTests
+	public class ContactEmailUniqueSpecificationTests
 	{
 		[Test]
 		public void ReturnsTrueWithUniqueClientName() 
 		{
 			var repository = new ClientInMemoryRepository ();
-			var specification = new ClientNameUniqueSpecification (repository);
+			var specification = new ContactEmailUniqueSpecification (repository);
 
-			Client client = new Client (Guid.NewGuid ().ToString (), "John Doe", "1234567890", "joe@joe.com");
+			Client client = new Client ("Client", "John Doe", "1234567890", "joe@joe.com");
 			Assert.IsTrue (specification.IsSatisifiedBy (client));
 		}
 
@@ -22,11 +22,11 @@ namespace RattrapDev.Identity.Tests
 		public void ReturnsFalseWithDuplicateUniqueClient() 
 		{
 			var repository = new ClientInMemoryRepository ();
-			var specification = new ClientNameUniqueSpecification (repository);
+			var specification = new ContactEmailUniqueSpecification (repository);
 
-			Client client = new Client ("Duplicate Client", "John Doe", "1234567890", "joe@joe.com");
+			Client client = new Client ("Client 1", "John Doe", "1234567890", "duplicate@joe.com");
 			repository.Store (client);
-			Client duplicateClient = new Client ("Duplicate Client", "John Doe", "1234567890", "joe@joe.com");
+			Client duplicateClient = new Client ("Client 2", "John Doe", "1234567890", "duplicate@joe.com");
 
 			Assert.IsFalse (specification.IsSatisifiedBy (duplicateClient));
 		}
@@ -35,9 +35,9 @@ namespace RattrapDev.Identity.Tests
 		public void ReturnsTrueWithDuplicateExistingClient() 
 		{
 			var repository = new ClientInMemoryRepository ();
-			var specification = new ClientNameUniqueSpecification (repository);
+			var specification = new ContactEmailUniqueSpecification (repository);
 
-			Client client = new Client ("Duplicate Client", "John Doe", "1234567890", "joe@joe.com");
+			Client client = new Client ("Client", "John Doe", "1234567890", "existing@joe.com");
 			repository.Store (client);
 
 			Assert.IsTrue (specification.IsSatisifiedBy (client));

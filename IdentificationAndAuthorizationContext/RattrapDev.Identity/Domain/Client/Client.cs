@@ -13,22 +13,22 @@ namespace RattrapDev.Identity.Domain.Client
 		/// Initializes a new instance of the <see cref="RattrapDev.Identity.Domain.Client.Client"/> class.
 		/// Constructor used for signing up of a new Client.
 		/// </summary>
-		public Client (string clientName, string contactName, string contactPhone)
+		public Client (string clientName, string contactName, string contactPhone, string contactEmail)
 		{
 			this.Identifier = new ClientIdentifier ();
 			this.ClientDetails = new ClientDetails (clientName, ClientStatus.SignedUp);
-			this.ContactInfo = new ClientContact (contactName, contactPhone);
+			this.ContactInfo = new ClientContact (contactName, contactPhone, contactEmail);
 		}
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="RattrapDev.Identity.Domain.Client.Client"/> class.
 		/// Used for reconstituting the Client.
 		/// </summary>
-		public Client(Guid clientIdentity, string clientName, ClientStatus clientStatus, string contactName, string contactPhone) 
+		public Client(Guid clientIdentity, string clientName, ClientStatus clientStatus, string contactName, string contactPhone, string contactEmail) 
 		{
 			this.Identifier = new ClientIdentifier (clientIdentity);
 			this.ClientDetails = new ClientDetails (clientName, clientStatus);
-			this.ContactInfo = new ClientContact (contactName, contactPhone);
+			this.ContactInfo = new ClientContact (contactName, contactPhone, contactEmail);
 		}
 
 		public ClientIdentifier Identifier 
@@ -72,9 +72,9 @@ namespace RattrapDev.Identity.Domain.Client
 			this.ClientDetails = new ClientDetails (this.ClientDetails.Name, ClientStatus.Online);
 		}
 
-		public void UpdateClientContactInfo(string name, string phone) 
+		public void UpdateClientContactInfo(string name, string phone, string email) 
 		{
-			this.ContactInfo = new ClientContact (name, phone);
+			this.ContactInfo = new ClientContact (name, phone, email);
 		}
 
 		public void UpdateClientDetails(string name) 
