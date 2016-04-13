@@ -37,6 +37,17 @@ namespace RattrapDev.Identity
 			Client clientToUpdate = repository.GetBy (new ClientIdentifier (viewModel.ClientIdentity));
 			clientToUpdate.UpdateClientDetails (viewModel.ClientName);
 			clientToUpdate.UpdateClientContactInfo (viewModel.ContactName, viewModel.ContactPhone, viewModel.ContactEmail);
+
+			if (!((new ClientNameUniqueSpecification(repository).IsSatisifiedBy(clientToUpdate)))) 
+			{
+				throw new DuplicateClientException ();
+			}
+
+			if (!((new ContactEmailUniqueSpecification (repository).IsSatisifiedBy (clientToUpdate)))) 
+			{
+				throw new DuplicateContactEmailException ();
+			}
+
 			repository.Store (clientToUpdate);
 			return new ClientViewModel(clientToUpdate);
 		}

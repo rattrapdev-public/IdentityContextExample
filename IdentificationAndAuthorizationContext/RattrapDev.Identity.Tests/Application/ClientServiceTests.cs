@@ -3,6 +3,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using RattrapDev.Identity.Infrastructure;
 using System.Linq;
+using Shouldly;
 
 namespace RattrapDev.Identity.Tests
 {
@@ -50,6 +51,22 @@ namespace RattrapDev.Identity.Tests
 			Assert.That (updatedClient.Status, Is.EqualTo (ClientStatus.SignedUp.ToString ()));
 			Assert.That (updatedClient.ContactName, Is.EqualTo (UpdatedContactName));
 			Assert.That (updatedClient.ContactPhone, Is.EqualTo (UpdatedPhone));
+		}
+
+		public void UpdateClient_duplicate_client_name_throws_exception() 
+		{
+			var service = new ClientService ();
+			var clientName = ClientName + Guid.NewGuid ();
+			var client = service.SaveNewClient (new ClientViewModel { ClientName = clientName, ContactName = ContactName, ContactPhone = Phone, ContactEmail = Email });
+			Should.Throw<DuplicateClientException>(() => service.UpdateClient(new ClientViewModel { ClientIdentity = client.ClientIdentity, ClientName = clientName, ContactName = UpdatedContactName, ContactPhone = UpdatedPhone, ContactEmail = UpdatedEmail }));
+		}
+
+		public void UpdateClient_duplicate_contactEmail_throws_exception() 
+		{
+			var service = new ClientService ();
+			var clientName = ClientName + Guid.NewGuid ();
+			var client = service.SaveNewClient (new ClientViewModel { ClientName = clientName, ContactName = ContactName, ContactPhone = Phone, ContactEmail = Email });
+			Should.Throw<DuplicateContactEmailException>(() => service.UpdateClient(new ClientViewModel { ClientIdentity = client.ClientIdentity, ClientName = UpdatedClientName, ContactName = UpdatedContactName, ContactPhone = UpdatedPhone, ContactEmail = Email }));
 		}
 
 		[Test]
