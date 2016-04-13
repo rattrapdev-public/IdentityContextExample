@@ -30,12 +30,6 @@ namespace IdentityWeb
 		protected override void ApplicationStartup (ILifetimeScope container, IPipelines pipelines)
 		{
 			base.ApplicationStartup (container, pipelines);
-			var builder = new ContainerBuilder ();
-			builder.RegisterInstance (clientService).As<IClientService> ().SingleInstance();
-			builder.RegisterType<MockUserMapper> ().As<IUserMapper> ();
-			builder.RegisterType<AppInMemoryRepository> ().As<IAppRepository> ().SingleInstance();
-			builder.RegisterType<AppService> ().As<IAppService> ().SingleInstance();
-			builder.Update (container.ComponentRegistry);
 
 			StaticConfiguration.DisableErrorTraces = false;
 
@@ -46,6 +40,16 @@ namespace IdentityWeb
 			};
 
 			FormsAuthentication.Enable (pipelines, formsAuthConfig);
+		}
+
+		protected override void ConfigureApplicationContainer (ILifetimeScope existingContainer)
+		{
+			var builder = new ContainerBuilder ();
+			builder.RegisterInstance (clientService).As<IClientService> ().SingleInstance();
+			builder.RegisterType<MockUserMapper> ().As<IUserMapper> ();
+			builder.RegisterType<AppInMemoryRepository> ().As<IAppRepository> ().SingleInstance();
+			builder.RegisterType<AppService> ().As<IAppService> ().SingleInstance();
+			builder.Update (existingContainer.ComponentRegistry);
 		}
 
 		protected override void ConfigureConventions (Nancy.Conventions.NancyConventions nancyConventions)
