@@ -2,7 +2,7 @@
 using RattrapDev.DDD;
 using System.Net.Mail;
 
-namespace RattrapDev.Identity.Domain.Client
+namespace RattrapDev.Identity.Domain.Clients
 {
 	public class ClientContact : IValueObject, IEquatable<ClientContact>
 	{

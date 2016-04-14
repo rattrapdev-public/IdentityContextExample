@@ -33,17 +33,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Domain\Client\Client.cs" />
-    <Compile Include="Domain\Client\ClientContact.cs" />
-    <Compile Include="Domain\Client\ClientIdentifier.cs" />
-    <Compile Include="Domain\Client\ClientStatus.cs" />
-    <Compile Include="Domain\Client\ClientDetails.cs" />
     <Compile Include="Application\IClientService.cs" />
-    <Compile Include="Domain\Client\IClientRepository.cs" />
-    <Compile Include="Infrastructure\ClientInMemoryRepository.cs" />
     <Compile Include="Application\ClientService.cs" />
-    <Compile Include="Domain\Client\ClientNameUniqueSpecification.cs" />
-    <Compile Include="Domain\Client\DuplicateClientException.cs" />
     <Compile Include="Application\ClientViewModel.cs" />
     <Compile Include="Domain\Applications\ApplicationUrl.cs" />
     <Compile Include="Application\AppViewModel.cs" />
@@ -56,17 +47,27 @@
     <Compile Include="Infrastructure\Applications\AppDto.cs" />
     <Compile Include="Infrastructure\Applications\AppInMemoryRepository.cs" />
     <Compile Include="Application\AppService.cs" />
-    <Compile Include="Domain\Client\ContactEmailUniqueSpecification.cs" />
-    <Compile Include="Domain\Client\DuplicateContactEmailException.cs" />
+    <Compile Include="Infrastructure\Client\ClientInMemoryRepository.cs" />
+    <Compile Include="Domain\Clients\Client.cs" />
+    <Compile Include="Domain\Clients\ClientContact.cs" />
+    <Compile Include="Domain\Clients\ClientIdentifier.cs" />
+    <Compile Include="Domain\Clients\ClientStatus.cs" />
+    <Compile Include="Domain\Clients\ClientDetails.cs" />
+    <Compile Include="Domain\Clients\IClientRepository.cs" />
+    <Compile Include="Domain\Clients\ClientNameUniqueSpecification.cs" />
+    <Compile Include="Domain\Clients\DuplicateClientException.cs" />
+    <Compile Include="Domain\Clients\ContactEmailUniqueSpecification.cs" />
+    <Compile Include="Domain\Clients\DuplicateContactEmailException.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Domain\" />
-    <Folder Include="Domain\Client\" />
     <Folder Include="Application\" />
     <Folder Include="Infrastructure\" />
     <Folder Include="Infrastructure\Applications\" />
     <Folder Include="Domain\Applications\" />
+    <Folder Include="Infrastructure\Client\" />
+    <Folder Include="Domain\Clients\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RattrapDev.DDD\RattrapDev.DDD.csproj">

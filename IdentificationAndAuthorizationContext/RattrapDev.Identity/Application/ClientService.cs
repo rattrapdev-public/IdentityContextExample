@@ -1,10 +1,10 @@
 ﻿using System;
-using RattrapDev.Identity.Domain.Client;
-using RattrapDev.Identity.Infrastructure;
+using RattrapDev.Identity.Domain.Clients;
+using RattrapDev.Identity.Infrastructure.Clients;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace RattrapDev.Identity
+namespace RattrapDev.Identity.Application
 {
 	public class ClientService : IClientService
 	{

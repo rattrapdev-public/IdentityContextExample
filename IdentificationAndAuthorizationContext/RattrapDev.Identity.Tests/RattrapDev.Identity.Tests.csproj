@@ -50,15 +50,11 @@
     <Folder Include="Infrastructure\" />
     <Folder Include="Domain\Applications\" />
     <Folder Include="Infrastructure\Applications\" />
+    <Folder Include="Domain\Client\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\ClientIdentifierTests.cs" />
-    <Compile Include="Domain\ClientContactTests.cs" />
-    <Compile Include="Domain\ClientDetailTests.cs" />
-    <Compile Include="Domain\ClientTests.cs" />
     <Compile Include="Infrastructure\ClientInMemoryRepositoryTests.cs" />
     <Compile Include="Application\ClientServiceTests.cs" />
-    <Compile Include="Domain\ClientNameUniqueSpecificationTests.cs" />
     <Compile Include="Domain\Applications\AppIdentifierTests.cs" />
     <Compile Include="Domain\Applications\AppMetadataTests.cs" />
     <Compile Include="Domain\Applications\AppSearchResultTests.cs" />
@@ -66,7 +62,12 @@
     <Compile Include="Domain\Applications\AppUrlTests.cs" />
     <Compile Include="Infrastructure\Applications\AppInMemoryRepositoryTests.cs" />
     <Compile Include="Application\AppServiceTests.cs" />
-    <Compile Include="Domain\ContactEmailUniqueSpecificationTests.cs" />
+    <Compile Include="Domain\Client\ClientContactTests.cs" />
+    <Compile Include="Domain\Client\ClientDetailTests.cs" />
+    <Compile Include="Domain\Client\ClientIdentifierTests.cs" />
+    <Compile Include="Domain\Client\ClientNameUniqueSpecificationTests.cs" />
+    <Compile Include="Domain\Client\ClientTests.cs" />
+    <Compile Include="Domain\Client\ContactEmailUniqueSpecificationTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RattrapDev.Identity\RattrapDev.Identity.csproj">

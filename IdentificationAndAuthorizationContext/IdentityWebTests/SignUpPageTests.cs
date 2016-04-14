@@ -4,7 +4,7 @@ using Nancy.Testing;
 using RattrapDev.Identity;
 using System.Collections.Generic;
 using System.Linq;
-using RattrapDev.Identity.Domain.Client;
+using RattrapDev.Identity.Application;
 
 namespace IdentityWebTests
 {

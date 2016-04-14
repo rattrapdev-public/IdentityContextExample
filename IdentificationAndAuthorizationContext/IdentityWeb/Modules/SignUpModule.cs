@@ -3,6 +3,7 @@ using Nancy;
 using RattrapDev.Identity;
 using System.Dynamic;
 using Nancy.ModelBinding;
+using RattrapDev.Identity.Domain.Clients;
 
 namespace IdentityWeb
 {

@@ -2,7 +2,7 @@
 using System.Linq;
 using RattrapDev.DDD;
 
-namespace RattrapDev.Identity.Domain.Client
+namespace RattrapDev.Identity.Domain.Clients
 {
 	public class ClientNameUniqueSpecification : IValidationSpecification<Client>
 	{

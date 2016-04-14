@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using RattrapDev.Identity.Domain.Client;
+using RattrapDev.Identity.Domain.Clients;
 using System.Linq;
 
-namespace RattrapDev.Identity.Infrastructure
+namespace RattrapDev.Identity.Infrastructure.Clients
 {
 	public class ClientInMemoryRepository : IClientRepository
 	{

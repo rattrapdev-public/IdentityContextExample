@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RattrapDev.Identity
+namespace RattrapDev.Identity.Domain.Clients
 {
 	public class DuplicateClientException : Exception
 	{

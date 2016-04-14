@@ -1,7 +1,7 @@
 ﻿using System;
 using RattrapDev.DDD;
 
-namespace RattrapDev.Identity.Domain.Client
+namespace RattrapDev.Identity.Domain.Clients
 {
 	public class ClientIdentifier : IValueObject, IEquatable<ClientIdentifier>
 	{

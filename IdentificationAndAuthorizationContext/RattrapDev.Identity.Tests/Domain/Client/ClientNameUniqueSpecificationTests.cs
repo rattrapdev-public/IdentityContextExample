@@ -1,7 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
-using RattrapDev.Identity.Infrastructure;
-using RattrapDev.Identity.Domain.Client;
+using RattrapDev.Identity.Infrastructure.Clients;
+using RattrapDev.Identity.Domain.Clients;
 
 namespace RattrapDev.Identity.Tests
 {

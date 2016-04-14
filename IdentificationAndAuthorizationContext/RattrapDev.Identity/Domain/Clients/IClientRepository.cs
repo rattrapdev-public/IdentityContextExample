@@ -1,8 +1,7 @@
 ﻿using System;
-using RattrapDev.Identity.Domain.Client;
 using System.Collections.Generic;
 
-namespace RattrapDev.Identity
+namespace RattrapDev.Identity.Domain.Clients
 {
 	public interface IClientRepository
 	{

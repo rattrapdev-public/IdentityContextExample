@@ -1,5 +1,5 @@
 ﻿using System;
-using RattrapDev.Identity.Domain.Client;
+using RattrapDev.Identity.Domain.Clients;
 
 namespace RattrapDev.Identity
 {

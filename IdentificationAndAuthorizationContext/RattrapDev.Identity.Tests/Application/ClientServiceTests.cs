@@ -1,9 +1,10 @@
 ﻿using System;
 using NUnit.Framework;
-using System.Collections.Generic;
-using RattrapDev.Identity.Infrastructure;
+using RattrapDev.Identity.Infrastructure.Clients;
 using System.Linq;
 using Shouldly;
+using RattrapDev.Identity.Application;
+using RattrapDev.Identity.Domain.Clients;
 
 namespace RattrapDev.Identity.Tests
 {
