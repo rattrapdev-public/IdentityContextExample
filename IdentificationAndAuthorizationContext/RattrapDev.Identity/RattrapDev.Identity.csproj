@@ -58,6 +58,7 @@
     <Compile Include="Domain\Clients\DuplicateClientException.cs" />
     <Compile Include="Domain\Clients\ContactEmailUniqueSpecification.cs" />
     <Compile Include="Domain\Clients\DuplicateContactEmailException.cs" />
+    <Compile Include="Domain\Users\UserIdentifier.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -68,6 +69,7 @@
     <Folder Include="Domain\Applications\" />
     <Folder Include="Infrastructure\Client\" />
     <Folder Include="Domain\Clients\" />
+    <Folder Include="Domain\Users\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RattrapDev.DDD\RattrapDev.DDD.csproj">
