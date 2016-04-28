@@ -61,9 +61,9 @@
     <Compile Include="Domain\Users\UserIdentifier.cs" />
     <Compile Include="Domain\Users\Name.cs" />
     <Compile Include="Domain\Users\Email.cs" />
-    <Compile Include="Domain\Users\Username.cs" />
     <Compile Include="Domain\Users\Password.cs" />
     <Compile Include="Domain\Users\User.cs" />
+    <Compile Include="Domain\Users\LoginInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
