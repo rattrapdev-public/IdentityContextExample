@@ -70,6 +70,7 @@
     <Compile Include="Domain\Client\ClientTests.cs" />
     <Compile Include="Domain\Client\ContactEmailUniqueSpecificationTests.cs" />
     <Compile Include="Domain\Users\UserIdentifierTests.cs" />
+    <Compile Include="Domain\Users\LoginInfoTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RattrapDev.Identity\RattrapDev.Identity.csproj">
