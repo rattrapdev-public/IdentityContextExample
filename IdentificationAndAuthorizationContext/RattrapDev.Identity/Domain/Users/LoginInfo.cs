@@ -60,7 +60,12 @@ namespace RattrapDev.Identity.Domain.Users
 				return false;
 			}
 
-			return ReferenceEquals (this, other);
+			if (ReferenceEquals (this, other)) 
+			{
+				return true;
+			}
+
+			return Username.Equals (other.Username) && Password.Equals(other.Password);
 		}
 	}
 }
