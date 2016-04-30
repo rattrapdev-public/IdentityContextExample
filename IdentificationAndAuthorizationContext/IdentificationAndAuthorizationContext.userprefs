@@ -1,12 +1,8 @@
 ﻿<Properties StartupItem="IdentityWeb/IdentityWeb.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="RattrapDev.Identity/Domain/Users/UserIdentifier.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RattrapDev.Identity/Domain/Users/Name.cs">
     <Files>
-      <File FileName="RattrapDev.Identity/Domain/Users/UserIdentifier.cs" Line="8" Column="19" />
-      <File FileName="RattrapDev.Identity/Domain/Applications/AppIdentifier.cs" Line="23" Column="5" />
-      <File FileName="RattrapDev.Identity.Tests/Domain/Users/UserIdentifierTests.cs" Line="3" Column="16" />
-      <File FileName="RattrapDev.Identity.Tests/Domain/Applications/AppIdentifierTests.cs" Line="9" Column="18" />
-      <File FileName="RattrapDev.Identity.Tests/Domain/Client/ClientIdentifierTests.cs" Line="1" Column="1" />
+      <File FileName="RattrapDev.Identity/Domain/Users/Name.cs" Line="7" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
