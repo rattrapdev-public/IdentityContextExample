@@ -63,6 +63,8 @@
     <Compile Include="Domain\Users\Email.cs" />
     <Compile Include="Domain\Users\User.cs" />
     <Compile Include="Domain\Users\LoginInfo.cs" />
+    <Compile Include="Domain\Users\InvalidatedPasswordException.cs" />
+    <Compile Include="Infrastructure\Users\UserDto.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -74,6 +76,7 @@
     <Folder Include="Infrastructure\Client\" />
     <Folder Include="Domain\Clients\" />
     <Folder Include="Domain\Users\" />
+    <Folder Include="Infrastructure\Users\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RattrapDev.DDD\RattrapDev.DDD.csproj">
