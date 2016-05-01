@@ -4,7 +4,7 @@ using System.Net.Mail;
 
 namespace RattrapDev.Identity.Domain.Users
 {
-	public class Email : IValueObject
+	public class Email : IValueObject, IEquatable<Email>
 	{
 		private string emailAddress;
 
@@ -30,6 +30,21 @@ namespace RattrapDev.Identity.Domain.Users
 
 				emailAddress = value;
 			}
+		}
+
+		public bool Equals (Email other)
+		{
+			if (other == null) 
+			{
+				return false;
+			}
+
+			if (ReferenceEquals (this, other)) 
+			{
+				return true;
+			}
+
+			return EmailAddress.Equals (other.EmailAddress);
 		}
 	}
 }
