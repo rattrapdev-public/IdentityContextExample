@@ -1,19 +1,22 @@
 ﻿using System;
 using RattrapDev.DDD;
 using RattrapDev.Identity.Infrastructure.Users;
+using RattrapDev.Identity.Domain.Clients;
 
 namespace RattrapDev.Identity.Domain.Users
 {
 	public class User : IAggregate
 	{
 		private UserIdentifier identifier;
+		private ClientIdentifier clientIdentifier;
 		private LoginInfo loginInfo;
 		private Name name;
 		private Email email;
 
-		public User (string username, string password, string firstName, string lastName, string email)
+		public User (Guid clientId, string username, string password, string firstName, string lastName, string email)
 		{
 			Identifier = new UserIdentifier ();
+			ClientIdentifier = new ClientIdentifier (clientId);
 			LoginInfo = new LoginInfo (username, password);
 			Name = new Name (firstName, lastName);
 			Email = new Email (email);
@@ -22,6 +25,7 @@ namespace RattrapDev.Identity.Domain.Users
 		public User(UserDto dto) 
 		{
 			Identifier = new UserIdentifier (dto.Id);
+			ClientIdentifier = new ClientIdentifier (dto.ClientId);
 			LoginInfo = new LoginInfo (dto.Username, dto.Password);
 			Name = new Name (dto.FirstName, dto.LastName);
 			Email = new Email (dto.EmailAddress);
@@ -41,6 +45,23 @@ namespace RattrapDev.Identity.Domain.Users
 				}
 
 				identifier = value;
+			}
+		}
+
+		public ClientIdentifier ClientIdentifier 
+		{
+			get 
+			{
+				return clientIdentifier;
+			}
+			private set 
+			{
+				if (value == null) 
+				{
+					throw new ArgumentNullException ("value", "Client Identifier : Cannot be null!");
+				}
+
+				clientIdentifier = value;
 			}
 		}
 
