@@ -31,13 +31,13 @@ namespace RattrapDev.Identity.Domain.Users
 			}
 		}
 
-		private string Password 
+		public string Password 
 		{
 			get 
 			{
 				return password;
 			}
-			set 
+			private set 
 			{
 				if (string.IsNullOrWhiteSpace (value)) 
 				{

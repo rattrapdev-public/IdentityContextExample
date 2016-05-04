@@ -65,6 +65,9 @@
     <Compile Include="Domain\Users\LoginInfo.cs" />
     <Compile Include="Domain\Users\InvalidatedPasswordException.cs" />
     <Compile Include="Infrastructure\Users\UserDto.cs" />
+    <Compile Include="Domain\Users\IUserRepository.cs" />
+    <Compile Include="Infrastructure\Users\UserInMemoryRepository.cs" />
+    <Compile Include="Domain\Users\UserSearchResult.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
