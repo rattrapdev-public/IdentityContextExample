@@ -68,6 +68,9 @@
     <Compile Include="Domain\Users\IUserRepository.cs" />
     <Compile Include="Infrastructure\Users\UserInMemoryRepository.cs" />
     <Compile Include="Domain\Users\UserSearchResult.cs" />
+    <Compile Include="Application\IUserService.cs" />
+    <Compile Include="Application\UserViewModel.cs" />
+    <Compile Include="Application\UserService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

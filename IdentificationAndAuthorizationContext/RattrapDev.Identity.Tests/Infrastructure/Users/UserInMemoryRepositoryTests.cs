@@ -4,6 +4,7 @@ using RattrapDev.Identity.Domain.Users;
 using RattrapDev.Identity.Infrastructure.Users;
 using Shouldly;
 using System.Linq;
+using RattrapDev.Identity.Infrastructure;
 
 namespace RattrapDev.Identity.Tests
 {

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using RattrapDev.Identity.Infrastructure.Users;
 using System.Linq;
 
-namespace RattrapDev.Identity
+namespace RattrapDev.Identity.Infrastructure
 {
 	public class UserInMemoryRepository : IUserRepository
 	{

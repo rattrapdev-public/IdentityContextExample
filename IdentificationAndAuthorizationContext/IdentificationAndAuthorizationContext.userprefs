@@ -1,30 +1,12 @@
 ﻿<Properties StartupItem="IdentityWeb/IdentityWeb.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="RattrapDev.Identity.Tests/Domain/Users/UserTests.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RattrapDev.Identity.Tests/Infrastructure/Users/UserInMemoryRepositoryTests.cs">
     <Files>
-      <File FileName="RattrapDev.Identity/Domain/Users/Name.cs" Line="52" Column="4" />
-      <File FileName="RattrapDev.Identity.Tests/Domain/Users/NameTests.cs" Line="32" Column="4" />
-      <File FileName="RattrapDev.Identity.Tests/Domain/Users/LoginInfoTests.cs" Line="17" Column="4" />
-      <File FileName="RattrapDev.Identity/Domain/Users/LoginInfo.cs" Line="68" Column="78" />
-      <File FileName="RattrapDev.Identity/Domain/Users/Email.cs" Line="33" Column="4" />
-      <File FileName="RattrapDev.Identity.Tests/Domain/Users/EmailTests.cs" Line="40" Column="42" />
-      <File FileName="RattrapDev.Identity/Domain/Users/User.cs" Line="22" Column="20" />
-      <File FileName="RattrapDev.Identity/Domain/Users/InvalidatedPasswordException.cs" Line="4" Column="2" />
-      <File FileName="RattrapDev.Identity/Infrastructure/Users/UserDto.cs" Line="14" Column="2" />
-      <File FileName="RattrapDev.Identity/Infrastructure/Applications/AppInMemoryRepository.cs" Line="27" Column="5" />
-      <File FileName="RattrapDev.Identity.Tests/Domain/Users/UserTests.cs" Line="58" Column="89" />
+      <File FileName="RattrapDev.Identity.Tests/Infrastructure/Users/UserInMemoryRepositoryTests.cs" Line="38" Column="4" />
     </Files>
-    <Pads>
-      <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State name="__root__">
-          <Node name="IdentificationAndAuthorizationContext" expanded="True" selected="True" />
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/RattrapDev.Identity.Tests/Infrastructure/Applications/AppInMemoryRepositoryTests.cs" line="28" column="1" />
       <Breakpoint file="/Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/IdentityWeb/Modules/SignUpModule.cs" line="20" column="1" />
       <Breakpoint file="/Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/RattrapDev.Identity.Tests/Domain/Users/LoginInfoTests.cs" line="54" column="1" />
       <Breakpoint file="/Users/mwinger/IdentityContextExample/IdentificationAndAuthorizationContext/RattrapDev.Identity/Infrastructure/Users.cs" line="1" column="1" />
