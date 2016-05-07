@@ -10,6 +10,8 @@ using Nancy.Diagnostics;
 using RattrapDev.Identity.Infrastructure.Applications;
 using RattrapDev.Identity.Domain.Applications;
 using RattrapDev.Identity.Application;
+using RattrapDev.Identity.Infrastructure;
+using RattrapDev.Identity.Domain.Users;
 
 namespace IdentityWeb
 {
@@ -49,6 +51,9 @@ namespace IdentityWeb
 			builder.RegisterType<MockUserMapper> ().As<IUserMapper> ();
 			builder.RegisterType<AppInMemoryRepository> ().As<IAppRepository> ().SingleInstance();
 			builder.RegisterType<AppService> ().As<IAppService> ().SingleInstance();
+			builder.RegisterType<UserInMemoryRepository> ().As<IUserRepository>().SingleInstance;
+			builder.RegisterType<UserService> ().As <IUserService>().SingleInstance;
+
 			builder.Update (existingContainer.ComponentRegistry);
 		}
 
