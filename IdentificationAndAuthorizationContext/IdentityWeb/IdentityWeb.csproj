@@ -119,6 +119,7 @@
     <Content Include="Views\Admin\Partials\Validation.cshtml" />
     <Content Include="Views\Admin\AppAdminSearch.cshtml" />
     <Content Include="Views\Admin\AppAdminDetail.cshtml" />
+    <Content Include="Views\Admin\UserAdminDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Modules\" />
