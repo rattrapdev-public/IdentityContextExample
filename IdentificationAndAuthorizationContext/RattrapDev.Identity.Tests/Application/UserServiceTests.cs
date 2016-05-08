@@ -132,6 +132,35 @@ namespace RattrapDev.Identity.Tests
 			user.Email.EmailAddress.ShouldBe ("john@doe.com");
 			user.LoginInfo.Username.ShouldBe("jdoe");
 		}
+
+		public void ResetPassword_resets_password_and_stores_user() 
+		{
+
+			var dto = new UserDto 
+			{
+				Id = Guid.NewGuid(),
+				ClientId = Guid.NewGuid(),
+				Username = "jdoe",
+				Password = "password",
+				FirstName = "Johnny",
+				LastName = "Doseph",
+				EmailAddress = "johnny@doseph.com"
+			};
+
+			User user = null;
+			var repository = Substitute.For<IUserRepository> ();
+			repository.Store(Arg.Do<User>(u => user = u));
+			repository.GetByIdentifier (Arg.Any<UserIdentifier> ()).Returns (new User(dto));
+
+			var service = new UserService (repository);
+
+			service.ResetPassword (dto.Id, dto.Password, "newpassword");
+
+			user.ShouldNotBeNull ();
+			repository.Received ().Store (Arg.Any<User>());
+			repository.Received ().GetByIdentifier (Arg.Any<UserIdentifier>());
+			user.LoginInfo.ValidatePassword ("newpassword").ShouldBeTrue ();
+		}
 	}
 }
 

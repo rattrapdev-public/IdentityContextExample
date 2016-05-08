@@ -9,6 +9,7 @@ namespace RattrapDev.Identity.Application
 		IReadOnlyList<UserSearchResult> GetAllUsers();
 		UserViewModel GetUser(Guid userId);
 		UserViewModel SaveUser(UserViewModel viewModel);
+		void ResetPassword(Guid userId, string currentPassword, string newPassword);
 	}
 }
 

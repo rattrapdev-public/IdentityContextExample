@@ -56,6 +56,13 @@ namespace RattrapDev.Identity.Application
 				Email = user.Email.EmailAddress
 			};
 		}
+
+		public void ResetPassword (Guid userId, string currentPassword, string newPassword)
+		{
+			var user = repository.GetByIdentifier (new UserIdentifier (userId));
+			user.ResetPassword (currentPassword, newPassword);
+			repository.Store (user);
+		}
 	}
 }
 
