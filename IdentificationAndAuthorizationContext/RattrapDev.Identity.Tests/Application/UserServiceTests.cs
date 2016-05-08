@@ -22,8 +22,8 @@ namespace RattrapDev.Identity.Tests
 			var user2 = new User (Guid.NewGuid (), "janedoe", "password", "Jane", "Doe", "jane.doe@email.com");
 			IReadOnlyList<UserSearchResult> userList = new List<UserSearchResult> 
 											{
-												new UserSearchResult(user1.Identifier.Id, user1.LoginInfo.Username, user1.Name.FirstName, user1.Name.LastName, user1.Email.EmailAddress),
-												new UserSearchResult(user2.Identifier.Id, user2.LoginInfo.Username, user2.Name.FirstName, user2.Name.LastName, user2.Email.EmailAddress)
+												new UserSearchResult(user1.Identifier.Id, Guid.NewGuid(), "Client Name", user1.LoginInfo.Username, user1.Name.FirstName, user1.Name.LastName, user1.Email.EmailAddress),
+												new UserSearchResult(user2.Identifier.Id, Guid.NewGuid(), "Client Name", user2.LoginInfo.Username, user2.Name.FirstName, user2.Name.LastName, user2.Email.EmailAddress)
 											};
 			repository.All ().Returns (userList);
 
