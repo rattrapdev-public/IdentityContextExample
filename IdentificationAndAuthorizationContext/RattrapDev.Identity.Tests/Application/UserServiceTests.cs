@@ -154,7 +154,14 @@ namespace RattrapDev.Identity.Tests
 
 			var service = new UserService (repository);
 
-			service.ResetPassword (dto.Id, dto.Password, "newpassword");
+			var viewModel = new ResetPasswordViewModel 
+							{
+								UserId = dto.Id,
+								NewPassword = "password",
+								CurrentPassword = "newpassword"
+							};
+
+			service.ResetPassword (viewModel);
 
 			user.ShouldNotBeNull ();
 			repository.Received ().Store (Arg.Any<User>());

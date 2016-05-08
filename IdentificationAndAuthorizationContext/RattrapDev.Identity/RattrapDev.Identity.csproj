@@ -71,6 +71,7 @@
     <Compile Include="Application\IUserService.cs" />
     <Compile Include="Application\UserViewModel.cs" />
     <Compile Include="Application\UserService.cs" />
+    <Compile Include="Application\ResetPasswordViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
