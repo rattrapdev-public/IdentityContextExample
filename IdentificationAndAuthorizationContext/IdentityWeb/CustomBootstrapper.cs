@@ -1,5 +1,4 @@
-﻿using System;
-using Nancy.Bootstrappers.Autofac;
+﻿using Nancy.Bootstrappers.Autofac;
 using Autofac;
 using Nancy.Bootstrapper;
 using RattrapDev.Identity;
@@ -12,6 +11,8 @@ using RattrapDev.Identity.Domain.Applications;
 using RattrapDev.Identity.Application;
 using RattrapDev.Identity.Infrastructure;
 using RattrapDev.Identity.Domain.Users;
+using RattrapDev.Identity.Infrastructure.Clients;
+using RattrapDev.Identity.Domain.Clients;
 
 namespace IdentityWeb
 {
@@ -48,11 +49,12 @@ namespace IdentityWeb
 		{
 			var builder = new ContainerBuilder ();
 			builder.RegisterInstance (clientService).As<IClientService> ().SingleInstance();
+			builder.RegisterType<ClientInMemoryRepository> ().As<IClientRepository>().SingleInstance();
 			builder.RegisterType<MockUserMapper> ().As<IUserMapper> ();
 			builder.RegisterType<AppInMemoryRepository> ().As<IAppRepository> ().SingleInstance();
 			builder.RegisterType<AppService> ().As<IAppService> ().SingleInstance();
-			builder.RegisterType<UserInMemoryRepository> ().As<IUserRepository>().SingleInstance;
-			builder.RegisterType<UserService> ().As <IUserService>().SingleInstance;
+			builder.RegisterType<UserInMemoryRepository> ().As<IUserRepository> ().SingleInstance();
+			builder.RegisterType<UserService> ().As <IUserService> ().SingleInstance();
 
 			builder.Update (existingContainer.ComponentRegistry);
 		}

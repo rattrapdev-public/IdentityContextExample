@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using RattrapDev.Identity.Domain.Users;
 
 namespace RattrapDev.Identity.Application
 {

@@ -5,6 +5,8 @@ using RattrapDev.Identity.Infrastructure.Users;
 using Shouldly;
 using System.Linq;
 using RattrapDev.Identity.Infrastructure;
+using RattrapDev.Identity.Infrastructure.Clients;
+using RattrapDev.Identity.Domain.Clients;
 
 namespace RattrapDev.Identity.Tests
 {
@@ -14,7 +16,7 @@ namespace RattrapDev.Identity.Tests
 		[Test]
 		public void StoreAndGetByIdentifier_stores_and_gets_application() 
 		{
-			var repository = new UserInMemoryRepository ();
+			var repository = new UserInMemoryRepository (new ClientInMemoryRepository());
 			var user = new User (new UserDto{ Id = Guid.NewGuid(), ClientId = Guid.NewGuid(), Username = "jdoe", Password = "password", FirstName = "John", LastName = "Doe", EmailAddress = "john.doe@email.com" });
 			repository.Store (user);
 			var reconstitutedUser = repository.GetByIdentifier (user.Identifier);
@@ -28,10 +30,14 @@ namespace RattrapDev.Identity.Tests
 		[Test]
 		public void GetAll_returns_preexisting_app() 
 		{
-			var repository = new UserInMemoryRepository ();
-			var user1 = new User (new UserDto{ Id = Guid.NewGuid(), ClientId = Guid.NewGuid(), Username = "jdoe", Password = "password", FirstName = "John", LastName = "Doe", EmailAddress = "john.doe@email.com" });
-			var user2 = new User (new UserDto{ Id = Guid.NewGuid(), ClientId = Guid.NewGuid(), Username = "jdoe", Password = "password", FirstName = "John", LastName = "Doe", EmailAddress = "john.doe@email.com" });
-			var user3 = new User (new UserDto{ Id = Guid.NewGuid(), ClientId = Guid.NewGuid(), Username = "jdoe", Password = "password", FirstName = "John", LastName = "Doe", EmailAddress = "john.doe@email.com" });
+			var clientRepository = new ClientInMemoryRepository ();
+			var client = new Client ("Client Name", "John", "1234567890", "john@doe.com");
+			clientRepository.Store(client);
+
+			var repository = new UserInMemoryRepository (clientRepository);
+			var user1 = new User (new UserDto{ Id = Guid.NewGuid(), ClientId = client.Identifier.Identity, Username = "jdoe", Password = "password", FirstName = "John", LastName = "Doe", EmailAddress = "john.doe@email.com" });
+			var user2 = new User (new UserDto{ Id = Guid.NewGuid(), ClientId = client.Identifier.Identity, Username = "jdoe", Password = "password", FirstName = "John", LastName = "Doe", EmailAddress = "john.doe@email.com" });
+			var user3 = new User (new UserDto{ Id = Guid.NewGuid(), ClientId = client.Identifier.Identity, Username = "jdoe", Password = "password", FirstName = "John", LastName = "Doe", EmailAddress = "john.doe@email.com" });
 
 			repository.Store (user1);
 			repository.Store (user2);
