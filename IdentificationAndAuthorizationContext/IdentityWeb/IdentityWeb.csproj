@@ -124,17 +124,39 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="web.config" />
-    <Content Include="Views\Welcome.cshtml" />
-    <Content Include="Views\Admin\ClientAdminDetail.cshtml" />
-    <Content Include="Views\Admin\ClientAdminSearch.cshtml" />
-    <Content Include="Views\Test\RazorTest.cshtml" />
-    <Content Include="Views\Admin\AdminHome.cshtml" />
-    <Content Include="Views\Admin\UserAdminSearch.cshtml" />
-    <Content Include="Views\Admin\PermissionAdminSearch.cshtml" />
-    <Content Include="Views\SignUp.cshtml" />
-    <Content Include="Views\SignUpThankYou.cshtml" />
-    <Content Include="Views\Login.cshtml" />
-    <Content Include="Views\CustomErrorPage.cshtml" />
+    <Content Include="Views\Welcome.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Admin\ClientAdminDetail.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Admin\ClientAdminSearch.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Test\RazorTest.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Admin\AdminHome.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Admin\UserAdminSearch.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Admin\PermissionAdminSearch.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\SignUp.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\SignUpThankYou.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Login.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\CustomErrorPage.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -148,10 +170,18 @@
     <Content Include="Scripts\jquery-2.2.1-vsdoc.js" />
     <Content Include="Scripts\jquery-2.2.1.js" />
     <Content Include="Scripts\jquery-2.2.1.min.js" />
-    <Content Include="Views\Admin\Partials\Validation.cshtml" />
-    <Content Include="Views\Admin\AppAdminSearch.cshtml" />
-    <Content Include="Views\Admin\AppAdminDetail.cshtml" />
-    <Content Include="Views\Admin\UserAdminDetail.cshtml" />
+    <Content Include="Views\Admin\Partials\Validation.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Admin\AppAdminSearch.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Admin\AppAdminDetail.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Admin\UserAdminDetail.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
