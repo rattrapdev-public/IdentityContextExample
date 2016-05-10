@@ -63,6 +63,14 @@ namespace RattrapDev.Identity.Tests
 		}
 
 		[Test]
+		public void ResetPassword_resets_password_without_need_of_old_password() 
+		{
+			var user = new User (Guid.NewGuid(), "username", "password", "John", "Doe", "john@doe.com");
+			user.ResetPassword ("newPassword");
+			user.LoginInfo.ValidatePassword ("newPassword").ShouldBeTrue();
+		}
+
+		[Test]
 		public void UpdateDemographicInfo_updates_name_and_email() 
 		{
 			var user = new User (Guid.NewGuid(), "username", "password", "John", "Doe", "john@doe.com");

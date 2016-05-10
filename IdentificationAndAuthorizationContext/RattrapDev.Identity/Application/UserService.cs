@@ -60,7 +60,7 @@ namespace RattrapDev.Identity.Application
 		public void ResetPassword (ResetPasswordViewModel viewModel)
 		{
 			var user = repository.GetByIdentifier (new UserIdentifier (viewModel.UserId));
-			user.ResetPassword (viewModel.CurrentPassword, viewModel.NewPassword);
+			user.ResetPassword (viewModel.NewPassword);
 			repository.Store (user);
 		}
 	}
