@@ -79,7 +79,6 @@
     <Compile Include="NancyTestRunnerTest.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="CustomRootPathProvider.cs" />
     <Compile Include="CustomTestBootstrapper.cs" />
     <Compile Include="WelcomePageTests.cs" />
     <Compile Include="SignUpPageTests.cs" />
