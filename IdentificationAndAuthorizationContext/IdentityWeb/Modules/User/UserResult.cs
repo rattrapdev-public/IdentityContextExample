@@ -1,4 +1,4 @@
-﻿namespace IdentityWeb
+﻿namespace IdentityWeb.Modules.User
 {
 	public enum UserResult
 	{

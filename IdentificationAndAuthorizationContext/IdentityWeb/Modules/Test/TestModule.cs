@@ -1,23 +1,20 @@
-﻿using System;
-using Nancy.ViewEngines;
-using System.IO;
-using Nancy.ViewEngines.Razor;
-using Nancy.Localization;
-
-namespace IdentityWeb
+﻿namespace IdentityWeb.Modules.Test
 {
-	public class TestModule : Nancy.NancyModule
+    using Nancy.Localization;
+    using Nancy.ViewEngines;
+
+    public class TestModule : Nancy.NancyModule
 	{
 		public TestModule(IViewEngine engine, ITextResource textResource) 
 			: base("/test") 
 		{
 			this.Get ["/{name}/{age}"] = parameters => 
 			{
-				ViewBag.Title = "Here is my viewbag title!";
+				this.ViewBag.Title = "Here is my viewbag title!";
 				var m = new TestModel();
 				m.Age = parameters.age;
 				m.Name = parameters.name;
-				return View["Views/Test/RazorTest", m];
+				return this.View["Views/Test/RazorTest", m];
 			};
 		}
 	}

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -91,6 +92,10 @@
       <HintPath>..\packages\Nancy.Validation.FluentValidation.1.4.1\lib\net40\Nancy.Validation.FluentValidation.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Nancy.Viewengines.Razor.1.4.3\build\Nancy.ViewEngines.Razor.targets" Condition="Exists('..\packages\Nancy.Viewengines.Razor.1.4.3\build\Nancy.ViewEngines.Razor.targets')" />
   <ProjectExtensions>
@@ -186,14 +191,15 @@
     <Compile Include="Modules\User\UserMessageService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RattrapDev.Identity\RattrapDev.Identity.csproj">
+    <ProjectReference Include="..\RattrapDev.Identity\Geonetric.Identity.csproj">
       <Project>{7FF58DED-D76B-4DAF-8A4A-9ECD7825DA55}</Project>
-      <Name>RattrapDev.Identity</Name>
+      <Name>Geonetric.Identity</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RattrapDev.DDD\RattrapDev.DDD.csproj">
+    <ProjectReference Include="..\RattrapDev.DDD\Geonetric.DDD.csproj">
       <Project>{4BACBC5B-7C42-4CC8-8D39-546779330406}</Project>
-      <Name>RattrapDev.DDD</Name>
+      <Name>Geonetric.DDD</Name>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v14.0\WebApplications\Microsoft.WebApplication.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
 </Project>

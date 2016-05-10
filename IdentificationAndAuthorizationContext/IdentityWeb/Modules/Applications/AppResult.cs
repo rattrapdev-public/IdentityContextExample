@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace IdentityWeb
+﻿namespace IdentityWeb.Modules.Applications
 {
-	public enum AppResult
+    public enum AppResult
 	{
 		SaveNewApp,
 		SaveExistingApp

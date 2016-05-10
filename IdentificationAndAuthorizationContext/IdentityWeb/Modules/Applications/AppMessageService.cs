@@ -1,4 +1,4 @@
-﻿namespace IdentityWeb
+﻿namespace IdentityWeb.Modules.Applications
 {
 	public static class AppMessageService
 	{

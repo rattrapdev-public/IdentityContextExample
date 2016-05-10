@@ -1,11 +1,14 @@
-﻿using System;
-using NUnit.Framework;
-using RattrapDev.Identity.Domain.Applications;
-using Shouldly;
-
-namespace RattrapDev.Identity.Tests
+﻿namespace Geonetric.Identity.Tests.Domain.Applications
 {
-	[TestFixture]
+    using System;
+
+    using Geonetric.Identity.Domain.Applications;
+
+    using NUnit.Framework;
+
+    using Shouldly;
+
+    [TestFixture]
 	public class AppSearchResultTests
 	{
 		[Test]

@@ -1,8 +1,8 @@
-﻿using System;
-
-namespace RattrapDev.Identity.Application
+﻿namespace Geonetric.Identity.Application
 {
-	public class ResetPasswordViewModel
+    using System;
+
+    public class ResetPasswordViewModel
 	{
 		public Guid UserId { get; set; }
 		public string NewPassword { get; set; }

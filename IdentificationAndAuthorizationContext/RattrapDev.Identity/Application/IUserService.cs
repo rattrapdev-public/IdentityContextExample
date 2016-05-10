@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using RattrapDev.Identity.Domain.Users;
-
-namespace RattrapDev.Identity.Application
+﻿namespace Geonetric.Identity.Application
 {
-	public interface IUserService
+    using System;
+    using System.Collections.Generic;
+
+    using Geonetric.Identity.Domain.Users;
+
+    public interface IUserService
 	{
 		IReadOnlyList<UserSearchResult> GetAllUsers();
 		UserViewModel GetUser(Guid userId);

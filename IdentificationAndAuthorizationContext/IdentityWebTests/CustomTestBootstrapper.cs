@@ -1,10 +1,11 @@
 ﻿using System;
 using IdentityWeb;
-using RattrapDev.Identity;
 
 namespace IdentityWebTests
 {
-	public class CustomTestBootstrapper : CustomBootstrapper
+    using Geonetric.Identity.Application;
+
+    public class CustomTestBootstrapper : CustomBootstrapper
 	{
 		private CustomRootPathProvider customRootPathProvider = new CustomRootPathProvider();
 

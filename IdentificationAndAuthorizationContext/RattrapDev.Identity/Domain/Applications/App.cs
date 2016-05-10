@@ -1,10 +1,11 @@
-﻿using System;
-using RattrapDev.DDD;
-using RattrapDev.Identity.Infrastructure.Applications;
-
-namespace RattrapDev.Identity.Domain.Applications
+﻿namespace Geonetric.Identity.Domain.Applications
 {
-	public class App : IAggregate
+    using System;
+
+    using Geonetric.DDD.Domain;
+    using Geonetric.Identity.Infrastructure.Applications;
+
+    public class App : IAggregate
 	{
 		private AppIdentifier identifier;
 		private AppMetadata metadata;
@@ -12,23 +13,23 @@ namespace RattrapDev.Identity.Domain.Applications
 
 		public App(string name, string description, string url) 
 		{
-			Identifier = new AppIdentifier ();
-			Metadata = new AppMetadata (name, description);
-			Url = new ApplicationUrl (url);
+			this.Identifier = new AppIdentifier ();
+			this.Metadata = new AppMetadata (name, description);
+			this.Url = new ApplicationUrl (url);
 		}
 
 		public App(AppDto dto) 
 		{
-			Identifier = new AppIdentifier (dto.Id);
-			Metadata = new AppMetadata (dto.Name, dto.Description);
-			Url = new ApplicationUrl (dto.BaseUrl);
+			this.Identifier = new AppIdentifier (dto.Id);
+			this.Metadata = new AppMetadata (dto.Name, dto.Description);
+			this.Url = new ApplicationUrl (dto.BaseUrl);
 		}
 
 		public AppIdentifier Identifier 
 		{
 			get 
 			{
-				return identifier;
+				return this.identifier;
 			}
 			private set 
 			{
@@ -37,7 +38,7 @@ namespace RattrapDev.Identity.Domain.Applications
 					throw new ArgumentNullException ("value", "The identifier cannot be null!");
 				}
 
-				identifier = value;
+				this.identifier = value;
 			}
 		}
 
@@ -45,7 +46,7 @@ namespace RattrapDev.Identity.Domain.Applications
 		{
 			get 
 			{
-				return metadata;
+				return this.metadata;
 			}
 			private set 
 			{
@@ -54,7 +55,7 @@ namespace RattrapDev.Identity.Domain.Applications
 					throw new ArgumentNullException ("value", "The application metadata cannot be null!");
 				}
 
-				metadata = value;
+				this.metadata = value;
 			}
 		}
 
@@ -62,7 +63,7 @@ namespace RattrapDev.Identity.Domain.Applications
 		{
 			get 
 			{
-				return url;
+				return this.url;
 			}
 			private set 
 			{
@@ -71,18 +72,18 @@ namespace RattrapDev.Identity.Domain.Applications
 					throw new ArgumentNullException ("value", "The application url cannot be null!");
 				}
 
-				url = value;
+				this.url = value;
 			}
 		}
 
 		public void UpdateMetadata(string name, string description) 
 		{
-			Metadata = new AppMetadata (name, description);
+			this.Metadata = new AppMetadata (name, description);
 		}
 
 		public void UpdateUrl(string url) 
 		{
-			Url = new ApplicationUrl (url);
+			this.Url = new ApplicationUrl (url);
 		}
 	}
 }

@@ -1,11 +1,14 @@
-﻿using System;
-using NUnit.Framework;
-using Shouldly;
-using RattrapDev.Identity.Domain.Clients;
-
-namespace RattrapDev.Identity.Tests
+﻿namespace Geonetric.Identity.Tests.Domain.Client
 {
-	[TestFixture]
+    using System;
+
+    using Geonetric.Identity.Domain.Clients;
+
+    using NUnit.Framework;
+
+    using Shouldly;
+
+    [TestFixture]
 	public class ClientDetailTests
 	{
 		private const string Name = "Acme Manufacturing";

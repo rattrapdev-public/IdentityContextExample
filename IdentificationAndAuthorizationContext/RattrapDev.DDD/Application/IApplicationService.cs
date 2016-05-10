@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace RattrapDev.DDD
+﻿namespace Geonetric.DDD.Application
 {
-	public interface IApplicationService
+    public interface IApplicationService
 	{
 	}
 }

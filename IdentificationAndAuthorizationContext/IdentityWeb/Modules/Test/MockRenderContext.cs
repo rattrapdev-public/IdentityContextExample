@@ -1,9 +1,10 @@
-﻿using System;
-using Nancy.ViewEngines;
-
-namespace IdentityWeb
+﻿namespace IdentityWeb.Modules.Test
 {
-	public class MockRenderContext : IRenderContext
+    using System;
+
+    using Nancy.ViewEngines;
+
+    public class MockRenderContext : IRenderContext
 	{
 		#region IRenderContext implementation
 		public string ParsePath (string input)

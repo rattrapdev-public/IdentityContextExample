@@ -1,21 +1,23 @@
-﻿using System;
-using Nancy;
-using RattrapDev.Identity;
-using System.Dynamic;
-using Nancy.ModelBinding;
-using RattrapDev.Identity.Domain.Clients;
-
-namespace IdentityWeb
+﻿namespace IdentityWeb.Modules
 {
-	public class SignUpModule : NancyModule
+    using System;
+    using System.Dynamic;
+
+    using Geonetric.Identity.Application;
+    using Geonetric.Identity.Domain.Clients;
+
+    using Nancy;
+    using Nancy.ModelBinding;
+
+    public class SignUpModule : NancyModule
 	{
 		public SignUpModule (IClientService clientService) : base("/SignUp")
 		{
-			Get [""] = parameters => 
+			this.Get [""] = parameters => 
 			{
-				return View["Views/SignUp"];
+				return this.View["Views/SignUp"];
 			};
-			Post [""] = parameters => 
+			this.Post [""] = parameters => 
 			{
 				var clientViewModel = this.Bind<ClientViewModel>();
 
@@ -30,7 +32,7 @@ namespace IdentityWeb
 					errorResponse.contactName = clientViewModel.ContactName;
 					errorResponse.contactPhone = clientViewModel.ContactPhone;
 					errorResponse.contactEmail = clientViewModel.ContactEmail;
-					return View["Views/SignUp", errorResponse];
+					return this.View["Views/SignUp", errorResponse];
 				}
 				catch(DuplicateContactEmailException) 
 				{
@@ -40,7 +42,7 @@ namespace IdentityWeb
 					errorResponse.contactName = clientViewModel.ContactName;
 					errorResponse.contactPhone = clientViewModel.ContactPhone;
 					errorResponse.contactEmail = string.Empty;
-					return View["Views/SignUp", errorResponse];
+					return this.View["Views/SignUp", errorResponse];
 				}
 				catch(ArgumentException) 
 				{
@@ -50,14 +52,14 @@ namespace IdentityWeb
 					errorResponse.contactName = clientViewModel.ContactName;
 					errorResponse.contactPhone = clientViewModel.ContactPhone;
 					errorResponse.contactEmail = clientViewModel.ContactEmail;
-					return View["Views/SignUp", errorResponse];
+					return this.View["Views/SignUp", errorResponse];
 				}
 
-				return Response.AsRedirect("/SignUp/ThankYou");
+				return this.Response.AsRedirect("/SignUp/ThankYou");
 			};
-			Get ["/ThankYou"] = parameters => 
+			this.Get ["/ThankYou"] = parameters => 
 			{
-				return View["Views/SignUpThankYou"];
+				return this.View["Views/SignUpThankYou"];
 			};
 		}
 	}

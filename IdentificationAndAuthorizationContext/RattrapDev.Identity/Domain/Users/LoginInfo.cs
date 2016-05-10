@@ -1,24 +1,25 @@
-﻿using System;
-using RattrapDev.DDD;
-
-namespace RattrapDev.Identity.Domain.Users
+﻿namespace Geonetric.Identity.Domain.Users
 {
-	public class LoginInfo : IValueObject, IEquatable<LoginInfo>
+    using System;
+
+    using Geonetric.DDD.Domain;
+
+    public class LoginInfo : IValueObject, IEquatable<LoginInfo>
 	{
 		private string username;
 		private string password;
 
 		public LoginInfo (string username, string password)
 		{
-			Username = username;
-			Password = password;
+			this.Username = username;
+			this.Password = password;
 		}
 
 		public string Username 
 		{
 			get 
 			{
-				return username;
+				return this.username;
 			}
 			private set 
 			{
@@ -27,7 +28,7 @@ namespace RattrapDev.Identity.Domain.Users
 					throw new ArgumentException ("The username is required!");
 				}
 
-				username = value;
+				this.username = value;
 			}
 		}
 
@@ -35,7 +36,7 @@ namespace RattrapDev.Identity.Domain.Users
 		{
 			get 
 			{
-				return password;
+				return this.password;
 			}
 			private set 
 			{
@@ -44,13 +45,13 @@ namespace RattrapDev.Identity.Domain.Users
 					throw new ArgumentException ("The password is required!");
 				}
 
-				password = value;
+				this.password = value;
 			}
 		}
 
 		public bool ValidatePassword(string password) 
 		{
-			return Password.Equals (password);
+			return this.Password.Equals (password);
 		}
 
 		public bool Equals (LoginInfo other)
@@ -65,7 +66,7 @@ namespace RattrapDev.Identity.Domain.Users
 				return true;
 			}
 
-			return Username.Equals (other.Username) && Password.Equals(other.Password);
+			return this.Username.Equals (other.Username) && this.Password.Equals(other.Password);
 		}
 	}
 }

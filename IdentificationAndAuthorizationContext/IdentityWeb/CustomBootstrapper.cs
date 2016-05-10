@@ -1,22 +1,22 @@
 ﻿using Nancy.Bootstrappers.Autofac;
 using Autofac;
 using Nancy.Bootstrapper;
-using RattrapDev.Identity;
 using Nancy;
 using Nancy.Conventions;
 using Nancy.Authentication.Forms;
 using Nancy.Diagnostics;
-using RattrapDev.Identity.Infrastructure.Applications;
-using RattrapDev.Identity.Domain.Applications;
-using RattrapDev.Identity.Application;
-using RattrapDev.Identity.Infrastructure;
-using RattrapDev.Identity.Domain.Users;
-using RattrapDev.Identity.Infrastructure.Clients;
-using RattrapDev.Identity.Domain.Clients;
 
 namespace IdentityWeb
 {
-	public class CustomBootstrapper : AutofacNancyBootstrapper
+    using Geonetric.Identity.Application;
+    using Geonetric.Identity.Domain.Applications;
+    using Geonetric.Identity.Domain.Clients;
+    using Geonetric.Identity.Domain.Users;
+    using Geonetric.Identity.Infrastructure.Applications;
+    using Geonetric.Identity.Infrastructure.Client;
+    using Geonetric.Identity.Infrastructure.Users;
+
+    public class CustomBootstrapper : AutofacNancyBootstrapper
 	{
 		private IClientService clientService;
 

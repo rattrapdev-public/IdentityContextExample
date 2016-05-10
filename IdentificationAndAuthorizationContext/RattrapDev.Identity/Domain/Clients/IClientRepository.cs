@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace RattrapDev.Identity.Domain.Clients
+﻿namespace Geonetric.Identity.Domain.Clients
 {
-	public interface IClientRepository
+    using System.Collections.Generic;
+
+    public interface IClientRepository
 	{
 		Client GetBy(ClientIdentifier identifier);
 		void Store(Client client);

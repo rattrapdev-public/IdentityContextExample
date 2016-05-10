@@ -1,10 +1,10 @@
-﻿using System;
-using System.Linq;
-using RattrapDev.DDD;
-
-namespace RattrapDev.Identity.Domain.Clients
+﻿namespace Geonetric.Identity.Domain.Clients
 {
-	public class ContactEmailUniqueSpecification : IValidationSpecification<Client>
+    using System.Linq;
+
+    using Geonetric.DDD.Domain;
+
+    public class ContactEmailUniqueSpecification : IValidationSpecification<Client>
 	{
 		private readonly IClientRepository repository;
 
@@ -15,7 +15,7 @@ namespace RattrapDev.Identity.Domain.Clients
 
 		public bool IsSatisifiedBy (Client candidate)
 		{
-			return !(repository.All().Any (c => c.ContactInfo.Email.Equals(candidate.ContactInfo.Email) && !(c.Identifier.Equals(candidate.Identifier))));
+			return !(this.repository.All().Any (c => c.ContactInfo.Email.Equals(candidate.ContactInfo.Email) && !(c.Identifier.Equals(candidate.Identifier))));
 		}
 	}
 }

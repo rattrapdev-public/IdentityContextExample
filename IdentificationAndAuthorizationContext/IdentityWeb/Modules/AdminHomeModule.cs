@@ -1,19 +1,18 @@
-﻿using System;
-using Nancy;
-using Nancy.Security;
-
-namespace IdentityWeb
+﻿namespace IdentityWeb.Modules
 {
-	public class AdminHomeModule : NancyModule
+    using Nancy;
+    using Nancy.Security;
+
+    public class AdminHomeModule : NancyModule
 	{
 		public AdminHomeModule ()
 			: base("/admin")
 		{
 			this.RequiresAuthentication ();
 
-			Get ["/"] = parameters => 
+			this.Get ["/"] = parameters => 
 			{
-				return View["Views/Admin/AdminHome"];
+				return this.View["Views/Admin/AdminHome"];
 			};
 		}
 	}

@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace RattrapDev.DDD
+﻿namespace Geonetric.DDD.Domain
 {
-	public interface IValidationSpecification<TObject>
+    public interface IValidationSpecification<TObject>
 	{
 		bool IsSatisifiedBy(TObject candidate);
 	}

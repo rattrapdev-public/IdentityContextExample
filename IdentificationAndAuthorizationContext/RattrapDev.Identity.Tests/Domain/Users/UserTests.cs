@@ -1,12 +1,15 @@
-﻿using System;
-using NUnit.Framework;
-using RattrapDev.Identity.Domain.Users;
-using Shouldly;
-using RattrapDev.Identity.Infrastructure.Users;
-
-namespace RattrapDev.Identity.Tests
+﻿namespace Geonetric.Identity.Tests.Domain.Users
 {
-	[TestFixture]
+    using System;
+
+    using Geonetric.Identity.Domain.Users;
+    using Geonetric.Identity.Infrastructure.Users;
+
+    using NUnit.Framework;
+
+    using Shouldly;
+
+    [TestFixture]
 	public class UserTests
 	{
 		[Test]
