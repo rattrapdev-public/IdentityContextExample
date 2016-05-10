@@ -1,9 +1,8 @@
-﻿using System;
-using Nancy;
-
-namespace IdentityWeb
+﻿namespace IdentityWebTests
 {
-	public class CustomRootPathProvider : IRootPathProvider
+    using Nancy;
+
+    public class CustomRootPathProvider : IRootPathProvider
 	{
 		public string GetRootPath ()
 		{

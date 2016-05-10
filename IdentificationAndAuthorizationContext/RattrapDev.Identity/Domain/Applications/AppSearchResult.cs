@@ -1,14 +1,15 @@
-﻿using System;
-using RattrapDev.DDD;
-
-namespace RattrapDev.Identity.Domain.Applications
+﻿namespace Geonetric.Identity.Domain.Applications
 {
-	public class AppSearchResult : IValueObject, IEquatable<AppSearchResult>
+    using System;
+
+    using Geonetric.DDD.Domain;
+
+    public class AppSearchResult : IValueObject, IEquatable<AppSearchResult>
 	{
 		public AppSearchResult (Guid applicationId, string name)
 		{
-			ApplicationId = applicationId;
-			Name = name;
+			this.ApplicationId = applicationId;
+			this.Name = name;
 		}
 
 		public Guid ApplicationId { get; private set; }

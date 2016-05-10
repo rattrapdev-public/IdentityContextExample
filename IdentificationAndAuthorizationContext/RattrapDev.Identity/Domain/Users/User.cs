@@ -1,11 +1,12 @@
-﻿using System;
-using RattrapDev.DDD;
-using RattrapDev.Identity.Infrastructure.Users;
-using RattrapDev.Identity.Domain.Clients;
-
-namespace RattrapDev.Identity.Domain.Users
+﻿namespace Geonetric.Identity.Domain.Users
 {
-	public class User : IAggregate
+    using System;
+
+    using Geonetric.DDD.Domain;
+    using Geonetric.Identity.Domain.Clients;
+    using Geonetric.Identity.Infrastructure.Users;
+
+    public class User : IAggregate
 	{
 		private UserIdentifier identifier;
 		private ClientIdentifier clientIdentifier;
@@ -15,27 +16,27 @@ namespace RattrapDev.Identity.Domain.Users
 
 		public User (Guid clientId, string username, string password, string firstName, string lastName, string email)
 		{
-			Identifier = new UserIdentifier ();
-			ClientIdentifier = new ClientIdentifier (clientId);
-			LoginInfo = new LoginInfo (username, password);
-			Name = new Name (firstName, lastName);
-			Email = new Email (email);
+			this.Identifier = new UserIdentifier ();
+			this.ClientIdentifier = new ClientIdentifier (clientId);
+			this.LoginInfo = new LoginInfo (username, password);
+			this.Name = new Name (firstName, lastName);
+			this.Email = new Email (email);
 		}
 
 		public User(UserDto dto) 
 		{
-			Identifier = new UserIdentifier (dto.Id);
-			ClientIdentifier = new ClientIdentifier (dto.ClientId);
-			LoginInfo = new LoginInfo (dto.Username, dto.Password);
-			Name = new Name (dto.FirstName, dto.LastName);
-			Email = new Email (dto.EmailAddress);
+			this.Identifier = new UserIdentifier (dto.Id);
+			this.ClientIdentifier = new ClientIdentifier (dto.ClientId);
+			this.LoginInfo = new LoginInfo (dto.Username, dto.Password);
+			this.Name = new Name (dto.FirstName, dto.LastName);
+			this.Email = new Email (dto.EmailAddress);
 		}
 
 		public UserIdentifier Identifier 
 		{
 			get 
 			{
-				return identifier;
+				return this.identifier;
 			}
 			private set 
 			{
@@ -44,7 +45,7 @@ namespace RattrapDev.Identity.Domain.Users
 					throw new ArgumentNullException ("value", "User Identifier : Cannot be null!");
 				}
 
-				identifier = value;
+				this.identifier = value;
 			}
 		}
 
@@ -52,7 +53,7 @@ namespace RattrapDev.Identity.Domain.Users
 		{
 			get 
 			{
-				return clientIdentifier;
+				return this.clientIdentifier;
 			}
 			private set 
 			{
@@ -61,7 +62,7 @@ namespace RattrapDev.Identity.Domain.Users
 					throw new ArgumentNullException ("value", "Client Identifier : Cannot be null!");
 				}
 
-				clientIdentifier = value;
+				this.clientIdentifier = value;
 			}
 		}
 
@@ -69,7 +70,7 @@ namespace RattrapDev.Identity.Domain.Users
 		{
 			get 
 			{
-				return loginInfo;
+				return this.loginInfo;
 			}
 			private set 
 			{
@@ -78,7 +79,7 @@ namespace RattrapDev.Identity.Domain.Users
 					throw new ArgumentNullException ("value", "Login Info : Cannot be null!");
 				}
 
-				loginInfo = value;
+				this.loginInfo = value;
 			}
 		}
 
@@ -86,7 +87,7 @@ namespace RattrapDev.Identity.Domain.Users
 		{
 			get 
 			{
-				return name;
+				return this.name;
 			}
 			private set 
 			{
@@ -95,7 +96,7 @@ namespace RattrapDev.Identity.Domain.Users
 					throw new ArgumentNullException ("value", "Name : Cannot be null!");
 				}
 
-				name = value;
+				this.name = value;
 			}
 		}
 
@@ -103,7 +104,7 @@ namespace RattrapDev.Identity.Domain.Users
 		{
 			get 
 			{
-				return email;
+				return this.email;
 			}
 			private set 
 			{
@@ -112,29 +113,29 @@ namespace RattrapDev.Identity.Domain.Users
 					throw new ArgumentNullException ("value", "Email : Cannot be null!");
 				}
 
-				email = value;
+				this.email = value;
 			}
 		}
 
 		public void ResetPassword(string currentPassword, string newPassword) 
 		{
-			if (!LoginInfo.ValidatePassword (currentPassword)) 
+			if (!this.LoginInfo.ValidatePassword (currentPassword)) 
 			{
 				throw new InvalidatedPasswordException ();
 			}
 
-			LoginInfo = new LoginInfo (LoginInfo.Username, newPassword);
+			this.LoginInfo = new LoginInfo (this.LoginInfo.Username, newPassword);
 		}
 
 		public void ResetPassword(string newPassword) 
 		{
-			LoginInfo = new LoginInfo (LoginInfo.Username, newPassword);
+			this.LoginInfo = new LoginInfo (this.LoginInfo.Username, newPassword);
 		}
 
 		public void UpdateDemographicInfo(string firstName, string lastName, string email) 
 		{
-			Name = new Name (firstName, lastName);
-			Email = new Email (email);
+			this.Name = new Name (firstName, lastName);
+			this.Email = new Email (email);
 		}
 	}
 }

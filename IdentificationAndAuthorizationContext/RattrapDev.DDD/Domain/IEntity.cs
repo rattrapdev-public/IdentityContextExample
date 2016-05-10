@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace RattrapDev.DDD
+﻿namespace Geonetric.DDD.Domain
 {
-	public interface IEntity
+    public interface IEntity
 	{
 	}
 }

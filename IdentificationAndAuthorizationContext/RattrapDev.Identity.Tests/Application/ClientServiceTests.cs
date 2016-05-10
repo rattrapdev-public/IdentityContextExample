@@ -1,14 +1,17 @@
-﻿using System;
-using NUnit.Framework;
-using RattrapDev.Identity.Infrastructure.Clients;
-using System.Linq;
-using Shouldly;
-using RattrapDev.Identity.Application;
-using RattrapDev.Identity.Domain.Clients;
-
-namespace RattrapDev.Identity.Tests
+﻿namespace Geonetric.Identity.Tests.Application
 {
-	[TestFixture]
+    using System;
+    using System.Linq;
+
+    using Geonetric.Identity.Application;
+    using Geonetric.Identity.Domain.Clients;
+    using Geonetric.Identity.Infrastructure.Client;
+
+    using NUnit.Framework;
+
+    using Shouldly;
+
+    [TestFixture]
 	public class ClientServiceTests
 	{
 		private const string ClientName = "Acme";

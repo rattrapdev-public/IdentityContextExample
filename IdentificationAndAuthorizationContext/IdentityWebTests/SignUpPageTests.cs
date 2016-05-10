@@ -1,14 +1,15 @@
 ﻿using System;
 using NUnit.Framework;
 using Nancy.Testing;
-using RattrapDev.Identity;
+
 using System.Collections.Generic;
 using System.Linq;
-using RattrapDev.Identity.Application;
 
 namespace IdentityWebTests
 {
-	[TestFixture]
+    using Geonetric.Identity.Application;
+
+    [TestFixture]
 	public class SignUpPageTests
 	{
 		[Test]

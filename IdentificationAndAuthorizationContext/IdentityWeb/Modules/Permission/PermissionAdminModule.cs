@@ -1,15 +1,14 @@
-﻿using System;
-using Nancy;
-
-namespace IdentityWeb
+﻿namespace IdentityWeb.Modules.Permission
 {
-	public class PermissionAdminModule : NancyModule
+    using Nancy;
+
+    public class PermissionAdminModule : NancyModule
 	{
 		public PermissionAdminModule () : base("/admin/permissions")
 		{
-			Get ["/"] = parameters => 
+			this.Get ["/"] = parameters => 
 			{
-				return View["Views/Admin/PermissionAdminSearch"];
+				return this.View["Views/Admin/PermissionAdminSearch"];
 			};
 		}
 	}

@@ -1,11 +1,13 @@
-﻿using System;
-using NUnit.Framework;
-using RattrapDev.Identity.Infrastructure.Clients;
-using RattrapDev.Identity.Domain.Clients;
-
-namespace RattrapDev.Identity.Tests
+﻿namespace Geonetric.Identity.Tests.Domain.Client
 {
-	[TestFixture]
+    using System;
+
+    using Geonetric.Identity.Domain.Clients;
+    using Geonetric.Identity.Infrastructure.Client;
+
+    using NUnit.Framework;
+
+    [TestFixture]
 	public class ClientNameUniqueSpecificationTests
 	{
 		[Test]

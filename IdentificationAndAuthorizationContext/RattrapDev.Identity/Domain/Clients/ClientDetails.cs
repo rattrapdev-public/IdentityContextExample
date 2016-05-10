@@ -1,8 +1,8 @@
-﻿using System;
-
-namespace RattrapDev.Identity.Domain.Clients
+﻿namespace Geonetric.Identity.Domain.Clients
 {
-	public class ClientDetails : IEquatable<ClientDetails>
+    using System;
+
+    public class ClientDetails : IEquatable<ClientDetails>
 	{
 		private string name;
 
@@ -16,7 +16,7 @@ namespace RattrapDev.Identity.Domain.Clients
 		{
 			get 
 			{
-				return name;
+				return this.name;
 			}
 			private set 
 			{
@@ -25,7 +25,7 @@ namespace RattrapDev.Identity.Domain.Clients
 					throw new ArgumentException ("The name cannot be null or empty!");
 				}
 
-				name = value;
+				this.name = value;
 			}
 		}
 

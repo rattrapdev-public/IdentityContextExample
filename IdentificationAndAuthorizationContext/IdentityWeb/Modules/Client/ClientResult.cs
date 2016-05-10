@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace IdentityWeb
+﻿namespace IdentityWeb.Modules.Client
 {
-	public enum ClientResult
+    public enum ClientResult
 	{
 		SaveNewClient,
 		SaveExistingClient,

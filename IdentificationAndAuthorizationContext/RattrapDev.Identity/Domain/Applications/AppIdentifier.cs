@@ -1,27 +1,28 @@
-﻿using System;
-using RattrapDev.DDD;
-
-namespace RattrapDev.Identity.Domain.Applications
+﻿namespace Geonetric.Identity.Domain.Applications
 {
-	public class AppIdentifier : IValueObject, IEquatable<AppIdentifier>
+    using System;
+
+    using Geonetric.DDD.Domain;
+
+    public class AppIdentifier : IValueObject, IEquatable<AppIdentifier>
 	{
 		private Guid id;
 
 		public AppIdentifier() 
 		{
-			Id = Guid.NewGuid ();
+			this.Id = Guid.NewGuid ();
 		}
 
 		public AppIdentifier(Guid applicationId) 
 		{
-			Id = applicationId;
+			this.Id = applicationId;
 		}
 
 		public Guid Id 
 		{
 			get 
 			{
-				return id;
+				return this.id;
 			}
 			private set 
 			{
@@ -30,7 +31,7 @@ namespace RattrapDev.Identity.Domain.Applications
 					throw new ArgumentException ("ApplicationIdentifier.Id : The application id cannot be empty");
 				}
 
-				id = value;
+				this.id = value;
 			}
 		}
 
@@ -47,7 +48,7 @@ namespace RattrapDev.Identity.Domain.Applications
 			}
 			if (ReferenceEquals (this, other))
 				return true;
-			return Id.Equals (other.Id);
+			return this.Id.Equals (other.Id);
 		}
 
 		public override int GetHashCode ()

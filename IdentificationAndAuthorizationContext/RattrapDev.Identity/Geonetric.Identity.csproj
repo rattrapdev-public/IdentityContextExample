@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7FF58DED-D76B-4DAF-8A4A-9ECD7825DA55}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Geonetric.Identity</RootNamespace>
+    <AssemblyName>Geonetric.Identity</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Application\IClientService.cs" />
+    <Compile Include="Application\ClientService.cs" />
+    <Compile Include="Application\ClientViewModel.cs" />
+    <Compile Include="Domain\Applications\ApplicationUrl.cs" />
+    <Compile Include="Application\AppViewModel.cs" />
+    <Compile Include="Application\IAppService.cs" />
+    <Compile Include="Domain\Applications\App.cs" />
+    <Compile Include="Domain\Applications\AppIdentifier.cs" />
+    <Compile Include="Domain\Applications\AppMetadata.cs" />
+    <Compile Include="Domain\Applications\AppSearchResult.cs" />
+    <Compile Include="Domain\Applications\IAppRepository.cs" />
+    <Compile Include="Infrastructure\Applications\AppDto.cs" />
+    <Compile Include="Infrastructure\Applications\AppInMemoryRepository.cs" />
+    <Compile Include="Application\AppService.cs" />
+    <Compile Include="Infrastructure\Client\ClientInMemoryRepository.cs" />
+    <Compile Include="Domain\Clients\Client.cs" />
+    <Compile Include="Domain\Clients\ClientContact.cs" />
+    <Compile Include="Domain\Clients\ClientIdentifier.cs" />
+    <Compile Include="Domain\Clients\ClientStatus.cs" />
+    <Compile Include="Domain\Clients\ClientDetails.cs" />
+    <Compile Include="Domain\Clients\IClientRepository.cs" />
+    <Compile Include="Domain\Clients\ClientNameUniqueSpecification.cs" />
+    <Compile Include="Domain\Clients\DuplicateClientException.cs" />
+    <Compile Include="Domain\Clients\ContactEmailUniqueSpecification.cs" />
+    <Compile Include="Domain\Clients\DuplicateContactEmailException.cs" />
+    <Compile Include="Domain\Users\UserIdentifier.cs" />
+    <Compile Include="Domain\Users\Name.cs" />
+    <Compile Include="Domain\Users\Email.cs" />
+    <Compile Include="Domain\Users\User.cs" />
+    <Compile Include="Domain\Users\LoginInfo.cs" />
+    <Compile Include="Domain\Users\InvalidatedPasswordException.cs" />
+    <Compile Include="Infrastructure\Users\UserDto.cs" />
+    <Compile Include="Domain\Users\IUserRepository.cs" />
+    <Compile Include="Infrastructure\Users\UserInMemoryRepository.cs" />
+    <Compile Include="Domain\Users\UserSearchResult.cs" />
+    <Compile Include="Application\IUserService.cs" />
+    <Compile Include="Application\UserViewModel.cs" />
+    <Compile Include="Application\UserService.cs" />
+    <Compile Include="Application\ResetPasswordViewModel.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\RattrapDev.DDD\Geonetric.DDD.csproj">
+      <Project>{4BACBC5B-7C42-4CC8-8D39-546779330406}</Project>
+      <Name>Geonetric.DDD</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

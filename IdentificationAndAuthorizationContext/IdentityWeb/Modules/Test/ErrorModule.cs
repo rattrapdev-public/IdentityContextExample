@@ -1,14 +1,15 @@
-﻿using System;
-using Nancy;
-
-namespace IdentityWeb
+﻿namespace IdentityWeb.Modules.Test
 {
-	public class ErrorModule : NancyModule
+    using System;
+
+    using Nancy;
+
+    public class ErrorModule : NancyModule
 	{
 		public ErrorModule ()
 			:base("error")
 		{
-			Get [""] = _ => {
+			this.Get [""] = _ => {
 				throw new Exception ("There was a problem!");
 			};
 		}

@@ -1,13 +1,14 @@
-﻿using System;
-using NUnit.Framework;
-using RattrapDev.Identity.Domain.Clients;
-using System.Collections.Generic;
-using System.Linq;
-using RattrapDev.Identity.Infrastructure.Clients;
-
-namespace RattrapDev.Identity.Tests
+﻿namespace Geonetric.Identity.Tests.Infrastructure
 {
-	[TestFixture]
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using Geonetric.Identity.Domain.Clients;
+    using Geonetric.Identity.Infrastructure.Client;
+
+    using NUnit.Framework;
+
+    [TestFixture]
 	public class ClientInMemoryRepositoryTests
 	{
 		private const string ClientName = "Acme";
@@ -22,16 +23,16 @@ namespace RattrapDev.Identity.Tests
 		[Test]
 		public void RepositoryReturnsNullForNonexistingClient() 
 		{
-			Assert.IsNull(repository.GetBy(new ClientIdentifier()));
+			Assert.IsNull(this.repository.GetBy(new ClientIdentifier()));
 		}
 
 		[Test]
 		public void RepositoryStoresAndGetsNewValue() 
 		{
 			var client = new Client (ClientName, ContactName, Phone, Email);
-			Assert.IsNull (repository.GetBy (client.Identifier));
-			repository.Store (client);
-			Client reconstitutedClient = repository.GetBy (client.Identifier);
+			Assert.IsNull (this.repository.GetBy (client.Identifier));
+			this.repository.Store (client);
+			Client reconstitutedClient = this.repository.GetBy (client.Identifier);
 			Assert.That (client, Is.EqualTo (reconstitutedClient));
 		}
 
@@ -39,10 +40,10 @@ namespace RattrapDev.Identity.Tests
 		public void UpdatingClientDoesNotUpdateStoredClient() 
 		{
 			var client = new Client (ClientName, ContactName, Phone, Email);
-			Assert.IsNull (repository.GetBy (client.Identifier));
-			repository.Store (client);
+			Assert.IsNull (this.repository.GetBy (client.Identifier));
+			this.repository.Store (client);
 			client.UpdateClientContactInfo (UpdatedContactName, Phone, Email);
-			Client reconstitutedClient = repository.GetBy (client.Identifier);
+			Client reconstitutedClient = this.repository.GetBy (client.Identifier);
 			Assert.That (client.ContactInfo.Name, Is.Not.EqualTo (reconstitutedClient.ContactInfo.Name));
 		}
 
@@ -50,11 +51,11 @@ namespace RattrapDev.Identity.Tests
 		public void StoredClientCanBeUpdated() 
 		{
 			Client client = new Client (ClientName, ContactName, Phone, Email);
-			Assert.IsNull (repository.GetBy (client.Identifier));
-			repository.Store (client);
+			Assert.IsNull (this.repository.GetBy (client.Identifier));
+			this.repository.Store (client);
 			client.UpdateClientContactInfo (UpdatedContactName, Phone, Email);
-			repository.Store (client);
-			Client reconstitutedClient = repository.GetBy (client.Identifier);
+			this.repository.Store (client);
+			Client reconstitutedClient = this.repository.GetBy (client.Identifier);
 			Assert.That (client.ContactInfo.Name, Is.EqualTo (reconstitutedClient.ContactInfo.Name));
 		}
 

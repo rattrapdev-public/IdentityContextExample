@@ -1,10 +1,11 @@
-﻿using System;
-using RattrapDev.Identity.Domain.Applications;
-using System.Collections.Generic;
-
-namespace RattrapDev.Identity.Application
+﻿namespace Geonetric.Identity.Application
 {
-	public interface IAppService
+    using System;
+    using System.Collections.Generic;
+
+    using Geonetric.Identity.Domain.Applications;
+
+    public interface IAppService
 	{
 		IReadOnlyList<AppSearchResult> GetAllApps();
 		AppViewModel GetApp(Guid appId);

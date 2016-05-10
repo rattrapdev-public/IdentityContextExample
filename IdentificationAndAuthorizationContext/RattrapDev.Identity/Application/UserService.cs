@@ -1,10 +1,11 @@
-﻿using System;
-using RattrapDev.Identity.Domain.Users;
-using System.Collections.Generic;
-
-namespace RattrapDev.Identity.Application
+﻿namespace Geonetric.Identity.Application
 {
-	public class UserService : IUserService
+    using System;
+    using System.Collections.Generic;
+
+    using Geonetric.Identity.Domain.Users;
+
+    public class UserService : IUserService
 	{
 		private IUserRepository repository;
 
@@ -15,12 +16,12 @@ namespace RattrapDev.Identity.Application
 
 		public IReadOnlyList<UserSearchResult> GetAllUsers ()
 		{
-			return repository.All ();
+			return this.repository.All ();
 		}
 
 		public UserViewModel GetUser (Guid userId)
 		{
-			var user = repository.GetByIdentifier (new UserIdentifier (userId));
+			var user = this.repository.GetByIdentifier (new UserIdentifier (userId));
 			return new UserViewModel {
 				UserId = user.Identifier.Id,
 				ClientId = user.ClientIdentifier.Identity,
@@ -44,7 +45,7 @@ namespace RattrapDev.Identity.Application
 				user.UpdateDemographicInfo (viewModel.FirstName, viewModel.LastName, viewModel.Email);
 			}
 
-			repository.Store (user);
+			this.repository.Store (user);
 
 			return new UserViewModel 
 			{
@@ -59,9 +60,9 @@ namespace RattrapDev.Identity.Application
 
 		public void ResetPassword (ResetPasswordViewModel viewModel)
 		{
-			var user = repository.GetByIdentifier (new UserIdentifier (viewModel.UserId));
+			var user = this.repository.GetByIdentifier (new UserIdentifier (viewModel.UserId));
 			user.ResetPassword (viewModel.NewPassword);
-			repository.Store (user);
+			this.repository.Store (user);
 		}
 	}
 }

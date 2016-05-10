@@ -1,26 +1,27 @@
-﻿using System;
-using RattrapDev.DDD;
-
-namespace RattrapDev.Identity.Domain.Applications
+﻿namespace Geonetric.Identity.Domain.Applications
 {
-	public class ApplicationUrl : IValueObject, IEquatable<ApplicationUrl>
+    using System;
+
+    using Geonetric.DDD.Domain;
+
+    public class ApplicationUrl : IValueObject, IEquatable<ApplicationUrl>
 	{
 		private string baseUrl;
 
 		public ApplicationUrl (string baseUrl)
 		{
-			BaseUrl = baseUrl;
+			this.BaseUrl = baseUrl;
 		}
 
 		public string BaseUrl 
 		{
 			get 
 			{
-				return baseUrl;
+				return this.baseUrl;
 			}
 			private set 
 			{
-				baseUrl = new Uri (value).GetLeftPart(System.UriPartial.Authority);
+				this.baseUrl = new Uri (value).GetLeftPart(System.UriPartial.Authority);
 			}
 		}
 
@@ -32,7 +33,7 @@ namespace RattrapDev.Identity.Domain.Applications
 			}
 			if (ReferenceEquals (this, other))
 				return true;
-			return BaseUrl.Equals (other.BaseUrl);
+			return this.BaseUrl.Equals (other.BaseUrl);
 		}
 	}
 }

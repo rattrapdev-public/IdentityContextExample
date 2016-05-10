@@ -1,16 +1,20 @@
-﻿using System;
-using NUnit.Framework;
-using RattrapDev.Identity.Domain.Applications;
-using NSubstitute;
-using System.Collections.Generic;
-using RattrapDev.Identity.Application;
-using System.Linq;
-using Shouldly;
-using RattrapDev.Identity.Infrastructure.Applications;
-
-namespace RattrapDev.Identity.Tests
+﻿namespace Geonetric.Identity.Tests.Application
 {
-	[TestFixture]
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using Geonetric.Identity.Application;
+    using Geonetric.Identity.Domain.Applications;
+    using Geonetric.Identity.Infrastructure.Applications;
+
+    using NSubstitute;
+
+    using NUnit.Framework;
+
+    using Shouldly;
+
+    [TestFixture]
 	public class AppServiceTests
 	{
 		[Test]

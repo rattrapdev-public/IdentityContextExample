@@ -1,30 +1,31 @@
-﻿using System;
-using Nancy;
-using Nancy.Authentication.Forms;
-
-namespace IdentityWeb
+﻿namespace IdentityWeb.Modules
 {
-	public class LoginModule : NancyModule
+    using System;
+
+    using Nancy;
+    using Nancy.Authentication.Forms;
+
+    public class LoginModule : NancyModule
 	{
 		public LoginModule ()
 		{
-			Get ["/login"] = parameters => 
+			this.Get ["/login"] = parameters => 
 			{
-				return View["Views/Login"];
+				return this.View["Views/Login"];
 			};
-			Post ["/login"] = parameters => 
+			this.Post ["/login"] = parameters => 
 			{
-				var username = Request.Form["Username"].Value;
-				var password = Request.Form["Password"].Value;
+				var username = this.Request.Form["Username"].Value;
+				var password = this.Request.Form["Password"].Value;
 
 				if (!(username.Equals("admin") && password.Equals("password")) )
 				{
-					return Response.AsRedirect("/login");
+					return this.Response.AsRedirect("/login");
 				}
 
 				return this.LoginAndRedirect(Guid.NewGuid(), fallbackRedirectUrl: "/admin");
 			};
-			Get ["/logout"] = parameters => 
+			this.Get ["/logout"] = parameters => 
 			{
 				return this.LogoutAndRedirect("/");
 			};

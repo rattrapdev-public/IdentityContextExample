@@ -1,23 +1,24 @@
-﻿using System;
-using RattrapDev.DDD;
-using System.Net.Mail;
-
-namespace RattrapDev.Identity.Domain.Users
+﻿namespace Geonetric.Identity.Domain.Users
 {
-	public class Email : IValueObject, IEquatable<Email>
+    using System;
+    using System.Net.Mail;
+
+    using Geonetric.DDD.Domain;
+
+    public class Email : IValueObject, IEquatable<Email>
 	{
 		private string emailAddress;
 
 		public Email (string emailAddress)
 		{
-			EmailAddress = emailAddress;
+			this.EmailAddress = emailAddress;
 		}
 
 		public string EmailAddress 
 		{
 			get 
 			{
-				return emailAddress;
+				return this.emailAddress;
 			}
 			set 
 			{
@@ -28,7 +29,7 @@ namespace RattrapDev.Identity.Domain.Users
 
 				new MailAddress (value);
 
-				emailAddress = value;
+				this.emailAddress = value;
 			}
 		}
 
@@ -44,7 +45,7 @@ namespace RattrapDev.Identity.Domain.Users
 				return true;
 			}
 
-			return EmailAddress.Equals (other.EmailAddress);
+			return this.EmailAddress.Equals (other.EmailAddress);
 		}
 	}
 }
