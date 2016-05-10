@@ -126,6 +126,11 @@ namespace RattrapDev.Identity.Domain.Users
 			LoginInfo = new LoginInfo (LoginInfo.Username, newPassword);
 		}
 
+		public void ResetPassword(string newPassword) 
+		{
+			LoginInfo = new LoginInfo (LoginInfo.Username, newPassword);
+		}
+
 		public void UpdateDemographicInfo(string firstName, string lastName, string email) 
 		{
 			Name = new Name (firstName, lastName);

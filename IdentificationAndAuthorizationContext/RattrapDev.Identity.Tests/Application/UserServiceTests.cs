@@ -157,8 +157,7 @@ namespace RattrapDev.Identity.Tests
 			var viewModel = new ResetPasswordViewModel 
 							{
 								UserId = dto.Id,
-								NewPassword = "password",
-								CurrentPassword = "newpassword"
+								NewPassword = "newpassword"
 							};
 
 			service.ResetPassword (viewModel);
