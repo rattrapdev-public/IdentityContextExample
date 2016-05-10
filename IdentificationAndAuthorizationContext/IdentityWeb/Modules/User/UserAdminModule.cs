@@ -24,7 +24,7 @@ namespace IdentityWeb
 
 				viewModel = userService.SaveUser(viewModel);
 
-				return Response.AsRedirect("~/admin/users/" + viewModel.UserId);
+				return Response.AsRedirect("~/admin/users/" + viewModel.UserId + "?result=" + UserResult.SaveUser);
 			};
 
 			Post ["/resetpassword"] = parameters =>
@@ -33,7 +33,7 @@ namespace IdentityWeb
 
 				userService.ResetPassword(viewModel);
 
-				return Response.AsRedirect("~/admin/users/" + viewModel.UserId);
+				return Response.AsRedirect("~/admin/users/" + viewModel.UserId + "?result=" + UserResult.ResetUserPassword);
 			};
 
 			Get ["/{UserId:Guid}"] = parameters => 
@@ -46,6 +46,13 @@ namespace IdentityWeb
 
 				var clients = clientService.GetAll();
 				viewModel.Client = clients.First(c => c.ClientIdentity.Equals(userViewModel.ClientId));
+
+				string result = Request.Query.result.HasValue ? Request.Query.result : string.Empty;
+				UserResult userResult;
+				if (Enum.TryParse<UserResult>(result, out userResult)) 
+				{
+					ViewBag.ValidationMessage = UserMessageService.GetValidationMessage(userResult);
+				}
 
 				return View["Views/Admin/UserAdminDetail", viewModel];
 			};
