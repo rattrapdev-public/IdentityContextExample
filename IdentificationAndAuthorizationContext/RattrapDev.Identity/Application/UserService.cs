@@ -20,7 +20,7 @@ namespace RattrapDev.Identity.Application
 
 		public UserViewModel GetUser (Guid userId)
 		{
-			var user = repository.GetByIdentifier (new UserIdentifier ());
+			var user = repository.GetByIdentifier (new UserIdentifier (userId));
 			return new UserViewModel {
 				UserId = user.Identifier.Id,
 				ClientId = user.ClientIdentifier.Identity,

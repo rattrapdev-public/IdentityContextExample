@@ -5,9 +5,75 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>UserAdminDetail</title>
+    <title>User Detail</title>
+    <link rel="stylesheet" type="text/css" href="/Content/bootstrap.css">
+    <script src="~/Scripts/jquery-2.2.1.js"></script>
 </head>
 <body>
+	<div class="container">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Menu</a>
+			</div>
+			<div>
+				<ul class="nav navbar-nav">
+					<li><a href="/admin">Home</a></li>
+					<li><a href="/admin/clients" >Clients</a></li>
+					<li><a href="/admin/apps">Apps</a></li>
+					<li class="active"><a href="/admin/users">Users</a></li>
+					<li><a href="/admin/permissions">Permissions</a></li>
+				</ul>
+			</div>
+		</nav>
+		<div id="site-content">
+			<h2>User Details</h2>
+			@Html.Partial("Views/Admin/Partials/Validation")
+			<form role="form" action="/admin/users" method="POST">
+				<input type="hidden" name="UserId" id="UserId" value="@Model.User.UserId" />
+				@if (string.IsNullOrEmpty(Model.User.Username)) 
+				{
+				<div class="form-group">
+					<label for="Username">Username</label>
+					<input type="text" class="form-control" id="Username" name="Username" value="@Model.User.Username" placeholder="Enter an Username" />
+				</div>
+				<div class="form-group">
+					<label for="Password">Password</label>
+					<input type="password" class="form-control" id="Password" name="Password" value="@Model.User.Password" placeholder="Enter an Username" />
+				</div>
+				<div class="form-group">
+					<label for="ClientId">Client</label>
+					<select id="ClientId" name="ClientId">
+						<option value="">Please Select</option>
+					@foreach (var client in Model.Clients) 
+					{
+						<option value="@client.ClientIdentity">@client.ClientName</option>
+					}
+					</select>
+				</div>
+				}
+				else 
+				{
+				<p>Username: @Model.User.Username</p>
+				<p>Client: @Model.Client.ClientName</p>
+				}
+				<div class="form-group">
+					<label for="FirstName">First Name</label>
+					<input type="text" class="form-control" id="FirstName" name="FirstName" value="@Model.User.FirstName" placeholder="Enter an First Name" />
+				</div>
+				<div class="form-group">
+					<label for="LastName">Last Name</label>
+					<input type="text" class="form-control" id="LastName" name="LastName" value="@Model.User.LastName" placeholder="Enter an Last Name" />
+				</div>
+				<div class="form-group">
+					<label for="Email">Email</label>
+					<input type="text" class="form-control" id="Email" name="Email" value="@Model.User.Email" placeholder="Enter an Email" />
+				</div>
+				<div>
+					<button type="submit" class="btn btn-default">Save</button>
+				</div>
+			</form>	
+		</div>
+	</div>
 </body>
 </html>
 
