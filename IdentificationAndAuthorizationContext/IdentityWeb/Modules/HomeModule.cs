@@ -1,15 +1,14 @@
-﻿using System;
-using Nancy;
-
-namespace IdentityWeb
+﻿namespace IdentityWeb.Modules
 {
-	public class HomeModule : NancyModule
+    using Nancy;
+
+    public class HomeModule : NancyModule
 	{
 		public HomeModule () : base("/")
 		{
-			Get ["/"] = parameters => 
+			this.Get ["/"] = parameters => 
 			{
-				return View["Views/Welcome"];
+				return this.View["Views/Welcome"];
 			};
 		}
 	}

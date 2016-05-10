@@ -1,9 +1,10 @@
-﻿using System;
-using Nancy.ViewEngines.Razor;
-
-namespace IdentityWeb
+﻿namespace IdentityWeb.Modules.Test
 {
-	public class MockNancyRazorView : NancyRazorViewBase
+    using System;
+
+    using Nancy.ViewEngines.Razor;
+
+    public class MockNancyRazorView : NancyRazorViewBase
 	{
 		#region implemented abstract members of NancyRazorViewBase
 		public override void Execute ()

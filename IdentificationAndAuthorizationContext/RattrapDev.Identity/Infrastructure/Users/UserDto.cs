@@ -1,8 +1,8 @@
-﻿using System;
-
-namespace RattrapDev.Identity.Infrastructure.Users
+﻿namespace Geonetric.Identity.Infrastructure.Users
 {
-	public class UserDto
+    using System;
+
+    public class UserDto
 	{
 		public Guid Id { get; set; }
 		public Guid ClientId { get; set; }

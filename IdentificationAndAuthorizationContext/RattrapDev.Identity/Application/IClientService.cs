@@ -1,10 +1,11 @@
-﻿using System;
-using RattrapDev.DDD;
-using System.Collections.Generic;
-
-namespace RattrapDev.Identity
+﻿namespace Geonetric.Identity.Application
 {
-	public interface IClientService : IApplicationService
+    using System;
+    using System.Collections.Generic;
+
+    using Geonetric.DDD.Application;
+
+    public interface IClientService : IApplicationService
 	{
 		ClientViewModel SaveNewClient(ClientViewModel viewModel);
 		ClientViewModel UpdateClient (ClientViewModel viewModel);

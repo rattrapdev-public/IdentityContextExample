@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace IdentityWeb
+﻿namespace IdentityWeb.Modules.Client
 {
-	public static class ClientMessageService
+    public static class ClientMessageService
 	{
 		public static string GetValidationMessage(ClientResult result) 
 		{

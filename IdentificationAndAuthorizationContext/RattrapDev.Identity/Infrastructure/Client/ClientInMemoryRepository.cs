@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using RattrapDev.Identity.Domain.Clients;
-using System.Linq;
-
-namespace RattrapDev.Identity.Infrastructure.Clients
+﻿namespace Geonetric.Identity.Infrastructure.Client
 {
-	public class ClientInMemoryRepository : IClientRepository
+    using System.Collections.Generic;
+
+    using Geonetric.Identity.Domain.Clients;
+
+    public class ClientInMemoryRepository : IClientRepository
 	{
 		private static Dictionary<ClientIdentifier, Client> dict = new Dictionary<ClientIdentifier, Client>();
 

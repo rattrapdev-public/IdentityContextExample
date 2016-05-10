@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{35CA6075-862B-4424-8BEC-E90F65740E24}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Geonetric.Identity.Tests</RootNamespace>
+    <AssemblyName>Geonetric.Identity.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Shouldly">
+      <HintPath>..\packages\Shouldly.2.6.0\lib\net40\Shouldly.dll</HintPath>
+    </Reference>
+    <Reference Include="NSubstitute">
+      <HintPath>..\packages\NSubstitute.1.10.0.0\lib\net45\NSubstitute.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="Infrastructure\ClientInMemoryRepositoryTests.cs" />
+    <Compile Include="Application\ClientServiceTests.cs" />
+    <Compile Include="Domain\Applications\AppIdentifierTests.cs" />
+    <Compile Include="Domain\Applications\AppMetadataTests.cs" />
+    <Compile Include="Domain\Applications\AppSearchResultTests.cs" />
+    <Compile Include="Domain\Applications\AppTests.cs" />
+    <Compile Include="Domain\Applications\AppUrlTests.cs" />
+    <Compile Include="Infrastructure\Applications\AppInMemoryRepositoryTests.cs" />
+    <Compile Include="Application\AppServiceTests.cs" />
+    <Compile Include="Domain\Client\ClientContactTests.cs" />
+    <Compile Include="Domain\Client\ClientDetailTests.cs" />
+    <Compile Include="Domain\Client\ClientIdentifierTests.cs" />
+    <Compile Include="Domain\Client\ClientNameUniqueSpecificationTests.cs" />
+    <Compile Include="Domain\Client\ClientTests.cs" />
+    <Compile Include="Domain\Client\ContactEmailUniqueSpecificationTests.cs" />
+    <Compile Include="Domain\Users\UserIdentifierTests.cs" />
+    <Compile Include="Domain\Users\LoginInfoTests.cs" />
+    <Compile Include="Domain\Users\NameTests.cs" />
+    <Compile Include="Domain\Users\EmailTests.cs" />
+    <Compile Include="Domain\Users\UserTests.cs" />
+    <Compile Include="Infrastructure\Users\UserInMemoryRepositoryTests.cs" />
+    <Compile Include="Application\UserServiceTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RattrapDev.Identity\Geonetric.Identity.csproj">
+      <Project>{7FF58DED-D76B-4DAF-8A4A-9ECD7825DA55}</Project>
+      <Name>Geonetric.Identity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RattrapDev.DDD\Geonetric.DDD.csproj">
+      <Project>{4BACBC5B-7C42-4CC8-8D39-546779330406}</Project>
+      <Name>Geonetric.DDD</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

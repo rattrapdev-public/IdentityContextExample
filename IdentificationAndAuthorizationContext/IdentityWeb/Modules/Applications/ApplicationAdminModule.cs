@@ -1,25 +1,27 @@
-﻿using System;
-using RattrapDev.Identity.Application;
-using Nancy.ModelBinding;
-using Nancy;
-using Nancy.Validation;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace IdentityWeb
+﻿namespace IdentityWeb.Modules.Applications
 {
-	public class ApplicationAdminModule : Nancy.NancyModule
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using Geonetric.Identity.Application;
+
+    using Nancy;
+    using Nancy.ModelBinding;
+    using Nancy.Validation;
+
+    public class ApplicationAdminModule : Nancy.NancyModule
 	{
 		public ApplicationAdminModule (IAppService appService)
 			: base("/admin/apps")
 		{
-			Get ["/"] = parameters => 
+			this.Get ["/"] = parameters => 
 			{
 				var appResults = appService.GetAllApps();
-				return View["Views/Admin/AppAdminSearch", appResults];
+				return this.View["Views/Admin/AppAdminSearch", appResults];
 			};
 
-			Post ["/"] = parameters => 
+			this.Post ["/"] = parameters => 
 			{
 				var viewModel = this.Bind<AppViewModel>();
 
@@ -31,18 +33,18 @@ namespace IdentityWeb
 
 				if (!validationResult.IsValid) 
 				{
-					ViewBag.ErrorMessages = string.Join("|", errorMessages);
-					return View["Views/Admin/AppAdminDetail", viewModel];
+					this.ViewBag.ErrorMessages = string.Join("|", errorMessages);
+					return this.View["Views/Admin/AppAdminDetail", viewModel];
 				}
 
-				ViewBag.ErrorMessages = string.Join("|", errorMessages);
+				this.ViewBag.ErrorMessages = string.Join("|", errorMessages);
 
 				viewModel = appService.SaveApp(viewModel);
 
-				return Response.AsRedirect ("~/admin/apps/" + viewModel.Id + "?result=" + AppResult.SaveExistingApp);
+				return this.Response.AsRedirect ("~/admin/apps/" + viewModel.Id + "?result=" + AppResult.SaveExistingApp);
 			};
 
-			Get ["/{AppIdentity}"] = parameters => 
+			this.Get ["/{AppIdentity}"] = parameters => 
 			{
 				Guid appIdentity;
 				if (!(Guid.TryParse(parameters.AppIdentity, out appIdentity))) 
@@ -50,22 +52,22 @@ namespace IdentityWeb
 					throw new ArgumentException("The App Identity must be a Guid");
 				}
 
-				string result = Request.Query.result.HasValue ? Request.Query.result : string.Empty;
+				string result = this.Request.Query.result.HasValue ? this.Request.Query.result : string.Empty;
 				AppResult appResult;
 				if (Enum.TryParse<AppResult>(result, out appResult)) 
 				{
-					ViewBag.ValidationMessage = AppMessageService.GetValidationMessage(appResult);
+					this.ViewBag.ValidationMessage = AppMessageService.GetValidationMessage(appResult);
 				}
 
 				var appViewModel = appService.GetApp(appIdentity);
 
-				return View["Views/Admin/AppAdminDetail", appViewModel];
+				return this.View["Views/Admin/AppAdminDetail", appViewModel];
 			};
 
-			Get ["/new"] = parameters => 
+			this.Get ["/new"] = parameters => 
 			{
 				var emptyViewModel = new AppViewModel();
-				return View["Views/Admin/AppAdminDetail", emptyViewModel];
+				return this.View["Views/Admin/AppAdminDetail", emptyViewModel];
 			};
 		}
 	}

@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityWeb", "IdentityWeb\IdentityWeb.csproj", "{B2A43616-6C5D-4C6E-9B3E-3C7422A7E616}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RattrapDev.Identity", "RattrapDev.Identity\RattrapDev.Identity.csproj", "{7FF58DED-D76B-4DAF-8A4A-9ECD7825DA55}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geonetric.Identity", "RattrapDev.Identity\Geonetric.Identity.csproj", "{7FF58DED-D76B-4DAF-8A4A-9ECD7825DA55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RattrapDev.DDD", "RattrapDev.DDD\RattrapDev.DDD.csproj", "{4BACBC5B-7C42-4CC8-8D39-546779330406}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geonetric.DDD", "RattrapDev.DDD\Geonetric.DDD.csproj", "{4BACBC5B-7C42-4CC8-8D39-546779330406}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RattrapDev.Identity.Tests", "RattrapDev.Identity.Tests\RattrapDev.Identity.Tests.csproj", "{35CA6075-862B-4424-8BEC-E90F65740E24}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geonetric.Identity.Tests", "RattrapDev.Identity.Tests\Geonetric.Identity.Tests.csproj", "{35CA6075-862B-4424-8BEC-E90F65740E24}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityWebTests", "IdentityWebTests\IdentityWebTests.csproj", "{DCA022EA-DA10-4445-B3F0-CBAF945BEE61}"
 EndProject
@@ -17,25 +19,28 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{35CA6075-862B-4424-8BEC-E90F65740E24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{35CA6075-862B-4424-8BEC-E90F65740E24}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{35CA6075-862B-4424-8BEC-E90F65740E24}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{35CA6075-862B-4424-8BEC-E90F65740E24}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4BACBC5B-7C42-4CC8-8D39-546779330406}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4BACBC5B-7C42-4CC8-8D39-546779330406}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4BACBC5B-7C42-4CC8-8D39-546779330406}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4BACBC5B-7C42-4CC8-8D39-546779330406}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7FF58DED-D76B-4DAF-8A4A-9ECD7825DA55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7FF58DED-D76B-4DAF-8A4A-9ECD7825DA55}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7FF58DED-D76B-4DAF-8A4A-9ECD7825DA55}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7FF58DED-D76B-4DAF-8A4A-9ECD7825DA55}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B2A43616-6C5D-4C6E-9B3E-3C7422A7E616}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B2A43616-6C5D-4C6E-9B3E-3C7422A7E616}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2A43616-6C5D-4C6E-9B3E-3C7422A7E616}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2A43616-6C5D-4C6E-9B3E-3C7422A7E616}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FF58DED-D76B-4DAF-8A4A-9ECD7825DA55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FF58DED-D76B-4DAF-8A4A-9ECD7825DA55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FF58DED-D76B-4DAF-8A4A-9ECD7825DA55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FF58DED-D76B-4DAF-8A4A-9ECD7825DA55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BACBC5B-7C42-4CC8-8D39-546779330406}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BACBC5B-7C42-4CC8-8D39-546779330406}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BACBC5B-7C42-4CC8-8D39-546779330406}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BACBC5B-7C42-4CC8-8D39-546779330406}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35CA6075-862B-4424-8BEC-E90F65740E24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35CA6075-862B-4424-8BEC-E90F65740E24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35CA6075-862B-4424-8BEC-E90F65740E24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35CA6075-862B-4424-8BEC-E90F65740E24}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DCA022EA-DA10-4445-B3F0-CBAF945BEE61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DCA022EA-DA10-4445-B3F0-CBAF945BEE61}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCA022EA-DA10-4445-B3F0-CBAF945BEE61}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCA022EA-DA10-4445-B3F0-CBAF945BEE61}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal

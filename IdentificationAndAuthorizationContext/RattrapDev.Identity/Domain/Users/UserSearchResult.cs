@@ -1,19 +1,20 @@
-﻿using System;
-using RattrapDev.DDD;
-
-namespace RattrapDev.Identity.Domain.Users
+﻿namespace Geonetric.Identity.Domain.Users
 {
-	public class UserSearchResult : IValueObject
+    using System;
+
+    using Geonetric.DDD.Domain;
+
+    public class UserSearchResult : IValueObject
 	{
 		public UserSearchResult (Guid userId, Guid clientId, string clientName, string username, string firstName, string lastName, string email)
 		{
-			UserId = userId;
-			ClientId = clientId;
-			ClientName = clientName;
-			Username = username;
-			FirstName = firstName;
-			LastName = lastName;
-			Email = email;
+			this.UserId = userId;
+			this.ClientId = clientId;
+			this.ClientName = clientName;
+			this.Username = username;
+			this.FirstName = firstName;
+			this.LastName = lastName;
+			this.Email = email;
 		}
 
 		public Guid UserId { get; private set; }

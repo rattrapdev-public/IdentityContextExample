@@ -1,8 +1,8 @@
-﻿using System;
-
-namespace RattrapDev.Identity.Application
+﻿namespace Geonetric.Identity.Application
 {
-	public class AppViewModel
+    using System;
+
+    public class AppViewModel
 	{
 		public Guid Id { get; set; }
 		public string Name { get; set; }

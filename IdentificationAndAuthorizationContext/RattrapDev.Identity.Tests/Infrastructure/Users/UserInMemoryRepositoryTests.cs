@@ -1,16 +1,18 @@
-﻿using System;
-using NUnit.Framework;
-using RattrapDev.Identity.Domain.Users;
-using RattrapDev.Identity.Infrastructure.Users;
-using Shouldly;
-using System.Linq;
-using RattrapDev.Identity.Infrastructure;
-using RattrapDev.Identity.Infrastructure.Clients;
-using RattrapDev.Identity.Domain.Clients;
-
-namespace RattrapDev.Identity.Tests
+﻿namespace Geonetric.Identity.Tests.Infrastructure.Users
 {
-	[TestFixture]
+    using System;
+    using System.Linq;
+
+    using Geonetric.Identity.Domain.Clients;
+    using Geonetric.Identity.Domain.Users;
+    using Geonetric.Identity.Infrastructure.Client;
+    using Geonetric.Identity.Infrastructure.Users;
+
+    using NUnit.Framework;
+
+    using Shouldly;
+
+    [TestFixture]
 	public class UserInMemoryRepositoryTests
 	{
 		[Test]

@@ -1,42 +1,73 @@
-﻿using System;
-using Nancy;
-using RattrapDev.Identity.Application;
-using Nancy.ModelBinding;
-using RattrapDev.Identity;
-using System.Linq;
-using System.Dynamic;
-
-namespace IdentityWeb
+﻿namespace IdentityWeb.Modules.User
 {
-	public class UserAdminModule : NancyModule
+    using System;
+    using System.Collections.Generic;
+    using System.Dynamic;
+    using System.Linq;
+
+    using Geonetric.Identity.Application;
+
+    using Nancy;
+    using Nancy.ModelBinding;
+    using Nancy.Validation;
+
+    public class UserAdminModule : NancyModule
 	{
 		public UserAdminModule (IUserService userService, IClientService clientService) : base("/admin/users")
 		{
-			Get ["/"] = parameters => 
+			this.Get ["/"] = parameters => 
 			{
 				var userResults = userService.GetAllUsers();
-				return View["Views/Admin/UserAdminSearch", userResults];
+				return this.View["Views/Admin/UserAdminSearch", userResults];
 			};
 
-			Post ["/"] = parameters => 
+			this.Post ["/"] = parameters => 
 			{
 				var viewModel = this.Bind<UserViewModel>();
 
-				viewModel = userService.SaveUser(viewModel);
+                var validationResult = this.Validate(viewModel);
+                var errorMessages = new List<string>();
+                foreach (var errorResult in validationResult.Errors.Values)
+                {
+                    errorMessages.AddRange(errorResult.Select(e => e.ErrorMessage));
+                }
 
-				return Response.AsRedirect("~/admin/users/" + viewModel.UserId + "?result=" + UserResult.SaveUser);
+                if (!validationResult.IsValid)
+                {
+                    viewModel.Username = string.Empty;
+
+                    dynamic vm = new ExpandoObject();
+                    vm.User = viewModel;
+                    this.ViewBag.ErrorMessages = string.Join("|", errorMessages);
+                    if (viewModel.UserId.Equals(Guid.Empty))
+                    {
+                        var clientViewModels = clientService.GetAll();
+
+                        vm.Clients = clientViewModels;
+                    }
+                    else
+                    {
+                        var clients = clientService.GetAll();
+                        vm.Client = clients.First(c => c.ClientIdentity.Equals(viewModel.ClientId));
+                    }
+                    return this.View["Views/Admin/UserAdminDetail", vm];
+                }
+
+                viewModel = userService.SaveUser(viewModel);
+
+				return this.Response.AsRedirect("~/admin/users/" + viewModel.UserId + "?result=" + UserResult.SaveUser);
 			};
 
-			Post ["/resetpassword"] = parameters =>
+			this.Post ["/resetpassword"] = parameters =>
 			{
 				var viewModel = this.Bind<ResetPasswordViewModel>();
 
 				userService.ResetPassword(viewModel);
 
-				return Response.AsRedirect("~/admin/users/" + viewModel.UserId + "?result=" + UserResult.ResetUserPassword);
+				return this.Response.AsRedirect("~/admin/users/" + viewModel.UserId + "?result=" + UserResult.ResetUserPassword);
 			};
 
-			Get ["/{UserId:Guid}"] = parameters => 
+			this.Get ["/{UserId:Guid}"] = parameters => 
 			{
 				dynamic viewModel = new ExpandoObject();
 
@@ -47,17 +78,17 @@ namespace IdentityWeb
 				var clients = clientService.GetAll();
 				viewModel.Client = clients.First(c => c.ClientIdentity.Equals(userViewModel.ClientId));
 
-				string result = Request.Query.result.HasValue ? Request.Query.result : string.Empty;
+				string result = this.Request.Query.result.HasValue ? this.Request.Query.result : string.Empty;
 				UserResult userResult;
 				if (Enum.TryParse<UserResult>(result, out userResult)) 
 				{
-					ViewBag.ValidationMessage = UserMessageService.GetValidationMessage(userResult);
+					this.ViewBag.ValidationMessage = UserMessageService.GetValidationMessage(userResult);
 				}
 
-				return View["Views/Admin/UserAdminDetail", viewModel];
+				return this.View["Views/Admin/UserAdminDetail", viewModel];
 			};
 
-			Get ["/new"] = parameters => 
+			this.Get ["/new"] = parameters => 
 			{
 				dynamic viewModel = new ExpandoObject();
 				var emptyViewModel = new UserViewModel();
@@ -67,7 +98,7 @@ namespace IdentityWeb
 				viewModel.Clients = clientViewModels;
 				viewModel.User = emptyViewModel;
 
-				return View["Views/Admin/UserAdminDetail", viewModel];
+				return this.View["Views/Admin/UserAdminDetail", viewModel];
 			};
 		}
 	}

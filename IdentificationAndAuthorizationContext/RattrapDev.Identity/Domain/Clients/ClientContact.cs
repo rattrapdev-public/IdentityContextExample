@@ -1,10 +1,11 @@
-﻿using System;
-using RattrapDev.DDD;
-using System.Net.Mail;
-
-namespace RattrapDev.Identity.Domain.Clients
+﻿namespace Geonetric.Identity.Domain.Clients
 {
-	public class ClientContact : IValueObject, IEquatable<ClientContact>
+    using System;
+    using System.Net.Mail;
+
+    using Geonetric.DDD.Domain;
+
+    public class ClientContact : IValueObject, IEquatable<ClientContact>
 	{
 		private string name;
 
@@ -14,16 +15,16 @@ namespace RattrapDev.Identity.Domain.Clients
 
 		public ClientContact (string contactName, string contactPhone, string email)
 		{
-			Name = contactName;
-			Phone = contactPhone;
-			Email = email;
+			this.Name = contactName;
+			this.Phone = contactPhone;
+			this.Email = email;
 		}
 
 		public string Name 
 		{
 			get 
 			{
-				return name;
+				return this.name;
 			}
 			private set 
 			{
@@ -32,14 +33,14 @@ namespace RattrapDev.Identity.Domain.Clients
 					throw new ArgumentException ("The client contact name cannot be null or empty!");
 				}
 
-				name = value;
+				this.name = value;
 			}
 		}
 
 		public string Phone 
 		{
 			get {
-				return phone;
+				return this.phone;
 			}
 			private set {
 				if (string.IsNullOrWhiteSpace (value)) 
@@ -47,7 +48,7 @@ namespace RattrapDev.Identity.Domain.Clients
 					throw new ArgumentException ("The client contact phone cannot be null or empty!");
 				}
 
-				phone = value;
+				this.phone = value;
 			}
 		}
 
@@ -55,7 +56,7 @@ namespace RattrapDev.Identity.Domain.Clients
 		{
 			get 
 			{
-				return email;
+				return this.email;
 			}
 			private set 
 			{
@@ -73,7 +74,7 @@ namespace RattrapDev.Identity.Domain.Clients
 					throw new ArgumentException ("The email is invalid!");
 				}
 
-				email = value;
+				this.email = value;
 			}
 		}
 
@@ -83,9 +84,9 @@ namespace RattrapDev.Identity.Domain.Clients
 		{
 			if (other == null)
 				return false;
-			return Name.Equals (other.Name)
-				&& Phone.Equals (other.Phone)
-				&& Email.Equals (other.Email);
+			return this.Name.Equals (other.Name)
+				&& this.Phone.Equals (other.Phone)
+				&& this.Email.Equals (other.Email);
 		}
 
 		#endregion

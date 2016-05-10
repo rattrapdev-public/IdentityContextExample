@@ -1,24 +1,25 @@
-﻿using System;
-using RattrapDev.DDD;
-
-namespace RattrapDev.Identity.Domain.Users
+﻿namespace Geonetric.Identity.Domain.Users
 {
-	public class Name : IValueObject, IEquatable<Name>
+    using System;
+
+    using Geonetric.DDD.Domain;
+
+    public class Name : IValueObject, IEquatable<Name>
 	{
 		private string firstName;
 		private string lastName;
 
 		public Name (string firstName, string lastName)
 		{
-			FirstName = firstName;
-			LastName = lastName;
+			this.FirstName = firstName;
+			this.LastName = lastName;
 		}
 
 		public string FirstName 
 		{
 			get 
 			{
-				return firstName;
+				return this.firstName;
 			}
 			set 
 			{
@@ -27,7 +28,7 @@ namespace RattrapDev.Identity.Domain.Users
 					throw new ArgumentException ("First Name : Is invalid!");
 				}
 
-				firstName = value;
+				this.firstName = value;
 			}
 		}
 
@@ -35,7 +36,7 @@ namespace RattrapDev.Identity.Domain.Users
 		{
 			get 
 			{
-				return lastName;
+				return this.lastName;
 			}
 			set 
 			{
@@ -44,7 +45,7 @@ namespace RattrapDev.Identity.Domain.Users
 					throw new ArgumentException ("Last Name : Is invalid!");
 				}
 
-				lastName = value;
+				this.lastName = value;
 			}
 		}
 
@@ -60,7 +61,7 @@ namespace RattrapDev.Identity.Domain.Users
 				return true;
 			}
 
-			return FirstName.Equals (other.FirstName) && LastName.Equals (other.LastName);
+			return this.FirstName.Equals (other.FirstName) && this.LastName.Equals (other.LastName);
 		}
 	}
 }

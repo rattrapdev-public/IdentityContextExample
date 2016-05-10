@@ -1,10 +1,11 @@
-﻿using System;
-using RattrapDev.Identity.Domain.Applications;
-using System.Collections.Generic;
-
-namespace RattrapDev.Identity.Application
+﻿namespace Geonetric.Identity.Application
 {
-	public class AppService : IAppService
+    using System;
+    using System.Collections.Generic;
+
+    using Geonetric.Identity.Domain.Applications;
+
+    public class AppService : IAppService
 	{
 		private IAppRepository repository;
 
@@ -15,12 +16,12 @@ namespace RattrapDev.Identity.Application
 
 		public IReadOnlyList<AppSearchResult> GetAllApps ()
 		{
-			return repository.GetAll ();
+			return this.repository.GetAll ();
 		}
 
 		public AppViewModel GetApp (Guid appId)
 		{
-			var app = repository.GetByIdentifier (new AppIdentifier(appId));
+			var app = this.repository.GetByIdentifier (new AppIdentifier(appId));
 			return new AppViewModel 
 			{
 				Id = app.Identifier.Id,
@@ -39,12 +40,12 @@ namespace RattrapDev.Identity.Application
 			} 
 			else 
 			{
-				app = repository.GetByIdentifier (new AppIdentifier(viewModel.Id));
+				app = this.repository.GetByIdentifier (new AppIdentifier(viewModel.Id));
 				app.UpdateMetadata (viewModel.Name, viewModel.Description);
 				app.UpdateUrl (viewModel.Url);
 			}
 
-			repository.Store (app);
+			this.repository.Store (app);
 
 			return new AppViewModel 
 			{

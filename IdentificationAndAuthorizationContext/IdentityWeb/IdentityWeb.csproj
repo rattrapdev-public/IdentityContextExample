@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -9,6 +10,17 @@
     <RootNamespace>IdentityWeb</RootNamespace>
     <AssemblyName>IdentityWeb</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -80,6 +92,10 @@
       <HintPath>..\packages\Nancy.Validation.FluentValidation.1.4.1\lib\net40\Nancy.Validation.FluentValidation.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Nancy.Viewengines.Razor.1.4.3\build\Nancy.ViewEngines.Razor.targets" Condition="Exists('..\packages\Nancy.Viewengines.Razor.1.4.3\build\Nancy.ViewEngines.Razor.targets')" />
   <ProjectExtensions>
@@ -88,21 +104,59 @@
         <XspParameters Port="8080" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="True" />
       </Properties>
     </MonoDevelop>
+    <VisualStudio>
+      <FlavorProperties GUID="{349C5851-65DF-11DA-9384-00065B846F21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:14452/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
   </ProjectExtensions>
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="web.config" />
-    <Content Include="Views\Welcome.cshtml" />
-    <Content Include="Views\Admin\ClientAdminDetail.cshtml" />
-    <Content Include="Views\Admin\ClientAdminSearch.cshtml" />
-    <Content Include="Views\Test\RazorTest.cshtml" />
-    <Content Include="Views\Admin\AdminHome.cshtml" />
-    <Content Include="Views\Admin\UserAdminSearch.cshtml" />
-    <Content Include="Views\Admin\PermissionAdminSearch.cshtml" />
-    <Content Include="Views\SignUp.cshtml" />
-    <Content Include="Views\SignUpThankYou.cshtml" />
-    <Content Include="Views\Login.cshtml" />
-    <Content Include="Views\CustomErrorPage.cshtml" />
+    <Content Include="Views\Welcome.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Admin\ClientAdminDetail.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Admin\ClientAdminSearch.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Test\RazorTest.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Admin\AdminHome.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Admin\UserAdminSearch.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Admin\PermissionAdminSearch.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\SignUp.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\SignUpThankYou.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Login.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\CustomErrorPage.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -116,23 +170,20 @@
     <Content Include="Scripts\jquery-2.2.1-vsdoc.js" />
     <Content Include="Scripts\jquery-2.2.1.js" />
     <Content Include="Scripts\jquery-2.2.1.min.js" />
-    <Content Include="Views\Admin\Partials\Validation.cshtml" />
-    <Content Include="Views\Admin\AppAdminSearch.cshtml" />
-    <Content Include="Views\Admin\AppAdminDetail.cshtml" />
-    <Content Include="Views\Admin\UserAdminDetail.cshtml" />
+    <Content Include="Views\Admin\Partials\Validation.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Admin\AppAdminSearch.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Admin\AppAdminDetail.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Admin\UserAdminDetail.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Modules\" />
-    <Folder Include="Views\" />
-    <Folder Include="Views\Test\" />
-    <Folder Include="Modules\Test\" />
-    <Folder Include="Modules\Client\" />
-    <Folder Include="Views\Admin\" />
-    <Folder Include="Modules\User\" />
-    <Folder Include="Modules\Permission\" />
-    <Folder Include="Views\Admin\Partials\" />
-    <Folder Include="Modules\Applications\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Content\bootstrap-theme.css.map" />
     <None Include="Content\bootstrap-theme.min.css.map" />
@@ -168,15 +219,18 @@
     <Compile Include="Modules\Applications\AddAppValidator.cs" />
     <Compile Include="Modules\User\UserResult.cs" />
     <Compile Include="Modules\User\UserMessageService.cs" />
+    <Compile Include="Modules\User\UserValidator.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RattrapDev.Identity\RattrapDev.Identity.csproj">
+    <ProjectReference Include="..\RattrapDev.Identity\Geonetric.Identity.csproj">
       <Project>{7FF58DED-D76B-4DAF-8A4A-9ECD7825DA55}</Project>
-      <Name>RattrapDev.Identity</Name>
+      <Name>Geonetric.Identity</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RattrapDev.DDD\RattrapDev.DDD.csproj">
+    <ProjectReference Include="..\RattrapDev.DDD\Geonetric.DDD.csproj">
       <Project>{4BACBC5B-7C42-4CC8-8D39-546779330406}</Project>
-      <Name>RattrapDev.DDD</Name>
+      <Name>Geonetric.DDD</Name>
     </ProjectReference>
   </ItemGroup>
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
 </Project>

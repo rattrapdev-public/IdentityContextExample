@@ -1,13 +1,12 @@
 ﻿using System;
 using IdentityWeb;
-using RattrapDev.Identity;
 
 namespace IdentityWebTests
 {
-	public class CustomTestBootstrapper : CustomBootstrapper
-	{
-		private CustomRootPathProvider customRootPathProvider = new CustomRootPathProvider();
+    using Geonetric.Identity.Application;
 
+    public class CustomTestBootstrapper : CustomBootstrapper
+	{
 		public CustomTestBootstrapper() : base() 
 		{
 		}
@@ -19,12 +18,6 @@ namespace IdentityWebTests
 		protected override void ApplicationStartup (Autofac.ILifetimeScope container, Nancy.Bootstrapper.IPipelines pipelines)
 		{
 			base.ApplicationStartup (container, pipelines);
-		}
-
-		protected override Nancy.IRootPathProvider RootPathProvider {
-			get {
-				return customRootPathProvider;
-			}
 		}
 
 		public IClientService ClientService { get; private set; }

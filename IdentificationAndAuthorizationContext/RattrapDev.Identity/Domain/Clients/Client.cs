@@ -1,9 +1,10 @@
-﻿using System;
-using RattrapDev.DDD;
-
-namespace RattrapDev.Identity.Domain.Clients
+﻿namespace Geonetric.Identity.Domain.Clients
 {
-	public class Client : IAggregate, IEquatable<Client>
+    using System;
+
+    using Geonetric.DDD.Domain;
+
+    public class Client : IAggregate, IEquatable<Client>
 	{
 		private ClientIdentifier identifier;
 		private ClientDetails clientDetails;
@@ -35,11 +36,11 @@ namespace RattrapDev.Identity.Domain.Clients
 		{
 			get 
 			{
-				return identifier;
+				return this.identifier;
 			}
 			private set 
 			{
-				identifier = value;
+				this.identifier = value;
 			}
 		}
 
@@ -47,11 +48,11 @@ namespace RattrapDev.Identity.Domain.Clients
 		{
 			get 
 			{
-				return clientDetails;
+				return this.clientDetails;
 			}
 			private set 
 			{
-				clientDetails = value;
+				this.clientDetails = value;
 			}
 		}
 
@@ -59,11 +60,11 @@ namespace RattrapDev.Identity.Domain.Clients
 		{
 			get 
 			{
-				return contactInfo;
+				return this.contactInfo;
 			}
 			set 
 			{
-				contactInfo = value;
+				this.contactInfo = value;
 			}
 		}
 

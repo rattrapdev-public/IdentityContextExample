@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -66,20 +66,19 @@
       <Project>{B2A43616-6C5D-4C6E-9B3E-3C7422A7E616}</Project>
       <Name>IdentityWeb</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RattrapDev.DDD\RattrapDev.DDD.csproj">
+    <ProjectReference Include="..\RattrapDev.DDD\Geonetric.DDD.csproj">
       <Project>{4BACBC5B-7C42-4CC8-8D39-546779330406}</Project>
-      <Name>RattrapDev.DDD</Name>
+      <Name>Geonetric.DDD</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RattrapDev.Identity\RattrapDev.Identity.csproj">
+    <ProjectReference Include="..\RattrapDev.Identity\Geonetric.Identity.csproj">
       <Project>{7FF58DED-D76B-4DAF-8A4A-9ECD7825DA55}</Project>
-      <Name>RattrapDev.Identity</Name>
+      <Name>Geonetric.Identity</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NancyTestRunnerTest.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="CustomRootPathProvider.cs" />
     <Compile Include="CustomTestBootstrapper.cs" />
     <Compile Include="WelcomePageTests.cs" />
     <Compile Include="SignUpPageTests.cs" />

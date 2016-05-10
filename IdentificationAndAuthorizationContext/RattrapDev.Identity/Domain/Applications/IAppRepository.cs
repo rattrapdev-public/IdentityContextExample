@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace RattrapDev.Identity.Domain.Applications
+﻿namespace Geonetric.Identity.Domain.Applications
 {
-	public interface IAppRepository
+    using System.Collections.Generic;
+
+    public interface IAppRepository
 	{
 		void Store(App application);
 		App GetByIdentifier(AppIdentifier identifier);

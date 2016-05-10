@@ -1,9 +1,10 @@
-﻿using System;
-using RattrapDev.DDD;
-
-namespace RattrapDev.Identity.Domain.Clients
+﻿namespace Geonetric.Identity.Domain.Clients
 {
-	public class ClientIdentifier : IValueObject, IEquatable<ClientIdentifier>
+    using System;
+
+    using Geonetric.DDD.Domain;
+
+    public class ClientIdentifier : IValueObject, IEquatable<ClientIdentifier>
 	{
 		private Guid identity;
 
@@ -21,7 +22,7 @@ namespace RattrapDev.Identity.Domain.Clients
 		{
 			get 
 			{
-				return identity;
+				return this.identity;
 			}
 			private set 
 			{
@@ -47,7 +48,7 @@ namespace RattrapDev.Identity.Domain.Clients
 
 		public override int GetHashCode ()
 		{
-			return identity.GetHashCode ();
+			return this.identity.GetHashCode ();
 		}
 	}
 }

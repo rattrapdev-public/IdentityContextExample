@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace RattrapDev.Identity.Domain.Clients
+﻿namespace Geonetric.Identity.Domain.Clients
 {
-	public enum ClientStatus
+    public enum ClientStatus
 	{
 		SignedUp,
 		Online,

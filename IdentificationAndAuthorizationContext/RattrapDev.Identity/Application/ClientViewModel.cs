@@ -1,18 +1,19 @@
-﻿using System;
-using RattrapDev.Identity.Domain.Clients;
-
-namespace RattrapDev.Identity
+﻿namespace Geonetric.Identity.Application
 {
-	public class ClientViewModel
+    using System;
+
+    using Geonetric.Identity.Domain.Clients;
+
+    public class ClientViewModel
 	{
 		public ClientViewModel(Client client) 
 		{
-			ClientIdentity = client.Identifier.Identity;
-			ClientName = client.ClientDetails.Name;
-			Status = client.ClientDetails.Status.ToString ();
-			ContactName = client.ContactInfo.Name;
-			ContactPhone = client.ContactInfo.Phone;
-			ContactEmail = client.ContactInfo.Email;
+			this.ClientIdentity = client.Identifier.Identity;
+			this.ClientName = client.ClientDetails.Name;
+			this.Status = client.ClientDetails.Status.ToString ();
+			this.ContactName = client.ContactInfo.Name;
+			this.ContactPhone = client.ContactInfo.Phone;
+			this.ContactEmail = client.ContactInfo.Email;
 		}
 
 		public ClientViewModel() { }

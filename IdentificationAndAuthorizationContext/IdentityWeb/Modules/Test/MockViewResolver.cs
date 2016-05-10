@@ -1,10 +1,11 @@
-﻿using System;
-using Nancy.ViewEngines;
-using System.IO;
-
-namespace IdentityWeb
+﻿namespace IdentityWeb.Modules.Test
 {
-	public class MockViewResolver : IViewResolver
+    using System;
+    using System.IO;
+
+    using Nancy.ViewEngines;
+
+    public class MockViewResolver : IViewResolver
 	{
 		public ViewLocationResult GetViewLocation (string viewName, dynamic model, ViewLocationContext viewLocationContext)
 		{
