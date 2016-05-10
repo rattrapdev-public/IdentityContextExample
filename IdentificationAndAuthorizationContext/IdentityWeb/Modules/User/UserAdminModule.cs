@@ -1,6 +1,7 @@
 ﻿namespace IdentityWeb.Modules.User
 {
     using System;
+    using System.Collections.Generic;
     using System.Dynamic;
     using System.Linq;
 
@@ -8,6 +9,7 @@
 
     using Nancy;
     using Nancy.ModelBinding;
+    using Nancy.Validation;
 
     public class UserAdminModule : NancyModule
 	{
@@ -23,7 +25,35 @@
 			{
 				var viewModel = this.Bind<UserViewModel>();
 
-				viewModel = userService.SaveUser(viewModel);
+                var validationResult = this.Validate(viewModel);
+                var errorMessages = new List<string>();
+                foreach (var errorResult in validationResult.Errors.Values)
+                {
+                    errorMessages.AddRange(errorResult.Select(e => e.ErrorMessage));
+                }
+
+                if (!validationResult.IsValid)
+                {
+                    viewModel.Username = string.Empty;
+
+                    dynamic vm = new ExpandoObject();
+                    vm.User = viewModel;
+                    this.ViewBag.ErrorMessages = string.Join("|", errorMessages);
+                    if (viewModel.UserId.Equals(Guid.Empty))
+                    {
+                        var clientViewModels = clientService.GetAll();
+
+                        vm.Clients = clientViewModels;
+                    }
+                    else
+                    {
+                        var clients = clientService.GetAll();
+                        vm.Client = clients.First(c => c.ClientIdentity.Equals(viewModel.ClientId));
+                    }
+                    return this.View["Views/Admin/UserAdminDetail", vm];
+                }
+
+                viewModel = userService.SaveUser(viewModel);
 
 				return this.Response.AsRedirect("~/admin/users/" + viewModel.UserId + "?result=" + UserResult.SaveUser);
 			};

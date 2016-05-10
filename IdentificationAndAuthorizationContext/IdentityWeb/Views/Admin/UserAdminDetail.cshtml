@@ -38,7 +38,7 @@
 				</div>
 				<div class="form-group">
 					<label for="Password">Password</label>
-					<input type="password" class="form-control" id="Password" name="Password" value="@Model.User.Password" placeholder="Enter an Username" />
+					<input type="password" class="form-control" id="Password" name="Password" value="@Model.User.Password" placeholder="Enter an Password" />
 				</div>
 				<div class="form-group">
 					<label for="ClientId">Client</label>
@@ -50,9 +50,12 @@
 					}
 					</select>
 				</div>
-				}
-				else 
-				{
+                }
+                else
+                {
+                <input type="hidden" name="Username" id="Username" value="@Model.User.Username" />
+                <input type="hidden" name="Password" id="Password" value="passwordplaceholder" />
+                <input type="hidden" name="ClientId" id="ClientId" value="@Model.User.ClientId" />
 				<p>Username: @Model.User.Username</p>
 				<p>Client: @Model.Client.ClientName</p>
 				}

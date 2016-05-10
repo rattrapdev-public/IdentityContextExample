@@ -219,6 +219,7 @@
     <Compile Include="Modules\Applications\AddAppValidator.cs" />
     <Compile Include="Modules\User\UserResult.cs" />
     <Compile Include="Modules\User\UserMessageService.cs" />
+    <Compile Include="Modules\User\UserValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RattrapDev.Identity\Geonetric.Identity.csproj">
