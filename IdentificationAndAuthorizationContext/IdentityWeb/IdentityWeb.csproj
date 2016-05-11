@@ -119,6 +119,7 @@
     <Content Include="Views\Admin\Partials\Validation.cshtml" />
     <Content Include="Views\Admin\AppAdminSearch.cshtml" />
     <Content Include="Views\Admin\AppAdminDetail.cshtml" />
+    <Content Include="Views\Admin\UserAdminDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Modules\" />
@@ -165,6 +166,8 @@
     <Compile Include="Modules\Applications\AppResult.cs" />
     <Compile Include="Modules\Applications\AppMessageService.cs" />
     <Compile Include="Modules\Applications\AddAppValidator.cs" />
+    <Compile Include="Modules\User\UserResult.cs" />
+    <Compile Include="Modules\User\UserMessageService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RattrapDev.Identity\RattrapDev.Identity.csproj">

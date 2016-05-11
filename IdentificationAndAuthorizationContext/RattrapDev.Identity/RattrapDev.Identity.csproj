@@ -58,6 +58,20 @@
     <Compile Include="Domain\Clients\DuplicateClientException.cs" />
     <Compile Include="Domain\Clients\ContactEmailUniqueSpecification.cs" />
     <Compile Include="Domain\Clients\DuplicateContactEmailException.cs" />
+    <Compile Include="Domain\Users\UserIdentifier.cs" />
+    <Compile Include="Domain\Users\Name.cs" />
+    <Compile Include="Domain\Users\Email.cs" />
+    <Compile Include="Domain\Users\User.cs" />
+    <Compile Include="Domain\Users\LoginInfo.cs" />
+    <Compile Include="Domain\Users\InvalidatedPasswordException.cs" />
+    <Compile Include="Infrastructure\Users\UserDto.cs" />
+    <Compile Include="Domain\Users\IUserRepository.cs" />
+    <Compile Include="Infrastructure\Users\UserInMemoryRepository.cs" />
+    <Compile Include="Domain\Users\UserSearchResult.cs" />
+    <Compile Include="Application\IUserService.cs" />
+    <Compile Include="Application\UserViewModel.cs" />
+    <Compile Include="Application\UserService.cs" />
+    <Compile Include="Application\ResetPasswordViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -68,6 +82,8 @@
     <Folder Include="Domain\Applications\" />
     <Folder Include="Infrastructure\Client\" />
     <Folder Include="Domain\Clients\" />
+    <Folder Include="Domain\Users\" />
+    <Folder Include="Infrastructure\Users\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RattrapDev.DDD\RattrapDev.DDD.csproj">
